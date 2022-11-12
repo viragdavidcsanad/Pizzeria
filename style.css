@@ -1,0 +1,690 @@
+@import url("https://meyerweb.com/eric/tools/css/reset/reset.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Orelega+One&display=swap");
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: auto;
+  font-family: "Inter", sans-serif;
+  background-image: url("https://i.ibb.co/yhcGmYJ/assorment-with-pizza-slices-mushrooms2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-heading {
+  padding: 2rem;
+  text-align: center;
+  font-family: "Courgette", cursive;
+  font-size: 4rem;
+  color: black;
+  opacity: 0.9;
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow: 20px 20px 25px rgba(255, 255, 255, 1),
+    20px -20px 25px rgba(255, 255, 255, 1),
+    -20px 20px 25px rgba(255, 255, 255, 1),
+    -20px -20px 25px rgba(255, 255, 255, 1);
+}
+
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: "Orelega One", cursive;
+  text-transform: lowercase;
+  align-items: center;
+  height: auto;
+  position: relative;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 1);
+  letter-spacing: 1px;
+}
+
+.header-background-box {
+  position: absolute;
+  width: 100%;
+  height: 102%;
+  overflow: hidden;
+  padding-bottom: 0;
+  z-index: -4;
+}
+
+.header-wooden-background {
+  position: absolute;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+}
+
+.header-plate {
+  position: absolute;
+  width: 845px;
+  bottom: -2rem;
+  left: -126px;
+  z-index: -3;
+  filter: drop-shadow(6px 6px 15px rgba(0, 0, 0, 1));
+}
+
+.header-pizza-background {
+  position: absolute;
+  width: 800px;
+  bottom: 1rem;
+  left: -100px;
+  z-index: -2;
+  filter: drop-shadow(6px 6px 15px rgba(0, 0, 0, 1));
+}
+
+.header-dark-background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  height: 10rem;
+  transform: translate(-1.1rem);
+  position: relative;
+  filter: blur(0.5px);
+  filter: drop-shadow(1px 1px 5px);
+  margin-bottom: 0.2rem;
+  margin-top: 0.3rem;
+}
+
+.nav-bar {
+  margin-bottom: 0.5rem;
+  z-index: 5;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 6px;
+  width: 3rem;
+  height: 2.8rem;
+  border: 2px outset white;
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 2px;
+  box-shadow: 2px 2px 10px black;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0.85;
+  transition-duration: 0.5s;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: 0.5s;
+}
+
+.menu-shifter {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  width: 3.3rem;
+  height: 3.3rem;
+  opacity: 0;
+  z-index: 5;
+}
+
+.menu-shifter:checked ~ .hamburger-menu {
+  transform: scale(0.7);
+}
+
+.menu-shifter:checked ~ .hamburger-menu .bar1 {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-shifter:checked ~ .hamburger-menu .bar3 {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+
+.menu-shifter:checked ~ .hamburger-menu .bar2 {
+  opacity: 0;
+}
+
+.nav-item {
+  height: 0;
+  overflow: hidden;
+  transition-duration: 0.5s;
+}
+
+.menu-shifter:checked ~ .nav-item {
+  position: relative;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: visible;
+  height: 3.3rem;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  background-color: rgba(20, 20, 20, 0.9);
+  margin: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border: 2px outset white;
+  outline: 2px outset rgba(255, 255, 255, 0);
+  border-radius: 2px;
+  box-shadow: 2px 2px 10px black;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.2rem;
+  transition-duration: 0.5s;
+  opacity: 0.85;
+  font-size: 1.5rem;
+  outline: 2px outset rgba(255, 255, 255, 0);
+}
+
+.nav-link:hover {
+  border-top: 2px solid rgba(255, 255, 255, 1);
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+  border-left: 2px solid rgba(0, 255, 0, 1);
+  border-right: 2px solid rgba(255, 0, 0, 1);
+  box-shadow: 10px 0 15px rgba(255, 0, 0, 0.6),
+    -10px 0 15px rgba(0, 255, 0, 0.6), 0 5px 8px rgba(255, 255, 255, 1),
+    0 -7px 8px rgba(255, 255, 255, 1);
+  z-index: 2;
+  outline: 2px outset white;
+}
+
+@media (min-width: 530px) {
+  .header {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    margin-left: 0.5rem;
+    margin-bottom: -1rem;
+    position: relative;
+    z-index: 1;
+    transform: translate(0);
+  }
+
+  .nav-bar {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 680px) {
+  .nav-bar {
+    justify-self: flex-end;
+    margin-right: 2rem;
+  }
+
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .nav-item {
+    height: auto;
+    overflow: visible;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .logo {
+    margin-left: 2rem;
+  }
+}
+
+.main {
+  position: relative;
+}
+
+.shadow-on-header {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 1);
+}
+
+.video-leader-phone {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+}
+
+.video-box {
+  position: relative;
+  margin-bottom: -188px;
+}
+
+.video {
+  position: relative;
+  top: -185px;
+  height: 100%;
+  z-index: -1;
+}
+
+@media (min-width: 1030px) {
+  .video {
+    width: 100%;
+  }
+}
+
+.leader-phone {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  top: 8%;
+  left: 2%;
+  width: 95%;
+  height: 100%;
+  text-shadow: 3px 4px 14px rgba(0, 0, 0, 1);
+}
+
+@media (min-width: 720px) {
+  .leader-phone {
+    top: 20%;
+  }
+}
+
+.leader {
+  font-family: "Courgette", cursive;
+  font-size: min(20vw, 6rem);
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  text-transform: capitalize;
+}
+
+.phone {
+  font-family: "Orelega One", cursive;
+  font-size: auto;
+  font-weight: bold;
+  font-size: min(10vw, 4rem);
+  text-align: center;
+}
+
+.shadow-on-video-bottom,
+.shadow-on-header-bottom {
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 1), 0px -3px 7px rgba(0, 0, 0, 0.7);
+}
+
+.first-section {
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+}
+
+/*https://images5.alphacoders.com/929/thumb-1920-929456.jpg*/
+
+.pricing-table {
+  position: relative;
+  border: 3px outset white;
+  border-radius: 2px;
+  outline: 1px solid rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  color: white;
+  width: 250px;
+  height: 600px;
+  margin: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("https://img.freepik.com/free-photo/black-concrete-wall_24972-1046.jpg?t=st=1652006968~exp=1652007568~hmac=67cbb751acb30c05bc89549537d440ad0d9b784b071fbfabe95b9258e17c21ac&w=740");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 1);
+  transition: 0.8s;
+}
+
+.pricing-table:hover {
+  transform: scale(1.03);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 920px) {
+  .pricing-table {
+    display: inline-block;
+    margin: 1rem;
+  }
+}
+
+.pricing-content {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-link {
+  color: white;
+}
+
+.pricing-heading,
+.pricing-table-text,
+.pricing-sub-heading,
+.size-and-price {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.8rem;
+}
+
+.pricing-heading,
+.pricing-sub-heading,
+.pricing-table-text {
+  font-family: "Orelega One", cursive;
+}
+
+.pricing-heading {
+  height: 80px;
+  width: 250px;
+  border-bottom: 2px solid gray;
+  font-size: 2rem;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.pricing-image-box {
+  width: 250px;
+  height: 180px;
+}
+
+.pricing-image-wrapper {
+  width: 175px;
+  height: 150px;
+  padding: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.pricing-image {
+  width: 100%;
+  filter: drop-shadow(5px 5px 5px black);
+}
+
+.pricing-plate {
+  position: absolute;
+  bottom: 20px;
+  left: 9px;
+  height: 80%;
+  width: 92%;
+  filter: drop-shadow(5px 5px 5px black);
+}
+
+.second-pricing-image {
+  margin-top: 2rem;
+}
+
+.second-pricing-plate {
+  height: 40%;
+  width: 92%;
+  left: 10px;
+  bottom: 50px;
+}
+
+.pricing-table-text {
+  border-top: 2px solid gray;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 250px;
+  height: 80px;
+  font-size: 1.2rem;
+  letter-spacing: 0.3px;
+  font-weight: normal;
+}
+
+.pricing-sub-heading {
+  border-top: 2px solid gray;
+  width: 250px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1.8rem;
+  background: red;
+  text-transform: lowercase;
+}
+
+.size-and-price {
+  border-bottom: 2px solid gray;
+  line-height: 1.8rem;
+  font-family: "Courgette", cursive;
+  background-color: darkgreen;
+}
+
+.size-and-price-row {
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.6rem;
+}
+
+.size {
+  display: table-cell;
+  width: 10%;
+  text-align: right;
+}
+
+.price {
+  display: table-cell;
+  width: 100px;
+  text-align: right;
+}
+
+.price::before {
+  content: "$";
+}
+
+@media (min-width: 700px) and (max-width: 919px) {
+  .pricing-table {
+    min-width: 650px;
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+  }
+
+  .pricing-heading {
+    grid-area: pricing-heading;
+    border-right: 2px solid gray;
+    display: grid;
+    align-content: center;
+    magin: 0;
+    height: auto;
+    width: auto;
+  }
+
+  .pricing-image-box {
+    grid-area: pricing-image-box;
+    border-right: 2px solid gray;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    magin: 0;
+    height: auto;
+    width: auto;
+  }
+
+  .pricing-table-text {
+    border-top: 0;
+    border-bottom: 2px solid gray;
+    grid-area: pricing-table-text;
+    margin: 0;
+    height: auto;
+    width: auto;
+    display: grid;
+    align-content: center;
+  }
+
+  .pricing-sub-heading {
+    display: grid;
+    align-content: center;
+    border-top: 0;
+    grid-area: pricing-sub-heading;
+    magin: 0;
+    height: auto;
+    width: auto;
+  }
+
+  .size-and-price {
+    border-bottom: 0;
+    grid-area: size-and-price;
+    margin: 0;
+    height: auto;
+    width: auto;
+  }
+
+  .size-and-price-row {
+    width: 50%;
+  }
+
+  .pricing-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20vh 10vh 20vh;
+    grid-template-areas:
+      "pricing-heading pricing-table-text"
+      "pricing-image-box pricing-sub-heading"
+      "pricing-image-box size-and-price";
+  }
+}
+
+.footer {
+  height: ;
+  overflow: hidden;
+  background-image: url("https://i.ibb.co/r25yrLT/pexels-igor-starkov-1237073.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 -6px 15px rgba(0, 0, 0, 1);
+}
+
+@media (min-width: 540px) {
+  footer {
+    height: 100vh;
+  }
+}
+
+.footer-address,
+.footer-phone {
+  font-family: "Orelega One", cursive;
+  font-size: 2rem;
+  color: black;
+  opacity: 0.9;
+  font-weight: bold;
+  text-shadow: 10px 10px 15px rgba(255, 255, 255, 1),
+    10px -10px 15px rgba(255, 255, 255, 1),
+    -10px 10px 15px rgba(255, 255, 255, 1),
+    -10px -10px 15px rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 2.8rem;
+}
+
+.form {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: "Orelega One", cursive;
+  font-size: 2rem;
+  text-shadow: 10px 10px 15px rgba(255, 255, 255, 1),
+    10px -10px 15px rgba(255, 255, 255, 1),
+    -10px 10px 15px rgba(255, 255, 255, 1),
+    -10px -10px 15px rgba(255, 255, 255, 1);
+}
+
+.input-label {
+  margin-left: -10px;
+}
+
+.input-email {
+  font-family: "Orelega One", cursive;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  height: 2rem;
+  width: 20%;
+  min-width: 18rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  transform: translate(0, -3px);
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-style: outset;
+  box-shadow: 1px 1px 3px black;
+  margin-top: 1.5rem;
+}
+
+::placeholder {
+  font-family: "Orelega One", cursive;
+  font-size: 1.2rem;
+}
+
+.submit {
+  font-family: "Orelega One", cursive;
+  display: inline-block;
+  position: relative;
+  background-color: rgba(20, 20, 20, 0.9);
+  margin: 1.5rem;
+  margin-bottom: 0rem;
+  margin-left: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px black;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  transition-duration: 0.7s;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-map-box {
+  position: relative;
+  box-shadow: -6px -6px 15px rgba(0, 0, 0, 0.8), 6px 6px 15px rgba(0, 0, 0, 0.8);
+  width: 90%;
+  height: 40vh;
+  overflow: hidden;
+  left: 4%;
+  top: 30px;
+  border-radius: 4px;
+  border: 2px solid black;
+  outline: 1px solid rgba(0, 0, 0, 0.8);
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.footer-map {
+  position: absolute;
+  width: 300%;
+  height: 150%;
+  filter: grayscale(0.5);
+  top: -20%;
+  left: -100%;
+  z-index: 1;
+}
+
+.footer-map-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.freepik {
+  position: absolute;
+  display: none;
+  top: 0;
+}
