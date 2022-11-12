@@ -1,12 +1,20 @@
 @import url("https://meyerweb.com/eric/tools/css/reset/reset.css");
 
-@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Orelega+One&display=swap");
+@font-face {
+  font-family: heading-font;
+  src: url(./fonts/Courgette-Regular.ttf);
+}
+
+@font-face {
+  font-family: text-font;
+  src: url(./fonts/OrelegaOne-Regular.ttf);
+}
 
 html {
   scroll-behavior: smooth;
   width: 100%;
   height: auto;
-  font-family: "Inter", sans-serif;
+  font-family: text-font;
   background-image: url("https://i.ibb.co/yhcGmYJ/assorment-with-pizza-slices-mushrooms2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,7 +28,7 @@ a {
 .section-heading {
   padding: 2rem;
   text-align: center;
-  font-family: "Courgette", cursive;
+  font-family: heading-font;
   font-size: 4rem;
   color: black;
   opacity: 0.9;
@@ -35,7 +43,6 @@ a {
 .header {
   display: flex;
   flex-direction: column-reverse;
-  font-family: "Orelega One", cursive;
   text-transform: lowercase;
   align-items: center;
   height: auto;
@@ -86,14 +93,15 @@ a {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.logo-link {
+  transform: rotate(-12deg);
+}
+
 .logo {
-  height: 10rem;
-  transform: translate(-1.1rem);
+  height: 13rem;
   position: relative;
-  filter: blur(0.5px);
-  filter: drop-shadow(1px 1px 5px);
-  margin-bottom: 0.2rem;
-  margin-top: 0.3rem;
+  opacity: 0.8;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7)) drop-shadow(-3px -3px 5px rgba(0, 0, 0, 0.7));
 }
 
 .nav-bar {
@@ -305,7 +313,7 @@ a {
 }
 
 .leader {
-  font-family: "Courgette", cursive;
+  font-family: heading-font;
   font-size: min(20vw, 6rem);
   font-weight: bold;
   margin-bottom: 1.2rem;
@@ -313,7 +321,7 @@ a {
 }
 
 .phone {
-  font-family: "Orelega One", cursive;
+  font-family: heading-font;
   font-size: auto;
   font-weight: bold;
   font-size: min(10vw, 4rem);
@@ -345,7 +353,8 @@ a {
   margin: 2rem;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("https://img.freepik.com/free-photo/black-concrete-wall_24972-1046.jpg?t=st=1652006968~exp=1652007568~hmac=67cbb751acb30c05bc89549537d440ad0d9b784b071fbfabe95b9258e17c21ac&w=740");
+  background-image: url("./images/menu_pizza_background.webp");
+  /*https://img.freepik.com/free-photo/black-concrete-wall_24972-1046.jpg?t=st=1652006968~exp=1652007568~hmac=67cbb751acb30c05bc89549537d440ad0d9b784b071fbfabe95b9258e17c21ac&w=740*/
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -628,12 +637,12 @@ a {
 }
 
 ::placeholder {
-  font-family: "Orelega One", cursive;
+  font-family: text-font;
   font-size: 1.2rem;
 }
 
 .submit {
-  font-family: "Orelega One", cursive;
+  font-family: text-font;
   display: inline-block;
   position: relative;
   background-color: rgba(20, 20, 20, 0.9);
