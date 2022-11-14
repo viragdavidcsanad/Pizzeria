@@ -11,11 +11,13 @@
 }
 
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
   width: 100%;
   height: auto;
   font-family: text-font;
-  background-image: url("https://i.ibb.co/yhcGmYJ/assorment-with-pizza-slices-mushrooms2.jpg");
+  background-image: url("./images/assorment-with-pizza-slices-mushrooms2.jpg");
+  /* https://i.ibb.co/yhcGmYJ/assorment-with-pizza-slices-mushrooms2.jpg */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -32,7 +34,6 @@ a {
   font-size: 4rem;
   color: black;
   opacity: 0.9;
-  text-decoration: underline;
   font-weight: bold;
   text-shadow: 20px 20px 25px rgba(255, 255, 255, 1),
     20px -20px 25px rgba(255, 255, 255, 1),
@@ -42,13 +43,15 @@ a {
 
 .header {
   display: flex;
-  flex-direction: column-reverse;
-  text-transform: lowercase;
-  align-items: center;
-  height: auto;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 8rem;
   position: relative;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 1), inset 0px 3px 7px rgba(0, 0, 0, 1), inset 0px -3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 1), inset 0px -5px 5px rgba(0, 0, 0, 0.8);
   letter-spacing: 1px;
+  text-transform: lowercase;
+  min-width: 375px;
 }
 
 .header-background-box {
@@ -71,7 +74,7 @@ a {
   position: absolute;
   width: 845px;
   bottom: -2rem;
-  left: -126px;
+  left: -25px;
   z-index: -3;
   filter: drop-shadow(6px 6px 15px rgba(0, 0, 0, 1));
 }
@@ -80,7 +83,7 @@ a {
   position: absolute;
   width: 800px;
   bottom: 1rem;
-  left: -100px;
+  left: 0px;
   z-index: -2;
   filter: drop-shadow(6px 6px 15px rgba(0, 0, 0, 1));
 }
@@ -94,45 +97,96 @@ a {
 }
 
 .logo-link {
+  position: relative;
+  left: 15px;
   transform: rotate(-12deg);
+  height: 8rem;
+  width: 8rem;
+  overflow: hidden;
+}
+
+@media (min-width: 500px) {
+  .logo-link {
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden;
+  }
 }
 
 .logo {
-  height: 13rem;
-  position: relative;
+  position: absolute;
+  left: -2.3rem;
+  top: 0;
+  height: 10rem;
   opacity: 0.8;
   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7)) drop-shadow(-3px -3px 5px rgba(0, 0, 0, 0.7));
 }
 
+@media (min-width: 500px) {
+  .logo {
+    height: 12rem;
+  }
+}
+
 .nav-bar {
-  margin-bottom: 0.5rem;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: 3rem;
   z-index: 5;
+}
+
+@media (min-width: 680px) {
+  .nav-bar {
+    justify-self: flex-end;
+    margin-right: 2rem;
+    margin-top: 2rem;
+  }
 }
 
 .nav-list {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
+@media (min-width: 680px) {
+  .nav-list {
+    flex-direction: row;
+  }
+}
+
 .hamburger-menu {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  align-self: flex-end;
+  position: relative;
+  top: 18px;
+  right: 18px;
   display: grid;
   justify-content: center;
   align-content: center;
   gap: 6px;
   width: 3rem;
   height: 2.8rem;
-  border: 2px outset white;
+  border: 3px outset white;
+  outline: 3px outset rgba(255, 255, 255, 0);
   background-color: rgba(20, 20, 20, 0.9);
   border-radius: 2px;
   box-shadow: 2px 2px 10px black;
   color: rgba(255, 255, 255, 0.85);
   opacity: 0.85;
   transition-duration: 0.5s;
+}
+
+@media (min-width: 370px) {
+  .hamburger-menu {
+    position: absolute;
+  }
+}
+
+@media (min-width: 680px) {
+  .hamburger-menu {
+    display: none;
+  }
 }
 
 .bar1,
@@ -145,41 +199,81 @@ a {
 }
 
 .menu-shifter {
+  cursor: pointer;
   position: absolute;
-  right: 0.8rem;
-  top: 0.8rem;
+  right: 65px;
+  top: 13px;
   width: 3.3rem;
   height: 3.3rem;
   opacity: 0;
   z-index: 5;
 }
 
-.menu-shifter:checked ~ .hamburger-menu {
-  transform: scale(0.7);
+@media (min-width: 370px) {
+  .menu-shifter {
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+  }
 }
 
-.menu-shifter:checked ~ .hamburger-menu .bar1 {
+@media (min-width: 680px) {
+  .menu-shifter {
+    display: none;
+  }
+}
+
+.menu-shifter:checked {
+  transform: scale(0.7);
+  top: 0;
+  right: 50px;
+}
+
+@media (min-width: 370px) {
+  .menu-shifter:checked {
+    top: 0;
+    right: 0;
+  }
+}
+
+.menu-shifter:checked~.hamburger-menu {
+  transform: scale(0.7);
+  top: 5px;
+  right: 5px;
+}
+
+.menu-shifter:checked~.hamburger-menu .bar1 {
   transform: rotate(45deg) translate(8px, 8px);
 }
 
-.menu-shifter:checked ~ .hamburger-menu .bar3 {
+.menu-shifter:checked~.hamburger-menu .bar3 {
   transform: rotate(-45deg) translate(7px, -8px);
 }
 
-.menu-shifter:checked ~ .hamburger-menu .bar2 {
+.menu-shifter:checked~.hamburger-menu .bar2 {
   opacity: 0;
 }
 
 .nav-item {
   height: 0;
   overflow: hidden;
+  opacity: 0;
   transition-duration: 0.5s;
 }
 
-.menu-shifter:checked ~ .nav-item {
+@media (min-width: 680px) {
+  .nav-item {
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+  }
+}
+
+.menu-shifter:checked~.nav-item {
   position: relative;
   cursor: pointer;
   transition-duration: 0.5s;
+  opacity: 1;
   overflow: visible;
   height: 3.3rem;
 }
@@ -199,7 +293,6 @@ a {
   transition-duration: 0.5s;
   opacity: 0.85;
   font-size: 1.5rem;
-  outline: 2px outset rgba(255, 255, 255, 0);
 }
 
 .nav-link:hover {
@@ -211,70 +304,21 @@ a {
     -10px 0 15px rgba(0, 255, 0, 0.6), 0 5px 8px rgba(255, 255, 255, 1),
     0 -7px 8px rgba(255, 255, 255, 1);
   z-index: 2;
-  outline: 2px outset white;
-}
-
-@media (min-width: 530px) {
-  .header {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    margin-left: 0.5rem;
-    margin-bottom: -1rem;
-    position: relative;
-    z-index: 1;
-    transform: translate(0);
-  }
-
-  .nav-bar {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 680px) {
-  .nav-bar {
-    justify-self: flex-end;
-    margin-right: 2rem;
-  }
-
-  .nav-list {
-    flex-direction: row;
-  }
-
-  .nav-item {
-    height: auto;
-    overflow: visible;
-  }
-
-  .hamburger-menu {
-    display: none;
-  }
-
-  .logo {
-    margin-left: 2rem;
-  }
+  outline: 2px solid white;
+  /*neon-effect*/
 }
 
 .main {
   position: relative;
 }
 
-/* .shadow-on-header {
-  box-shadow: 0 0 7px rgba(0, 0, 0, 1);
-} */
-
 .video-leader-phone {
   position: relative;
   width: 100%;
   height: 80vh;
   overflow: hidden;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 1), inset 0px 3px 7px rgba(0, 0, 0, 1), inset 0px -3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 1),
+    inset 0px -5px 5px rgba(0, 0, 0, 0.8);
 }
 
 .video-box {
@@ -299,9 +343,10 @@ a {
   text-align: center;
   color: rgba(255, 255, 255, 0.85);
   position: absolute;
-  top: 8%;
+  top: 25%;
   left: 2%;
   width: 95%;
+  min-width: 320px;
   height: 100%;
   text-shadow: 3px 4px 14px rgba(0, 0, 0, 1);
 }
@@ -314,7 +359,7 @@ a {
 
 .leader {
   font-family: heading-font;
-  font-size: min(20vw, 6rem);
+  font-size: min(21vw, 5rem);
   font-weight: bold;
   margin-bottom: 1.2rem;
   text-transform: capitalize;
@@ -324,7 +369,7 @@ a {
   font-family: heading-font;
   font-size: auto;
   font-weight: bold;
-  font-size: min(10vw, 4rem);
+  font-size: min(11vw, 4rem);
   text-align: center;
 }
 
@@ -572,14 +617,15 @@ a {
 }
 
 .footer {
-  height: ;
+  /* height: ; */
   overflow: hidden;
   background-image: url("./images/restaurant_in_the_evening.jpg");
   /* https://i.ibb.co/r25yrLT/pexels-igor-starkov-1237073.jpg */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 -6px 15px rgba(0, 0, 0, 1), inset 0px 3px 7px rgba(0, 0, 0, 1), inset 0px -3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 -6px 15px rgba(0, 0, 0, 1), inset 0px 3px 7px rgba(0, 0, 0, 1),
+    inset 0px -3px 7px rgba(0, 0, 0, 0.7);
 }
 
 @media (min-width: 540px) {
@@ -590,7 +636,7 @@ a {
 
 .footer-address,
 .footer-phone {
-  font-family: "Orelega One", cursive;
+  font-family: text-font;
   font-size: 2rem;
   color: black;
   opacity: 0.9;
@@ -608,7 +654,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  font-family: "Orelega One", cursive;
+  font-family: text-font;
   font-size: 2rem;
   text-shadow: 10px 10px 15px rgba(255, 255, 255, 1),
     10px -10px 15px rgba(255, 255, 255, 1),
@@ -621,7 +667,7 @@ a {
 }
 
 .input-email {
-  font-family: "Orelega One", cursive;
+  font-family: text-font;
   font-size: 1.2rem;
   letter-spacing: 1px;
   height: 2rem;
