@@ -52,43 +52,19 @@ function scrolledHeader() {
       }
     }
   }
+}
 
-  $hamburgerMenu.onclick = function () {
-    menuShifter();
-  };
+$hamburgerMenu.onclick = function () {
+  menuShifter();
+};
 
-  function menuShifter() {
-    if ($navBar.classList.contains("js_shifted_nav_bar")) {
-      $navBar.classList.remove("js_shifted_nav_bar");
-    } else {
-      $navBar.classList.add("js_shifted_nav_bar");
-    }
-    if ($hamburgerMenu.classList.contains("js_shifted_hamburger_menu")) {
-      $hamburgerMenu.classList.remove("js_shifted_hamburger_menu");
-    } else {
-      $hamburgerMenu.classList.add("js_shifted_hamburger_menu");
-    }
-    if ($bar1.classList.contains("js_shifted_bar1")) {
-      $bar1.classList.remove("js_shifted_bar1");
-    } else {
-      $bar1.classList.add("js_shifted_bar1");
-    }
-    if ($bar2.classList.contains("js_shifted_bar2")) {
-      $bar2.classList.remove("js_shifted_bar2");
-    } else {
-      $bar2.classList.add("js_shifted_bar2");
-    }
-    if ($bar3.classList.contains("js_shifted_bar3")) {
-      $bar3.classList.remove("js_shifted_bar3");
-    } else {
-      $bar3.classList.add("js_shifted_bar3");
-    }
-    for (let n in $navItemClasses) {
-      if ($navItemClasses[n].contains("js_shifted_nav_item")) {
-        $navItemClasses[n].remove("js_shifted_nav_item");
-      } else {
-        $navItemClasses[n].add("js_shifted_nav_item");
-      }
-    }
+function menuShifter() {
+  $navBar.classList.toggle("js_shifted_nav_bar");
+  $hamburgerMenu.classList.toggle("js_shifted_hamburger_menu");
+  $bar1.classList.toggle("js_shifted_bar1");
+  $bar2.classList.toggle("js_shifted_bar2");
+  $bar3.classList.toggle("js_shifted_bar3");
+  for (let n in $navItemClasses) {
+    $navItemClasses[n].toggle("js_shifted_nav_item");
   }
 }

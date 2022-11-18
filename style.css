@@ -1,4 +1,142 @@
-@import url("https://meyerweb.com/eric/tools/css/reset/reset.css");
+/* ======================== CSS RESET ============================== */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ============================= FONTS ================================= */
 
 @font-face {
   font-family: heading-font;
@@ -9,6 +147,21 @@
   font-family: text-font;
   src: url(./fonts/OrelegaOne-Regular.ttf);
 }
+
+/* ============================== COLORS =============================== */
+
+:root {
+  --white: rgba(255, 255, 255, 0.9);
+  --palewhite: rgba(255, 255, 255, 0.5);
+  --black: rgba(0, 0, 0, 0.9);
+  --paleblack: rgba(0, 0, 0, 0.5);
+  --green: rgba(0, 80, 0, 0.9);
+  --red: rgba(120, 20, 20, 0.9);
+  --deepgray: rgba(20, 20, 20, 0.9);
+  --no-color: rgba(0, 0, 0, 0);
+}
+
+/* ========================= GENERAL SETTINGS ============================ */
 
 html {
   font-size: 16px;
@@ -33,14 +186,16 @@ a {
   text-align: center;
   font-family: heading-font;
   font-size: 4rem;
-  color: black;
+  color: var(--black);
   opacity: 0.9;
   font-weight: bold;
-  text-shadow: 20px 20px 25px rgba(255, 255, 255, 1),
-    20px -20px 25px rgba(255, 255, 255, 1),
-    -20px 20px 25px rgba(255, 255, 255, 1),
-    -20px -20px 25px rgba(255, 255, 255, 1);
+  text-shadow: 20px 20px 25px var(--white),
+    20px -20px 25px var(--white),
+    -20px 20px 25px var(--white),
+    -20px -20px 25px var(--white);
 }
+
+/* ================================= HEADER ============================== */
 
 .header {
   display: flex;
@@ -48,9 +203,8 @@ a {
   justify-content: space-around;
   align-items: flex-start;
   height: 130px;
-  min-width: 375px;
   position: relative;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 1), inset 0px -5px 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 6px 15px var(--black), inset 0px -5px 5px var(--black);
   letter-spacing: 1px;
   text-transform: lowercase;
 }
@@ -77,7 +231,7 @@ a {
   bottom: -2rem;
   left: -25px;
   z-index: -3;
-  filter: drop-shadow(6px 6px 15px rgba(0, 0, 0, 1));
+  filter: drop-shadow(6px 6px 15px var(--black));
 }
 
 .header-pizza-background {
@@ -86,7 +240,7 @@ a {
   bottom: 1rem;
   left: 0px;
   z-index: -2;
-  filter: drop-shadow(6px 6px 15px rgba(0, 0, 0, 1));
+  filter: drop-shadow(6px 6px 15px var(--black));
 }
 
 .header-dark-background {
@@ -94,8 +248,11 @@ a {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--black);
+  opacity: 0.3;
 }
+
+/* ============================== LOGO ================================ */
 
 .logo-link {
   position: fixed;
@@ -112,7 +269,7 @@ a {
   height: 120px;
   opacity: 0.9;
   transition: 0.5s;
-  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7)) drop-shadow(-1px -1px 5px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(3px 3px 5px var(--paleblack)) drop-shadow(-1px -1px 5px var(--paleblack));
 }
 
 @media (min-width: 350px) {
@@ -133,7 +290,7 @@ a {
   height: 120px;
   top: 10px;
   left: -25px;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 @media (min-width: 800px) {
@@ -141,6 +298,8 @@ a {
     opacity: 0.9;
   }
 }
+
+/* =============================== NAVIGATION ================================ */
 
 .nav-bar {
   position: fixed;
@@ -198,13 +357,13 @@ a {
   gap: 6px;
   width: 43px;
   height: 43px;
-  border: 3px outset white;
-  outline: 3px outset rgba(255, 255, 255, 0);
-  background-color: rgba(20, 20, 20, 0.9);
+  border: 2px outset var(--white);
+  outline: 2px outset var(--no-color);
+  background-color: var(--deepgray);
   border-radius: 2px;
-  box-shadow: 2px 2px 10px black;
-  color: rgba(255, 255, 255, 0.85);
-  opacity: 0.85;
+  box-shadow: 2px 2px 10px var(--black);
+  color: var(--white);
+  opacity: 0.9;
   transition-duration: 0.5s;
 }
 
@@ -226,7 +385,13 @@ a {
   transform: translate(0, 0);
   height: 43px;
   display: grid;
-  opacity: 1;
+  opacity: 0.5;
+}
+
+@media (min-width: 800px) {
+  .js_scrolled_hamburger_menu {
+    opacity: 0.9;
+  }
 }
 
 .bar1,
@@ -234,7 +399,7 @@ a {
 .bar3 {
   width: 35px;
   height: 5px;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--white);
   transition: 0.5s;
 }
 
@@ -280,14 +445,14 @@ a {
 .nav-link {
   position: relative;
   display: inline-block;
-  background-color: rgba(20, 20, 20, 0.9);
+  background-color: var(--deepgray);
   margin: 0.5rem;
   padding: 0.5rem 0.6rem;
-  border: 2px outset white;
-  outline: 2px outset rgba(255, 255, 255, 0);
+  border: 2px outset var(--white);
+  outline: 2px outset var(--no-color);
   border-radius: 2px;
-  box-shadow: 2px 2px 10px black;
-  color: rgba(255, 255, 255, 0.85);
+  box-shadow: 2px 2px 10px var(--black);
+  color: var(--white);
   font-size: 1.2rem;
   transition-duration: 0.5s;
   opacity: 0.9;
@@ -304,16 +469,18 @@ a {
   z-index: 2;
   transition: 0.5s;
   /*neon-effect*/
-  border-top: 2px solid rgba(255, 255, 255, 1);
-  border-bottom: 2px solid rgba(255, 255, 255, 1);
-  border-left: 2px solid rgba(0, 255, 0, 1);
-  border-right: 2px solid rgba(255, 0, 0, 1);
-  box-shadow: 10px 0 15px rgba(255, 0, 0, 0.6),
-    -10px 0 15px rgba(0, 255, 0, 0.6), 0 5px 8px rgba(255, 255, 255, 1),
-    0 -7px 8px rgba(255, 255, 255, 1);
-  outline: 2px solid white;
+  border-top: 2px solid var(--no-color);
+  border-bottom: 2px solid var(--no-color);
+  border-left: 2px solid var(--green);
+  border-right: 2px solid var(--red);
+  box-shadow: 10px 0 15px var(--red),
+    -10px 0 15px var(--green), 0 10px 15px var(--white),
+    0 -10px 15px var(--white);
+  outline: 2px solid var(--white);
   /*neon-effect*/
 }
+
+
 
 .main {
   position: relative;
@@ -324,8 +491,8 @@ a {
   width: 100%;
   height: 80vh;
   overflow: hidden;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 1),
-    inset 0px -5px 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 15px var(--black),
+    inset 0px -5px 5px var(--black);
 }
 
 .video-box {
@@ -348,14 +515,14 @@ a {
 
 .leader-phone {
   text-align: center;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--white);
   position: absolute;
   top: 25%;
   left: 2%;
   width: 95%;
   min-width: 320px;
   height: 100%;
-  text-shadow: 3px 4px 14px rgba(0, 0, 0, 1);
+  text-shadow: 3px 4px 14px var(--black);
 }
 
 @media (min-width: 720px) {
@@ -380,26 +547,19 @@ a {
   text-align: center;
 }
 
-/* .shadow-on-video-bottom,
-.shadow-on-header-bottom {
-  box-shadow: 0px 3px 7px rgba(0, 0, 0, 1), 0px -3px 7px rgba(0, 0, 0, 0.7);
-} */
-
 .first-section {
   position: relative;
   text-align: center;
   padding: 1rem;
 }
 
-/*https://images5.alphacoders.com/929/thumb-1920-929456.jpg*/
-
 .pricing-table {
   position: relative;
-  border: 3px outset white;
+  border: 2px outset var(--white);
   border-radius: 2px;
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+  outline: 1px solid var(--black);
   overflow: hidden;
-  color: white;
+  color: var(--white);
   width: 250px;
   height: 600px;
   margin: 2rem;
@@ -410,13 +570,13 @@ a {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 1);
+  box-shadow: 5px 5px 20px var(--black);
   transition: 0.8s;
 }
 
 .pricing-table:hover {
   transform: scale(1.03);
-  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 15px 15px 30px var(--black);
 }
 
 @media (min-width: 920px) {
@@ -432,30 +592,30 @@ a {
 }
 
 .pricing-link {
-  color: white;
+  color: var(--white);
 }
 
 .pricing-heading,
 .pricing-table-text,
 .pricing-sub-heading,
 .size-and-price {
-  background-color: rgba(0, 0, 0, 0.7);
   padding: 0.8rem;
 }
 
 .pricing-heading,
 .pricing-sub-heading,
 .pricing-table-text {
-  font-family: "Orelega One", cursive;
+  font-family: text-font;
 }
 
 .pricing-heading {
   height: 80px;
   width: 250px;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid var(--palewhite);
   font-size: 2rem;
   display: table-cell;
   vertical-align: middle;
+  background-color: var(--deepgray);
 }
 
 .pricing-image-box {
@@ -473,7 +633,7 @@ a {
 
 .pricing-image {
   width: 100%;
-  filter: drop-shadow(5px 5px 5px black);
+  filter: drop-shadow(5px 5px 5px var(--black));
 }
 
 .pricing-plate {
@@ -482,7 +642,7 @@ a {
   left: 9px;
   height: 80%;
   width: 92%;
-  filter: drop-shadow(5px 5px 5px black);
+  filter: drop-shadow(5px 5px 5px var(--black));
 }
 
 .second-pricing-image {
@@ -497,7 +657,7 @@ a {
 }
 
 .pricing-table-text {
-  border-top: 2px solid gray;
+  border-top: 2px solid var(--palewhite);
   display: table-cell;
   text-align: center;
   vertical-align: middle;
@@ -506,25 +666,27 @@ a {
   font-size: 1.2rem;
   letter-spacing: 0.3px;
   font-weight: normal;
+  background-color: var(--green);
 }
 
 .pricing-sub-heading {
-  border-top: 2px solid gray;
+  border-top: 2px solid var(--palewhite);
   width: 250px;
   height: 32px;
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-size: 1.8rem;
-  background: red;
+  background: var(--white);
   text-transform: lowercase;
+  color: var(--black);
 }
 
 .size-and-price {
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid var(--palewhite);
   line-height: 1.8rem;
-  font-family: "Courgette", cursive;
-  background-color: darkgreen;
+  font-family: heading-font;
+  background-color: var(--red);
 }
 
 .size-and-price-row {
@@ -560,7 +722,7 @@ a {
 
   .pricing-heading {
     grid-area: pricing-heading;
-    border-right: 2px solid gray;
+    border-right: 2px solid var(--palewhite);
     display: grid;
     align-content: center;
     margin: 0;
@@ -570,7 +732,7 @@ a {
 
   .pricing-image-box {
     grid-area: pricing-image-box;
-    border-right: 2px solid gray;
+    border-right: 2px solid var(--palewhite);
     display: grid;
     align-content: center;
     justify-content: center;
@@ -581,7 +743,7 @@ a {
 
   .pricing-table-text {
     border-top: 0;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid var(--palewhite);
     grid-area: pricing-table-text;
     margin: 0;
     height: auto;
@@ -623,6 +785,8 @@ a {
   }
 }
 
+/* =============================== FOOTER =================================== */
+
 .footer {
   /* height: ; */
   overflow: hidden;
@@ -631,8 +795,8 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 -6px 15px rgba(0, 0, 0, 1), inset 0px 3px 7px rgba(0, 0, 0, 1),
-    inset 0px -3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 -6px 15px var(--black), inset 0px 3px 7px var(--black),
+    inset 0px -3px 7px var(--black);
 }
 
 @media (min-width: 540px) {
@@ -645,13 +809,13 @@ a {
 .footer-phone {
   font-family: text-font;
   font-size: 2rem;
-  color: black;
+  color: var(--black);
   opacity: 0.9;
   font-weight: bold;
-  text-shadow: 10px 10px 15px rgba(255, 255, 255, 1),
-    10px -10px 15px rgba(255, 255, 255, 1),
-    -10px 10px 15px rgba(255, 255, 255, 1),
-    -10px -10px 15px rgba(255, 255, 255, 1);
+  text-shadow: 10px 10px 15px var(--white),
+    10px -10px 15px var(--white),
+    -10px 10px 15px var(--white),
+    -10px -10px 15px var(--white);
   text-align: center;
   line-height: 2.8rem;
 }
@@ -663,10 +827,10 @@ a {
   text-align: center;
   font-family: text-font;
   font-size: 2rem;
-  text-shadow: 10px 10px 15px rgba(255, 255, 255, 1),
-    10px -10px 15px rgba(255, 255, 255, 1),
-    -10px 10px 15px rgba(255, 255, 255, 1),
-    -10px -10px 15px rgba(255, 255, 255, 1);
+  text-shadow: 10px 10px 15px var(--white),
+    10px -10px 15px var(--white),
+    -10px 10px 15px var(--white),
+    -10px -10px 15px var(--white);
 }
 
 .input-label {
@@ -683,10 +847,10 @@ a {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   transform: translate(0, -3px);
-  color: white;
-  background: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  background: var(--paleblack);
   border-style: outset;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px var(--black);
   margin-top: 1.5rem;
 }
 
@@ -699,30 +863,30 @@ a {
   font-family: text-font;
   display: inline-block;
   position: relative;
-  background-color: rgba(20, 20, 20, 0.9);
+  background-color: var(--deepgray);
   margin: 1.5rem;
   margin-bottom: 0rem;
   margin-left: 0.3rem;
   padding: 0.3rem 0.7rem;
   border-radius: 2px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px var(--black);
   font-size: 1.8rem;
   letter-spacing: 1px;
   transition-duration: 0.7s;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--white);
 }
 
 .footer-map-box {
   position: relative;
-  box-shadow: -6px -6px 15px rgba(0, 0, 0, 0.8), 6px 6px 15px rgba(0, 0, 0, 0.8);
+  box-shadow: -6px -6px 15px var(--black), 6px 6px 15px var(--black);
   width: 90%;
   height: 40vh;
   overflow: hidden;
   left: 4%;
   top: 30px;
-  border-radius: 4px;
-  border: 2px solid black;
-  outline: 1px solid rgba(0, 0, 0, 0.8);
+  border: 2px outset var(--white);
+  border-radius: 2px;
+  outline: 1px solid var(--black);
   opacity: 0.85;
   z-index: 0;
 }
