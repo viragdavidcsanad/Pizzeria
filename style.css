@@ -364,6 +364,7 @@ a {
   box-shadow: 2px 2px 10px var(--black);
   color: var(--white);
   opacity: 0.9;
+  cursor: pointer;
   transition-duration: 0.5s;
 }
 
@@ -763,6 +764,7 @@ a {
   }
 
   .size-and-price {
+    border-top: 2px solid var(--palewhite);
     border-bottom: 0;
     grid-area: size-and-price;
     margin: 0;
@@ -806,9 +808,10 @@ a {
 }
 
 .footer-address,
-.footer-phone {
+.footer-phone,
+.opening-time {
   font-family: text-font;
-  font-size: 2rem;
+  font-size: 25px;
   color: var(--black);
   opacity: 0.9;
   font-weight: bold;
@@ -818,6 +821,14 @@ a {
     -10px -10px 15px var(--white);
   text-align: center;
   line-height: 2.8rem;
+}
+
+@media (min-width: 600px) {
+  .footer-address,
+    .footer-phone,
+    .opening-time {
+      font-size: 30px;
+    }
 }
 
 .form {

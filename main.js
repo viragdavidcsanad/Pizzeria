@@ -4,10 +4,11 @@ const $hamburgerMenu = document.querySelector(".js_hamburger_menu");
 const $bar1 = document.querySelector(".js_bar1");
 const $bar2 = document.querySelector(".js_bar2");
 const $bar3 = document.querySelector(".js_bar3");
+let i;
 let $navItem = document.querySelectorAll(".js_nav_item");
 $navItem = [...$navItem];
 let $navItemClasses = [];
-for (let i in $navItem) {
+for (i in $navItem) {
   $navItemClasses.push($navItem[i].classList);
 }
 
@@ -22,14 +23,14 @@ function scrolledHeader() {
   ) {
     $logo.classList.add("js_scrolled_logo");
     $hamburgerMenu.classList.add("js_scrolled_hamburger_menu");
-    for (let k in $navItemClasses) {
-      $navItemClasses[k].add("js_scrolled_nav_item");
+    for (i in $navItemClasses) {
+      $navItemClasses[i].add("js_scrolled_nav_item");
     }
   } else {
     $logo.classList.remove("js_scrolled_logo");
     $hamburgerMenu.classList.remove("js_scrolled_hamburger_menu");
-    for (let m in $navItemClasses) {
-      $navItemClasses[m].remove("js_scrolled_nav_item");
+    for (i in $navItemClasses) {
+      $navItemClasses[i].remove("js_scrolled_nav_item");
     }
     if ($navBar.classList.contains("js_shifted_nav_bar")) {
       $navBar.classList.remove("js_shifted_nav_bar");
@@ -46,9 +47,9 @@ function scrolledHeader() {
     if ($bar3.classList.contains("js_shifted_bar3")) {
       $bar3.classList.remove("js_shifted_bar3");
     }
-    for (let n in $navItemClasses) {
-      if ($navItemClasses[n].contains("js_shifted_nav_item")) {
-        $navItemClasses[n].remove("js_shifted_nav_item");
+    for (i in $navItemClasses) {
+      if ($navItemClasses[i].contains("js_shifted_nav_item")) {
+        $navItemClasses[i].remove("js_shifted_nav_item");
       }
     }
   }
@@ -64,7 +65,7 @@ function menuShifter() {
   $bar1.classList.toggle("js_shifted_bar1");
   $bar2.classList.toggle("js_shifted_bar2");
   $bar3.classList.toggle("js_shifted_bar3");
-  for (let n in $navItemClasses) {
-    $navItemClasses[n].toggle("js_shifted_nav_item");
+  for (i in $navItemClasses) {
+    $navItemClasses[i].toggle("js_shifted_nav_item");
   }
 }
