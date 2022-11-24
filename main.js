@@ -35,12 +35,14 @@ function scrolledHeader() {
     document.documentElement.scrollTop > 130
   ) {
     $logo.classList.add("js_scrolled_logo");
+    $navBar.classList.add("js_scrolled_nav_bar");
     $hamburgerMenu.classList.add("js_scrolled_hamburger_menu");
     for (i in $navItemsClasses) {
       $navItemsClasses[i].add("js_scrolled_nav_item");
     }
   } else {
     $logo.classList.remove("js_scrolled_logo");
+    $navBar.classList.remove("js_scrolled_nav_bar");
     $hamburgerMenu.classList.remove("js_scrolled_hamburger_menu");
     for (i in $navItemsClasses) {
       $navItemsClasses[i].remove("js_scrolled_nav_item");
@@ -75,15 +77,34 @@ $hamburgerMenu.onclick = function () {
   menuShifter();
 };
 
+function foodMenuHeight() {
+  let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
+  document
+    .querySelector(".js_menu_pages")
+    .setAttribute("style", `height: ${menuHeight + 60}px`);
+};
+
+foodMenuHeight();
+
 function foodMenuTurner(Event) {
-  for (let onePageClasses of $foodMenuPagesClasses) {
-    onePageClasses.remove("js_active_menu_page");
-  }
   let eventTargetIndex = $foodMenuButtons.indexOf(Event.target);
-  $foodMenuPagesClasses[eventTargetIndex].add("js_active_menu_page");
+  for (let pageIndex in $foodMenuPagesClasses) {
+    $foodMenuPagesClasses[pageIndex].remove(
+      "js_active_menu_page",
+      "js_after_menu_page",
+      "js_before_menu_page"
+    );
+    if (pageIndex < eventTargetIndex) {
+      $foodMenuPagesClasses[pageIndex].add("js_before_menu_page");
+    } else if (pageIndex > eventTargetIndex) {
+      $foodMenuPagesClasses[pageIndex].add("js_after_menu_page");
+    } else {
+      $foodMenuPagesClasses[pageIndex].add("js_active_menu_page");
+    }
+  }
+  foodMenuHeight();
 }
 
 for (let button of $foodMenuButtons) {
   button.addEventListener("click", foodMenuTurner);
 }
-
