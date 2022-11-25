@@ -630,7 +630,7 @@ a {
 }
 
 .pricing-heading {
-  height: 80px;
+  height: 120px;
   width: 250px;
   border-bottom: 2px solid var(--palewhite);
   font-size: 2rem;

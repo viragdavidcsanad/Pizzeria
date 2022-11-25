@@ -1,4 +1,11 @@
 {
   "name": "Pizza Provenciale",
-  ""
+  "image-link": "./images/pizza_provenciale.png",
+  "description": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
+  "small-size": "9",
+  "large-size": "14",
+  "x-large-size": "18",
+  "small-price": "8.99",
+  "large-price": "13.99",
+  "x-large-price": "17.99",
 }
