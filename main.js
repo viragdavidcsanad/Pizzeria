@@ -108,3 +108,13 @@ function foodMenuTurner(Event) {
 for (let button of $foodMenuButtons) {
   button.addEventListener("click", foodMenuTurner);
 }
+
+// PRICING TABLES
+
+function pricingTableMaker(pizzaDatas) {
+  let filtered{};
+  filtered = pizzaDatas.filter(pizza => pizza.pricing_table === true);
+  console.log(filtered);
+}
+
+fetch("./data.json").then(data => data.json).then(pricingTableMaker);
