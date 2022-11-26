@@ -112,13 +112,16 @@ for (let button of $foodMenuButtons) {
 // PRICING TABLES
 
 function pricingTableMaker(pricingTitles) {
-  console.log(pricingTitles);
+  pricingTitles.map(`
+  `);
 }
 
 fetch("./data.json")
   .then((data) => data.json())
-  .then((dataObject) => Object.values(dataObject))
-  .then((dataArray) =>
-    dataArray.filter((menuItem) => menuItem.pricing_table === true)
-  )
-  .then(pricingTableMaker);
+  .then((dataObject) => {
+    let dataArray = Object.values(dataObject);
+    let pricingTitles = dataArray.filter(
+      (menuItem) => menuItem.pricing_table === true
+    );
+    pricingTableMaker(pricingTitles);
+  });
