@@ -1,5 +1,5 @@
-{
-  "pizza_provenciale": {
+[
+  {
     "name": "Pizza Provenciale",
     "image_link": "./images/pizza_provenciale.png",
     "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
@@ -8,7 +8,7 @@
     "x_large_price": "17.99",
     "pricing_table": true
   },
-  "pizza_roma": {
+  {
     "name": "Pizza Roma",
     "image_link": "./images/pizza_Roma.png",
     "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
@@ -17,7 +17,7 @@
     "x_large_price": "14.99",
     "pricing_table": true
   },
-  "pizza_castello": {
+  {
     "name": "Pizza Castello",
     "image_link": "./images/pizza_castello.png",
     "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
@@ -26,7 +26,7 @@
     "x_large_price": "18.99",
     "pricing_table": true
   },
-  "pizza_pane": {
+  {
     "name": "Pizza Pane",
     "image_link": "./images/pizza_pane.png",
     "ingredients": "pizzabrot pizza bread, garlic, olive oil",
@@ -35,7 +35,7 @@
     "x_large_price": "10.99",
     "pricing_table": false
   },
-  "pizza_quattro_staggioni": {
+  {
     "name": "Pizza Quattro Staggioni",
     "image_link": "./images/pizza_quattro_staggioni.png",
     "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
@@ -44,4 +44,4 @@
     "x_large_price": "13.99",
     "pricing_table": false
   }
-}
+]
