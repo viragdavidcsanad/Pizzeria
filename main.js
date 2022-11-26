@@ -82,7 +82,7 @@ function foodMenuHeight() {
   document
     .querySelector(".js_menu_pages")
     .setAttribute("style", `height: ${menuHeight + 60}px`);
-};
+}
 
 foodMenuHeight();
 
@@ -111,10 +111,14 @@ for (let button of $foodMenuButtons) {
 
 // PRICING TABLES
 
-function pricingTableMaker(pizzaDatas) {
-  let filtered{};
-  filtered = pizzaDatas.filter(pizza => pizza.pricing_table === true);
-  console.log(filtered);
+function pricingTableMaker(pricingTitles) {
+  console.log(pricingTitles);
 }
 
-fetch("./data.json").then(data => data.json).then(pricingTableMaker);
+fetch("./data.json")
+  .then((data) => data.json())
+  .then((dataObject) => Object.values(dataObject))
+  .then((dataArray) =>
+    dataArray.filter((menuItem) => menuItem.pricing_table === true)
+  )
+  .then(pricingTableMaker);
