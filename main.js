@@ -4,6 +4,7 @@ const $hamburgerMenu = document.querySelector(".js_hamburger_menu");
 const $bar1 = document.querySelector(".js_bar1");
 const $bar2 = document.querySelector(".js_bar2");
 const $bar3 = document.querySelector(".js_bar3");
+const $navLinks = document.querySelectorAll(".js_nav_link");
 
 let $navItems = document.querySelectorAll(".js_nav_item");
 let $navItemsClasses = [];
@@ -28,6 +29,8 @@ for (let menuPage in $foodMenuPages) {
 }
 
 // FUNCTIONS AND EVENTS
+
+// HEADER SCROLL EFFECT
 
 function scrolledHeader() {
   if (
@@ -62,6 +65,8 @@ window.onscroll = function () {
   scrolledHeader();
 };
 
+// HAMBURGER MENU SHIFT
+
 function menuShifter() {
   $navBar.classList.toggle("js_shifted_nav_bar");
   $hamburgerMenu.classList.toggle("js_shifted_hamburger_menu");
@@ -76,6 +81,8 @@ function menuShifter() {
 $hamburgerMenu.onclick = function () {
   menuShifter();
 };
+
+// FOOD MENU
 
 function foodMenuHeight() {
   let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
@@ -119,7 +126,7 @@ fetch("./data.json")
   .then((data) => data.json())
   .then((dataArray) => {
     let pricingTitles = dataArray.filter(
-      (menuItem) => menuItem.pricing_table === true
+      (title) => title.pricing_table === true
     );
     pricingTableMaker(pricingTitles);
   });
