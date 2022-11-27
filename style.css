@@ -200,6 +200,10 @@ a {
     -20px -20px 25px var(--white);
 }
 
+.section {
+  overflow: hidden;
+}
+
 /* ================================= HEADER ============================== */
 
 .header {
@@ -320,7 +324,7 @@ a {
 
 @media (min-width: 370px) {
   .nav-bar {
-    right: 55px;
+    right: 50px;
   }
 }
 
@@ -348,6 +352,11 @@ a {
 @media (min-width: 370px) {
   .js_shifted_nav_bar {
     top: 10px;
+  }
+}
+
+@media (min-width: 680px) {
+  .js_shifted_nav_bar {
     right: 65px;
   }
 }
@@ -658,7 +667,7 @@ a {
   text-align: center;
   vertical-align: middle;
   width: 250px;
-  height: 80px;
+  height: 120px;
   font-size: 1.2rem;
   letter-spacing: 0.3px;
   font-weight: normal;

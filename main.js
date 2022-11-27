@@ -119,7 +119,49 @@ for (let button of $foodMenuButtons) {
 // PRICING TABLES
 
 function pricingTableMaker(pricingTitles) {
-  console.log(pricingTitles);
+  let pricingTables = pricingTitles
+    .map(
+      (title) => `<div class="pricing-table">
+        <a href="#" class="pricing-link">
+          <div class="pricing-content">
+            <h4 class="pricing-heading">${title.name}</h4>
+
+            <div class="pricing-image-box">
+                <img src="${title.image_link}" alt="pizza picture"
+                  class="pricing-image" />
+            </div>
+
+            <p class="pricing-table-text">${title.ingredients}</p>
+
+            <h4 class="pricing-sub-heading">Size and Price</h4>
+
+            <div class="size-and-price">
+              <div class="small size-and-price-row">
+                <span class="small-size size">9"<span>
+                    <span class="small-price price">${title.small_price}<span>
+              </div>
+
+              <div class="large size-and-price-row">
+                <span class="large-size size">14"<span>
+                    <span class="large-price price">${title.large_price}<span>
+              </div>
+
+              <div class="xlarge-first xlarge size-and-price-row">
+                <span class="xlarge-size-one xlarge-size size">18"<span>
+                    <span class="xlarge-price-one xlarge-price price">${title.x_large_price}<span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>`
+    )
+    .join("");
+  return pricingTables;
+}
+
+function tablesOnTheSite(pricingTables) {
+  let target = document.querySelector(".js_pricing_tables");
+  target.innerHTML += pricingTables;
 }
 
 fetch("./data.json")
@@ -128,5 +170,6 @@ fetch("./data.json")
     let pricingTitles = dataArray.filter(
       (title) => title.pricing_table === true
     );
-    pricingTableMaker(pricingTitles);
+    let pricingTables = pricingTableMaker(pricingTitles);
+    tablesOnTheSite(pricingTables);
   });

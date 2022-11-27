@@ -6,7 +6,7 @@
     "small_price": "8.99",
     "large_price": "13.99",
     "x_large_price": "17.99",
-    "pricing_table": true
+    "pricing_table": false
   },
   {
     "name": "Pizza Roma",
@@ -33,7 +33,7 @@
     "small_price": "3.99",
     "large_price": "7.99",
     "x_large_price": "10.99",
-    "pricing_table": false
+    "pricing_table": true
   },
   {
     "name": "Pizza Quattro Staggioni",
