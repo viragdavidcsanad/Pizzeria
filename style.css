@@ -539,6 +539,7 @@ a {
 
 @media (min-width: 1130px) {
   .video {
+    top: -210px;
     width: 100%;
   }
 }
