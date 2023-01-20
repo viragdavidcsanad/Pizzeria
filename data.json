@@ -42,6 +42,6 @@
     "small_price": "6.99",
     "large_price": "10.99",
     "x_large_price": "13.99",
-    "pricing_table": false
+    "pricing_table": true
   }
 ]
