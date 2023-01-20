@@ -1,4 +1,4 @@
-const $logo = document.querySelector(".js_logo");
+const $logo = document.querySelector(".logo");
 const $navBar = document.querySelector(".js_nav_bar");
 const $hamburgerMenu = document.querySelector(".js_hamburger_menu");
 const $bar1 = document.querySelector(".js_bar1");
@@ -37,14 +37,14 @@ function scrolledHeader() {
     document.body.scrollTop > 130 ||
     document.documentElement.scrollTop > 130
   ) {
-    $logo.classList.add("js_scrolled_logo");
+    $logo.classList.add("scrolled-logo");
     $navBar.classList.add("js_scrolled_nav_bar");
     $hamburgerMenu.classList.add("js_scrolled_hamburger_menu");
     for (i in $navItemsClasses) {
       $navItemsClasses[i].add("js_scrolled_nav_item");
     }
   } else {
-    $logo.classList.remove("js_scrolled_logo");
+    $logo.classList.remove("scrolled-logo");
     $navBar.classList.remove("js_scrolled_nav_bar");
     $hamburgerMenu.classList.remove("js_scrolled_hamburger_menu");
     for (i in $navItemsClasses) {
