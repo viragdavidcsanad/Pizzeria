@@ -20,9 +20,7 @@ $navItems = [...$navItems];
 for (i in $navItems) {
   $navItemsClasses.push($navItems[i].classList);
 }
-
 $foodMenuButtons = [...$foodMenuButtons];
-
 $foodMenuPages = [...$foodMenuPages];
 for (let menuPage in $foodMenuPages) {
   $foodMenuPagesClasses.push($foodMenuPages[menuPage].classList);
