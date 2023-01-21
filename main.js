@@ -26,7 +26,7 @@ for (let menuPage in $foodMenuPages) {
 // *********************************************************************
 // ======================= FUNCTIONS AND EVENTS ========================
 // *********************************************************************
-// ======================= HEADER SCROLL EFFECT ========================
+// ========== HEADER SCROLL EFFECT ON LOGO AND NAVIGATION ==============
 
 function scrolledHeader() {
   if (

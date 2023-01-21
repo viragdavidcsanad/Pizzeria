@@ -1,5 +1,3 @@
-// PRICING TABLES
-
 function pricingTableMaker(pricingTitles) {
   let pricingTables = pricingTitles
     .map(
@@ -39,7 +37,7 @@ function pricingRender(pricingTables) {
   target.innerHTML += pricingTables;
 }
 
-fetch("./data.json")
+fetch("./data/pizza.json")
   .then((data) => data.json())
   .then((dataArray) => {
     let pricingTitles = dataArray.filter(
