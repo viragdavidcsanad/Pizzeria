@@ -1,141 +1,3 @@
-/* ======================== CSS RESET ============================== */
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 
 /* ============================= FONTS ================================= */
 
@@ -164,10 +26,6 @@ table {
 
 /* ========================= GENERAL SETTINGS ============================ */
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   font-size: 10px;
   scroll-behavior: smooth;
@@ -195,10 +53,10 @@ a {
   color: var(--black);
   opacity: 0.9;
   font-weight: bold;
-  text-shadow: 20px 20px 25px var(--white),
-    20px -20px 25px var(--white),
-    -20px 20px 25px var(--white),
-    -20px -20px 25px var(--white);
+  text-shadow: 2rem 2rem 2.5rem var(--white),
+    2rem -2rem 2.5rem var(--white),
+    -2rem 2rem 2.5rem var(--white),
+    -2rem -2rem 2.5rem var(--white);
 }
 
 .section {
@@ -214,18 +72,9 @@ a {
   align-items: flex-start;
   height: 130px;
   position: relative;
-  box-shadow: 0 6px 15px var(--black), 0 6px 25px var(--black), inset 0px -5px 5px var(--black);
+  box-shadow: 0 0.6rem 1.5rem var(--black), 0 0.6rem 2.5rem var(--black), inset 0 -0.5rem 0.5rem var(--black);
   letter-spacing: 1px;
   text-transform: lowercase;
-}
-
-.header-background-box {
-  position: absolute;
-  width: 100%;
-  height: 102%;
-  overflow: hidden;
-  padding-bottom: 0;
-  z-index: -4;
 }
 
 .header-wooden-background {
@@ -242,22 +91,13 @@ a {
   }
 }
 
-/* .header-plate {
-  position: absolute;
-  width: 845px;
-  bottom: -2rem;
-  left: -25px;
-  z-index: -3;
-  filter: drop-shadow(6px 6px 15px var(--black));
-} */
-
 .header-pizza-background {
   position: absolute;
-  width: 800px;
+  width: calc(60rem + 20vw);
   bottom: -3rem;
   left: 0;
   z-index: -2;
-  filter: drop-shadow(6px 6px 15px var(--black));
+  filter: drop-shadow(0.6rem 0.6rem 1.5rem var(--black));
 }
 
 .header-dark-background {
@@ -281,32 +121,32 @@ a {
 
 .logo {
   position: absolute;
-  top: 10px;
-  left: -25px;
-  height: 120px;
+  top: 1rem;
+  left: -2.5rem;
+  height: 12rem;
   opacity: 0.9;
   transition: 0.5s;
-  filter: drop-shadow(3px 3px 5px var(--paleblack)) drop-shadow(-1px -1px 5px var(--paleblack));
+  filter: drop-shadow(0.3rem 0.3rem 0.5rem var(--paleblack)) drop-shadow(-0.1rem -0.1rem 0.5rem var(--paleblack));
 }
 
 @media (min-width: 350px) {
   .logo {
-    height: 160px;
-    top: 20px;
-    left: -35px;
+    height: 16rem;
+    top: 2rem;
+    left: -3.5rem;
   }
 }
 
 @media (min-width: 500px) {
   .logo {
-    height: 190px;
+    height: 19rem;
   }
 }
 
 .scrolled-logo {
-  height: 120px;
-  top: 10px;
-  left: -25px;
+  height: 12rem;
+  top: 1rem;
+  left: -2.5rem;
   opacity: 0.5;
 }
 
@@ -489,7 +329,7 @@ a {
   height: 3rem;
   border: 0.2rem outset var(--white);
   outline: 0.2rem outset var(--no-color);
-  border-radius: 2px;
+  border-radius: 0.2rem;
   padding: 0.3rem 0.6rem;
   box-shadow: 0.2rem 0.2rem 1rem var(--black);
   color: var(--white);
@@ -510,14 +350,14 @@ a {
 .nav-link:hover {
   z-index: 2;
   transition: 0.5s;
-  border-top: 2px solid var(--no-color);
-  border-bottom: 2px solid var(--no-color);
-  border-left: 2px solid var(--green);
-  border-right: 2px solid var(--red);
-  box-shadow: 10px 0 15px var(--red),
-    -10px 0 15px var(--green), 0 10px 15px var(--white),
-    0 -10px 15px var(--white);
-  outline: 2px solid var(--white);
+  border-top: 0.2rem solid var(--no-color);
+  border-bottom: 0.2rem solid var(--no-color);
+  border-left: 0.2rem solid var(--green);
+  border-right: 0.2rem solid var(--red);
+  box-shadow: 0.1rem 0 1.5rem var(--red),
+    -1rem 0 1.5rem var(--green), 0 1rem 1.5rem var(--white),
+    0 -1rem 1.5rem var(--white);
+  outline: 0.2rem solid var(--white);
 }
 
 /* =============================== MAIN ================================ */
@@ -531,25 +371,25 @@ a {
   width: 100%;
   height: 80vh;
   overflow: hidden;
-  box-shadow: 0 10px 15px var(--black),
-    inset 0px -5px 5px var(--black);
+  box-shadow: 0 1rem 1.5rem var(--black),
+    inset 0 -0.5rem 0.5rem var(--black);
 }
 
 .video-box {
   position: relative;
-  margin-bottom: -188px;
+  margin-bottom: -18.8rem;
 }
 
 .video {
   position: relative;
-  top: -185px;
+  top: -18.5rem;
   height: 100%;
   z-index: -1;
 }
 
 @media (min-width: 1130px) {
   .video {
-    top: -210px;
+    top: -21rem;
     width: 100%;
   }
 }
@@ -561,9 +401,9 @@ a {
   top: 25%;
   left: 2%;
   width: 95%;
-  min-width: 320px;
+  min-width: 32rem;
   height: 100%;
-  text-shadow: 3px 4px 14px var(--black);
+  text-shadow: 0.3rem 0.4rem 1.4rem var(--black);
 }
 
 @media (min-width: 720px) {
@@ -596,13 +436,13 @@ a {
 
 .pricing-table {
   position: relative;
-  border: 2px outset var(--white);
-  border-radius: 2px;
-  outline: 1px solid var(--black);
+  border: 0.2rem outset var(--white);
+  border-radius: 0.2rem;
+  outline: 0.1rem solid var(--black);
   overflow: hidden;
   color: var(--white);
-  width: 250px;
-  height: 600px;
+  width: 25rem;
+  height: 60rem;
   margin: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -611,13 +451,13 @@ a {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 5px 5px 20px var(--black);
+  box-shadow: 0.5rem 0.5rem 2rem var(--black);
   transition: 0.8s;
 }
 
 .pricing-table:hover {
   transform: scale(1.03);
-  box-shadow: 15px 15px 30px var(--black);
+  box-shadow: 1.5rem 1.5rem 3rem var(--black);
 }
 
 @media (min-width: 920px) {
@@ -650,9 +490,9 @@ a {
 }
 
 .pricing-heading {
-  height: 120px;
-  width: 250px;
-  border-bottom: 2px solid var(--palewhite);
+  height: 12rem;
+  width: 25rem;
+  border-bottom: 0.2rem solid var(--palewhite);
   font-size: 2rem;
   display: table-cell;
   vertical-align: middle;
@@ -660,8 +500,8 @@ a {
 }
 
 .pricing-image-box {
-  width: 250px;
-  height: 180px;
+  width: 25rem;
+  height: 18rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -673,22 +513,22 @@ a {
 }
 
 .pricing-table-text {
-  border-top: 2px solid var(--palewhite);
+  border-top: 0.2rem solid var(--palewhite);
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  width: 250px;
-  height: 120px;
+  width: 25rem;
+  height: 12rem;
   font-size: 1.2rem;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.03rem;
   font-weight: normal;
   background-color: var(--green);
 }
 
 .pricing-sub-heading {
-  border-top: 2px solid var(--palewhite);
-  width: 250px;
-  height: 32px;
+  border-top: 0.2rem solid var(--palewhite);
+  width: 25rem;
+  height: 3.2rem;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -699,7 +539,7 @@ a {
 }
 
 .size-and-price {
-  border-bottom: 2px solid var(--palewhite);
+  border-bottom: 0.2rem solid var(--palewhite);
   line-height: 1.8rem;
   font-family: heading-font;
   background-color: var(--red);
@@ -720,7 +560,7 @@ a {
 
 .price {
   display: table-cell;
-  width: 100px;
+  width: 10rem;
   text-align: right;
 }
 
@@ -730,15 +570,15 @@ a {
 
 @media (min-width: 700px) and (max-width: 919px) {
   .pricing-table {
-    min-width: 650px;
+    min-width: 65rem;
     width: 80%;
-    max-width: 700px;
+    max-width: 70rem;
     height: auto;
   }
 
   .pricing-heading {
     grid-area: pricing-heading;
-    border-right: 2px solid var(--palewhite);
+    border-right: 0.2rem solid var(--palewhite);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -811,7 +651,7 @@ a {
 /* =========================== FOOD MENU ==================================== */
 
 .menu-headings {
-  margin: 20px auto;
+  margin: 2rem auto;
   width: 90%;
   display: flex;
   justify-content: space-around;
@@ -836,12 +676,12 @@ a {
   transition-duration: 0.5s;
   font-family: text-font;
   background-color: var(--deepgray);
-  border: 2px outset var(--white);
+  border: 0.2rem outset var(--white);
   border-radius: 2px;
-  outline: 1px solid var(--black);
+  outline: 0.1rem solid var(--black);
   color: var(--white);
-  font-size: 20px;
-  padding: 10px;
+  font-size: 2rem;
+  padding: 1rem;
 }
 
 .js_after_menu_page {
@@ -866,8 +706,8 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 -6px 15px var(--black), inset 0px 3px 7px var(--black),
-    inset 0px -3px 7px var(--black);
+  box-shadow: 0 -0.6rem 1.5rem var(--black), inset 0 0.3rem 0.7rem var(--black),
+    inset 0 -0.3rem 0.7rem var(--black);
 }
 
 @media (min-width: 540px) {
@@ -880,14 +720,14 @@ a {
 .footer-phone,
 .opening-time {
   font-family: text-font;
-  font-size: 25px;
+  font-size: 2.5rem;
   color: var(--black);
   opacity: 0.9;
   font-weight: bold;
-  text-shadow: 10px 10px 15px var(--white),
-    10px -10px 15px var(--white),
-    -10px 10px 15px var(--white),
-    -10px -10px 15px var(--white);
+  text-shadow: 1rem 1rem 1.5rem var(--white),
+    1rem -1rem 1.5rem var(--white),
+    -1rem 1rem 1.5rem var(--white),
+    -1rem -1rem 1.5rem var(--white);
   text-align: center;
   line-height: 2.8rem;
 }
@@ -897,7 +737,7 @@ a {
   .footer-address,
   .footer-phone,
   .opening-time {
-    font-size: 30px;
+    font-size: 3rem;
   }
 }
 
@@ -908,30 +748,30 @@ a {
   text-align: center;
   font-family: text-font;
   font-size: 2rem;
-  text-shadow: 10px 10px 15px var(--white),
-    10px -10px 15px var(--white),
-    -10px 10px 15px var(--white),
-    -10px -10px 15px var(--white);
+  text-shadow: 1rem 1rem 1.5rem var(--white),
+    1rem -1rem 1.5rem var(--white),
+    -1rem 1rem 1.5rem var(--white),
+    -1rem -1rem 1.5rem var(--white);
 }
 
 .input-label {
-  margin-left: -10px;
+  margin-left: -1rem;
 }
 
 .input-email {
   font-family: text-font;
   font-size: 1.2rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
   height: 2rem;
   width: 20%;
   min-width: 18rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  transform: translate(0, -3px);
+  transform: translate(0, -0.3rem);
   color: var(--white);
   background: var(--paleblack);
   border-style: outset;
-  box-shadow: 1px 1px 3px var(--black);
+  box-shadow: 0.1rem 0.1rem 0.3rem var(--black);
   margin-top: 1.5rem;
 }
 
@@ -949,25 +789,25 @@ a {
   margin-bottom: 0rem;
   margin-left: 0.3rem;
   padding: 0.3rem 0.7rem;
-  border-radius: 2px;
-  box-shadow: 1px 1px 3px var(--black);
+  border-radius: 0.2rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem var(--black);
   font-size: 1.8rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
   transition-duration: 0.7s;
   color: var(--white);
 }
 
 .footer-map-box {
   position: relative;
-  box-shadow: -6px -6px 15px var(--black), 6px 6px 15px var(--black);
+  box-shadow: -0.6rem -0.6rem 1.5rem var(--black), 0.6rem 0.6rem 1.5rem var(--black);
   width: 90%;
   height: 40vh;
   overflow: hidden;
   left: 4%;
-  top: 30px;
-  border: 2px outset var(--white);
-  border-radius: 2px;
-  outline: 1px solid var(--black);
+  top: 3rem;
+  border: 0.2rem outset var(--white);
+  border-radius: 0.2rem;
+  outline: 0.1rem solid var(--black);
   opacity: 0.85;
   z-index: 0;
 }
