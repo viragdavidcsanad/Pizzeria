@@ -17,7 +17,7 @@ padding: 3rem;
   color: var(--white);
   width: 25rem;
   height: 60rem;
-  background-image: url("/images/menu_pizza_background.webp");
+  background-image: url("../images/menu_pizza_background.webp");
   /*https://img.freepik.com/free-photo/black-concrete-wall_24972-1046.jpg?t=st=1652006968~exp=1652007568~hmac=67cbb751acb30c05bc89549537d440ad0d9b784b071fbfabe95b9258e17c21ac&w=740*/
   background-position: center;
   background-size: cover;
