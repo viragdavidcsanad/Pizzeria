@@ -1,3 +1,9 @@
+const linkArray = [
+  "./data/drink.json",
+  "./data/pizza.json",
+  "./data/salad.json",
+];
+
 function pricingTableMaker(pricingTitles) {
   let pricingTables = pricingTitles
     .map(
@@ -37,12 +43,14 @@ function pricingRender(pricingTables) {
   target.innerHTML += pricingTables;
 }
 
-fetch("./data/pizza.json")
-  .then((data) => data.json())
-  .then((dataArray) => {
-    let pricingTitles = dataArray.filter(
-      (title) => title.pricing_table
-    );
-    let pricingTables = pricingTableMaker(pricingTitles);
-    pricingRender(pricingTables);
-  });
+linkArray.map((link) =>
+  fetch(link)
+    .then((data) => data.json())
+    .then((dataArray) => {
+      let pricingTitles = dataArray.filter(
+        (title) => title.pricing_table === true
+      );
+      let pricingTables = pricingTableMaker(pricingTitles);
+      pricingRender(pricingTables);
+    })
+);

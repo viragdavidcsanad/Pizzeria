@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Pizza Provenciale",
+    "image_link": "./images/pizza_provenciale.png",
+    "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
+    "small_price": "8.99",
+    "large_price": "13.99",
+    "x_large_price": "17.99",
+    "pricing_table": false
+  },
+  {
+    "name": "Pizza Roma",
+    "image_link": "./images/pizza_Roma.png",
+    "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
+    "small_price": "7.99",
+    "large_price": "11.99",
+    "x_large_price": "14.99",
+    "pricing_table": false
+  },
+  {
+    "name": "Pizza Castello",
+    "image_link": "./images/pizza_castello.png",
+    "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
+    "small_price": "9.99",
+    "large_price": "14.99",
+    "x_large_price": "18.99",
+    "pricing_table": true
+  },
+  {
+    "name": "Drink One",
+    "image_link": "https://booznow.com/wp-content/uploads/2020/04/scorpion-1024x1024.jpg",
+    "ingredients": "pizzabrot pizza bread, garlic, olive oil",
+    "small_price": "3.99",
+    "large_price": "7.99",
+    "x_large_price": "10.99",
+    "pricing_table": true
+  },
+  {
+    "name": "Drink Two",
+    "image_link": "https://twothirstygardeners.co.uk/wp-content/uploads/2017/03/Brass_monkey.jpg",
+    "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
+    "small_price": "6.99",
+    "large_price": "10.99",
+    "x_large_price": "13.99",
+    "pricing_table": true
+  }
+]
