@@ -1,4 +1,3 @@
-
 /* ============================= FONTS ================================= */
 
 @font-face {
@@ -19,7 +18,9 @@
   --black: rgba(0, 0, 0, 0.9);
   --paleblack: rgba(0, 0, 0, 0.5);
   --green: rgba(0, 80, 0, 0.9);
+  --lightgreen: rgba(140, 220, 140, 0.9);
   --red: rgba(120, 20, 20, 0.9);
+  --lightred: rgba(240, 140, 140, 0.9);
   --deepgray: rgba(20, 20, 20, 0.9);
   --no-color: rgba(0, 0, 0, 0);
 }
@@ -289,6 +290,14 @@ a {
   transition: 0.5s;
 }
 
+.bar1 {
+  background-color: var(--lightgreen);
+}
+
+.bar3 {
+  background-color: var(--lightred);
+}
+
 @media screen and (min-width: 500px) {
 
   .bar1,
@@ -300,6 +309,7 @@ a {
 
 .shifted-bar1 {
   transform: rotate(45deg) translate(0.42rem, 0.42rem);
+  background-color: var(--white)
 }
 
 @media screen and (min-width: 500px) {
@@ -310,6 +320,7 @@ a {
 
 .shifted-bar3 {
   transform: rotate(-45deg) translate(0.42rem, -0.42rem);
+  background-color: var(--white)
 }
 
 .shifted-bar2 {
@@ -436,53 +447,7 @@ a {
 
 /* ========= THE STYLES OF PRICING TABLES ARE IN THE PRICING.CSS ============ */
 
-/* =========================== FOOD MENU ==================================== */
 
-.menu-headings {
-  margin: 2rem auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.menu-heading {
-  width: 30%;
-}
-
-.menu-pages {
-  position: relative;
-  overflow: hidden;
-  transition-duration: 0.5s;
-  width: 90%;
-  left: 5%;
-}
-
-.menu-page {
-  width: 100%;
-  position: absolute;
-  height: auto;
-  transition-duration: 0.5s;
-  font-family: text-font;
-  background-color: var(--deepgray);
-  border: 0.2rem outset var(--white);
-  border-radius: 2px;
-  outline: 0.1rem solid var(--black);
-  color: var(--white);
-  font-size: 2rem;
-  padding: 1rem;
-}
-
-.after-menu-page {
-  transform: translate(130%, 0);
-}
-
-.before-menu-page {
-  transform: translate(-130%, 0);
-}
-
-.active-menu-page {
-  transform: translate(none);
-}
 
 /* =============================== FOOTER =================================== */
 

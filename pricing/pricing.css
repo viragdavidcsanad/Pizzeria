@@ -27,7 +27,7 @@ padding: 3rem;
 }
 
 .pricing-table:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow: 1.5rem 1.5rem 3rem var(--black);
 }
 
@@ -112,22 +112,25 @@ padding: 3rem;
 }
 
 .size-and-price-row {
-  width: 65%;
+  width: 17rem;
   margin-left: auto;
   margin-right: auto;
   font-size: 2rem;
+  background-color: yellow;
 }
 
 .size {
   display: table-cell;
-  width: 10%;
+  width: 5rem;
   text-align: right;
+  background-color: blueviolet;
 }
 
 .price {
   display: table-cell;
   width: 10rem;
   text-align: right;
+  background-color: aqua;
 }
 
 .price::before {
