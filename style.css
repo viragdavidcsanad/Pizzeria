@@ -95,10 +95,16 @@ a {
 .header-pizza-background {
   position: absolute;
   width: calc(60rem + 20vw);
-  bottom: -3rem;
   left: 0;
+  bottom: 13rem;
   z-index: -2;
   filter: drop-shadow(0.6rem 0.6rem 1.5rem var(--black));
+  animation: background-pizza-animation 1s ease 2s forwards;
+}
+
+@keyframes background-pizza-animation {
+  0% {bottom: 13rem}
+  100% {bottom: -3rem}
 }
 
 .header-dark-background {
