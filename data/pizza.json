@@ -3,45 +3,60 @@
     "name": "Pizza Provenciale",
     "image_link": "./images/pizza_provenciale.png",
     "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
-    "small_price": "8.99",
-    "large_price": "13.99",
-    "x_large_price": "17.99",
+    "doze_type": "size",
+    "doze_and_price": {
+      "9\"": "8.99",
+      "14\"": "13.99",
+      "18\"": "17.99"
+    },
     "pricing_table": false
   },
   {
     "name": "Pizza Roma",
     "image_link": "./images/pizza_Roma.png",
     "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
-    "small_price": "7.99",
-    "large_price": "11.99",
-    "x_large_price": "14.99",
+    "doze_type": "size",
+    "doze_and_price": {
+      "9\"": "7.99",
+      "14\"": "11.99",
+      "18\"": "14.99"
+    },
     "pricing_table": true
   },
   {
     "name": "Pizza Castello",
     "image_link": "./images/pizza_castello.png",
     "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
-    "small_price": "9.99",
-    "large_price": "14.99",
-    "x_large_price": "18.99",
+    "doze_type": "size",
+    "doze_and_price": {
+      "9\"": "9.99",
+      "14\"": "14.99",
+      "18\"": "18.99"
+    },
     "pricing_table": true
   },
   {
     "name": "Pizza Pane",
     "image_link": "./images/pizza_pane.png",
     "ingredients": "pizzabrot pizza bread, garlic, olive oil",
-    "small_price": "3.99",
-    "large_price": "7.99",
-    "x_large_price": "10.99",
-    "pricing_table": true
+    "doze_type": "size",
+    "doze_and_price": {
+      "9\"": "3.99",
+      "14\"": "7.99",
+      "18\"": "10.99"
+    },
+    "pricing_table": false
   },
   {
     "name": "Pizza Quattro Staggioni",
     "image_link": "./images/pizza_quattro_staggioni.png",
     "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
-    "small_price": "6.99",
-    "large_price": "10.99",
-    "x_large_price": "13.99",
-    "pricing_table": true
+    "doze_type": "size",
+    "doze_and_price": {
+      "9\"": "6.99",
+      "14\"": "10.99",
+      "18\"": "13.99"
+    },
+    "pricing_table": false
   }
 ]

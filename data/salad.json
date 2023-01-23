@@ -1,11 +1,13 @@
 [
   {
-    "name": "Pizza Provenciale",
+    "name": "insalata di tonno con riso",
     "image_link": "./images/pizza_provenciale.png",
-    "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
-    "small_price": "8.99",
-    "large_price": "13.99",
-    "x_large_price": "17.99",
+    "ingredients": "tuna, rice, olives, tomato, bell pepper, red onion, garlic, lemon, lime, oregano, basil, salt, black pepper",
+    "size_and_price": {
+      "small (9\")": "8.99",
+      "large (14\")": "13.99",
+      "x_large (18\")": "17.99"
+    },
     "pricing_table": false
   },
   {
