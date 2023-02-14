@@ -3,9 +3,9 @@ let $foodMenuPages = document.querySelectorAll(".js_menu_page");
 let $foodMenuPagesClasses = [];
 $foodMenuButtons = [...$foodMenuButtons];
 $foodMenuPages = [...$foodMenuPages];
-for (let menuPage in $foodMenuPages) {
-  $foodMenuPagesClasses.push($foodMenuPages[menuPage].classList);
-}
+$foodMenuPages.map((menuPage) =>
+  $foodMenuPagesClasses.push(menuPage.classList)
+);
 
 function foodMenuHeight() {
   let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
