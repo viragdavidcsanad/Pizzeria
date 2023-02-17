@@ -41,9 +41,7 @@ function scrolledHeader() {
   }
 }
 
-window.onscroll = function () {
-  scrolledHeader();
-};
+window.onscroll = scrolledHeader;
 
 // =========================== HAMBURGER MENU SHIFT =========================
 
@@ -56,6 +54,4 @@ function menuShifter() {
   $navItemsClasses.map((classlist) => classlist.toggle("shifted-nav-item"));
 }
 
-$hamburgerMenu.onclick = function () {
-  menuShifter();
-};
+$hamburgerMenu.onclick = menuShifter;

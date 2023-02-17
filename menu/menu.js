@@ -39,6 +39,9 @@ function foodMenuTurner(Event) {
   foodMenuHeight();
 }
 
-for (let button of $foodMenuButtons) {
-  button.addEventListener("click", foodMenuTurner);
-}
+$foodMenuButtons.map((button) =>
+  button.addEventListener("click", foodMenuTurner)
+);
+
+window.addEventListener("resize", foodMenuHeight);
+

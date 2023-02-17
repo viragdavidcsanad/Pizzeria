@@ -1,11 +1,20 @@
 /* ============================ PRICING TABLES =========================== */
 
 .pricing-table-holder {
-display: flex;
-gap: 3rem;
-justify-content: space-around;
-flex-wrap: wrap;
-padding: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 3rem;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1400px) {
+  .pricing-table-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+  }
 }
 
 .pricing-table {
