@@ -1,0 +1,16 @@
+[
+  {
+    "category": "pasta"
+  },
+  {
+    "name": "Bavette al pesto di piselli verdi",
+    "image_link": "./images/bavette_al_pesto_di_piselli_verdi.png",
+    "ingredients": "green peas, Parmesan cheese, olive oil, almond flakes, garlic, lemon juice, basil, salt, pepper, pasta (bavette)",
+    "doze_type": "portion",
+    "doze_and_price": {
+      "small": "8.99",
+      "large": "13.99"
+    },
+    "pricing_table": true
+  }
+]
