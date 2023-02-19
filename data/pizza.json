@@ -1,5 +1,8 @@
 [
   {
+    "category": "pizza"
+  },
+  {
     "name": "Pizza Provenciale",
     "image_link": "./images/pizza_provenciale.png",
     "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
