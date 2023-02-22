@@ -1,3 +1,11 @@
+const linkArray = [
+  "./data/pizza.json",
+  "./data/pasta.json",
+  "./data/salad.json",
+  "./data/drink.json",
+];
+export { linkArray };
+
 const $logo = document.querySelector(".js_logo");
 const $navBar = document.querySelector(".js_nav_bar");
 const $hamburgerMenu = document.querySelector(".js_hamburger_menu");
