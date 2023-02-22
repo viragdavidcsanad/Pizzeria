@@ -367,13 +367,13 @@ a {
 .nav-link:hover {
   z-index: 2;
   transition: 0.5s;
-  border-top: 0.2rem solid var(--no-color);
-  border-bottom: 0.2rem solid var(--no-color);
+  border-top: 0.2rem solid var(--green);
+  border-bottom: 0.2rem solid var(--red);
   border-left: 0.2rem solid var(--green);
   border-right: 0.2rem solid var(--red);
-  box-shadow: 0.1rem 0 1.5rem var(--red),
-    -1rem 0 1.5rem var(--green), 0 1rem 1.5rem var(--white),
-    0 -1rem 1.5rem var(--white);
+  box-shadow: 0.1rem 0 1.5rem var(--lightred),
+    -1rem 0 1.5rem var(--lightgreen), 0 1rem 1.5rem var(--lightred),
+    0 -1rem 1.5rem var(--lightgreen);
   outline: 0.2rem solid var(--white);
 }
 
