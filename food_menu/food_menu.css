@@ -1,17 +1,36 @@
 /* =================== FOOD AND DRINK MENU STYLES ====================== */
 
-.menu-headings {
+.food-menu-headings {
   margin: 2rem auto;
   width: 90%;
   display: flex;
   justify-content: space-around;
 }
 
-.menu-heading {
-  width: 30%;
+.food-menu-heading {
+  background-color: var(--deepgray);
+  margin: 0;
+  height: 5rem;
+  width: 25rem;
+  border: 0.2rem outset var(--white);
+  outline: 0.2rem outset var(--no-color);
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.6rem;
+  box-shadow: 0.2rem 0.2rem 1rem var(--black);
+  color: var(--white);
+  font-family: text-font;
+  font-size: 2rem;
+  transition-duration: 0.5s;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-.menu-pages {
+.selected-food-menu-heading {
+  background-color: var(--green);
+}
+
+.food-menu-pages {
   position: relative;
   overflow: hidden;
   transition-duration: 0.5s;
@@ -19,7 +38,7 @@
   left: 5%;
 }
 
-.menu-page {
+.food-menu-page {
   width: 100%;
   position: absolute;
   height: auto;
