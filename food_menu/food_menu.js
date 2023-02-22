@@ -1,23 +1,48 @@
-let $foodMenuButtons = document.querySelectorAll(".js_menu_button");
-let $foodMenuPages = document.querySelectorAll(".js_menu_page");
-let $foodMenuPagesClasses = [];
-$foodMenuButtons = [...$foodMenuButtons];
-$foodMenuPages = [...$foodMenuPages];
-$foodMenuPages.map((menuPage) =>
-  $foodMenuPagesClasses.push(menuPage.classList)
+import { linkArray } from "../main.js";
+
+let $foodMenuHeadings;
+let $foodMenuHeadingsArray;
+
+linkArray.map((link) =>
+  fetch(link)
+    .then((rawData) => rawData.json())
+    .then((jsonData) => {
+      toTextAndRenderHeadingButtons(jsonData);
+      $foodMenuHeadings = document.querySelectorAll(".js_food_menu_heading");
+      $foodMenuHeadingsArray = [...$foodMenuHeadings];
+      clickEffect();
+    })
 );
 
-function foodMenuHeight() {
-  let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
-  document
-    .querySelector(".js_menu_pages")
-    .setAttribute("style", `height: ${menuHeight + 60}px`);
-}
+const toTextAndRenderHeadingButtons = (jsonData) => {
+  jsonData
+    .filter((jsonFile) => jsonFile.category)
+    .map(({ category }) => {
+      document.querySelector(
+        ".js_food_menu_headings"
+      ).innerHTML += `<button class="food-menu-heading ${category} js_food_menu_heading">${category}</button>`;
+    });
+};
 
-foodMenuHeight();
+const clickEffect = () => {
+  $foodMenuHeadingsArray.map((heading) =>
+    heading.addEventListener("click", foodMenuTurner)
+  );
+};
 
-function foodMenuTurner(Event) {
-  let eventTargetIndex = $foodMenuButtons.indexOf(Event.target);
+const foodMenuTurner = (Event) => {
+  const $foodMenuPages = document.querySelectorAll(".js_food_menu_page");
+  const $foodMenuPagesArray = [...$foodMenuPages];
+  let $foodMenuPagesClasses = [];
+  $foodMenuPagesArray.map((menuPage) =>
+    $foodMenuPagesClasses.push(menuPage.classList)
+  );
+  let eventTargetIndex = $foodMenuHeadingsArray.indexOf(Event.target);
+  let previousSelected = document.querySelector(".selected-food-menu-heading");
+  if (previousSelected) {
+    previousSelected.classList.remove("selected-food-menu-heading");
+  }
+  Event.target.classList.add("selected-food-menu-heading");
   for (let pageIndex in $foodMenuPagesClasses) {
     $foodMenuPagesClasses[pageIndex].remove(
       "js_active_menu_page",
@@ -37,11 +62,17 @@ function foodMenuTurner(Event) {
     }
   }
   foodMenuHeight();
-}
+};
 
-$foodMenuButtons.map((button) =>
-  button.addEventListener("click", foodMenuTurner)
-);
+const foodMenuHeight = () => {
+  let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
+  document
+    .querySelector(".js_food_menu_pages")
+    .setAttribute("style", `height: ${menuHeight + 60}px`);
+};
 
-window.addEventListener("resize", foodMenuHeight);
+foodMenuHeight();
 
+const resizeEffect = () => window.addEventListener("resize", foodMenuHeight);
+
+resizeEffect();
