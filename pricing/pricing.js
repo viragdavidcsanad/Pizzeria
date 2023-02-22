@@ -1,8 +1,4 @@
-const linkArray = [
-  "./data/pizza.json",
-  "./data/salad.json",
-  "./data/drink.json",
-];
+import { linkArray } from "../main.js";
 
 function dozeAndPriceRow(title) {
   let dozeAndPriceRows = [];
