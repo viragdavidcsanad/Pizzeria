@@ -32,11 +32,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0.5rem 0.5rem 2rem var(--black);
-  transition: 0.8s;
+  transition: 0.3s;
 }
 
 .pricing-table:hover {
-  transform: scale(1.01);
   box-shadow: 1.5rem 1.5rem 3rem var(--black);
 }
 
