@@ -2,11 +2,11 @@ import { linkArray } from "../main.js";
 
 function dozeAndPriceRow(title) {
   let dozeAndPriceRows = [];
-  for (doze in title.doze_and_price) {
+  for (let doze in title.prices) {
     dozeAndPriceRows.push(
    `<div class="doze-and-price-row">
         <span class="doze">${doze}</span>
-        <span class="price">${title.doze_and_price[doze]}</span>
+        <span class="price">${title.prices[doze]}</span>
     </div>`);
   }
   return dozeAndPriceRows.join("");
@@ -25,7 +25,7 @@ function pricingTableMaker(pricingTitles) {
           }" alt="pizza picture" class="pricing-image" />
         </div>
         <p class="pricing-table-text">${title.ingredients}</p>
-        <h4 class="pricing-sub-heading">${title.doze_type} and Price</h4>
+        <h4 class="pricing-sub-heading">Prices</h4>
         <div class="doze-and-price">
         ${dozeAndPriceRow(title)}    
         </div>
