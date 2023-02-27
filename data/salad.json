@@ -2,51 +2,23 @@
   {
     "category": "salad"
   },
+  {"sub_category": [
+    "salad with meet",
+    "salad with fish",
+    "vegetarian salad",
+    "vegan salad"
+  ]},
   {
     "name": "insalata di tonno con riso",
-    "image_link": "./images/pizza_provenciale.png",
+    "image_link": "./images/insalata_di_tonno_con_riso.png",
     "ingredients": "tuna, rice, olives, tomato, bell pepper, red onion, garlic, lemon, lime, oregano, basil, salt, black pepper",
-    "doze_type": "portion",
-    "size_and_price": {
-      "small (9\")": "11.99",
-      "large (14\")": "16.99"
+    "prices": {
+      "small (0.5 lb)": "11.99",
+      "large (1 lbs)": "16.99"
     },
-    "pricing_table": false
-  },
-  {
-    "name": "Salad One",
-    "image_link": "https://reciperunner.com/wp-content/uploads/2020/06/Cucumber-Tomato-Salad-Picture-1422x2048.jpg",
-    "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
-    "small_price": "7.99",
-    "large_price": "11.99",
-    "x_large_price": "14.99",
-    "pricing_table": true
-  },
-  {
-    "name": "Salad Two",
-    "image_link": "https://wfbf.com/wp-content/uploads/2014/02/Cranberry-Pear-Salad-CMYK-smaller.jpg",
-    "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
-    "small_price": "9.99",
-    "large_price": "14.99",
-    "x_large_price": "18.99",
-    "pricing_table": true
-  },
-  {
-    "name": "Pizza Pane",
-    "image_link": "./images/pizza_pane.png",
-    "ingredients": "pizzabrot pizza bread, garlic, olive oil",
-    "small_price": "3.99",
-    "large_price": "7.99",
-    "x_large_price": "10.99",
-    "pricing_table": false
-  },
-  {
-    "name": "Pizza Quattro Staggioni",
-    "image_link": "./images/pizza_quattro_staggioni.png",
-    "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
-    "small_price": "6.99",
-    "large_price": "10.99",
-    "x_large_price": "13.99",
-    "pricing_table": false
+    "pricing_table": true,
+    "product_category": "salad",
+    "product_sub_category": "salad with fish",
+    "number": 41
   }
 ]
