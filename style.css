@@ -103,8 +103,13 @@ a {
 }
 
 @keyframes background-pizza-animation {
-  0% {bottom: 13rem}
-  100% {bottom: -3rem}
+  0% {
+    bottom: 13rem
+  }
+
+  100% {
+    bottom: -3rem
+  }
 }
 
 .header-dark-background {
@@ -394,21 +399,17 @@ a {
 
 .video-box {
   position: relative;
-  margin-bottom: -18.8rem;
+  width: 100%;
+  height: 100%;
+  /* margin-bottom: -18.8rem; */
 }
 
 .video {
-  position: relative;
-  top: -18.5rem;
-  height: 100%;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  bottom: 0;
   z-index: -1;
-}
-
-@media screen and (min-width: 1130px) {
-  .video {
-    top: -21rem;
-    width: 100%;
-  }
 }
 
 .leader-phone {
