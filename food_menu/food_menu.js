@@ -7,18 +7,39 @@ linkArray.map((link) =>
   fetch(link)
     .then((rawData) => rawData.json())
     .then((jsonData) => {
-      toTextAndRenderHeadingButtons(jsonData);
+      renderHeadingsAndPages(jsonData);
       clickEffect();
     })
 );
 
-const toTextAndRenderHeadingButtons = (jsonData) => {
+const subCategories = (jsonData, index) => {
+  const subCategoryObject = jsonData.filter(
+    (jsonFile) => jsonFile.sub_category
+  );
+  const subCategoryArray = subCategoryObject[index].sub_category;
+  let renderSubCategories = "";
+  subCategoryArray.map(
+    (subCategory) =>
+      (renderSubCategories += `<div class="sub-categories">
+                                 <h4>${subCategory}</h4>
+                               </div>`)
+  );
+  return renderSubCategories;
+};
+
+const renderHeadingsAndPages = (jsonData) => {
   jsonData
     .filter((jsonFile) => jsonFile.category)
-    .map(({ category }) => {
+    .map(({ category }, index) => {
       document.querySelector(
         ".js_food_menu_headings"
       ).innerHTML += `<button class="food-menu-heading ${category} js_food_menu_heading">${category}</button>`;
+      document.querySelector(
+        ".js_food_menu_pages"
+      ).innerHTML += `<div class="food-menu-page ${category} js_food_menu_page">
+                        <h3>${category}</h3>
+                        ${subCategories(jsonData, index)}
+                      </div>`;
     });
 };
 
@@ -26,6 +47,24 @@ const clickEffect = () => {
   document
     .querySelector(".js_food_menu_headings")
     .addEventListener("click", foodMenuTurner);
+};
+
+const selectedHeadingStyle = (Event) => {
+  let previousSelectedHeading = document.querySelector(".selected-heading");
+  if (previousSelectedHeading) {
+    previousSelectedHeading.classList.remove("selected-heading");
+  }
+  Event.target.classList.add("selected-heading");
+};
+
+const foodMenuHeight = () => {
+  if (document.querySelector(".js_active_menu_page") === null) {
+    return;
+  }
+  let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
+  document
+    .querySelector(".js_food_menu_pages")
+    .setAttribute("style", `height: ${menuHeight + 60}px`);
 };
 
 const foodMenuTurner = (Event) => {
@@ -40,11 +79,6 @@ const foodMenuTurner = (Event) => {
   $foodMenuPagesArray.map((menuPage) =>
     $foodMenuPagesClasses.push(menuPage.classList)
   );
-  let previousSelectedHeading = document.querySelector(".selected-heading");
-  if (previousSelectedHeading) {
-    previousSelectedHeading.classList.remove("selected-heading");
-  }
-  Event.target.classList.add("selected-heading");
   let eventTargetIndex = $foodMenuHeadingsArray.indexOf(Event.target);
   for (let pageIndex in $foodMenuPagesClasses) {
     $foodMenuPagesClasses[pageIndex].remove(
@@ -64,14 +98,8 @@ const foodMenuTurner = (Event) => {
       );
     }
   }
+  selectedHeadingStyle(Event);
   foodMenuHeight();
-};
-
-const foodMenuHeight = () => {
-  let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
-  document
-    .querySelector(".js_food_menu_pages")
-    .setAttribute("style", `height: ${menuHeight + 60}px`);
 };
 
 // foodMenuHeight();
