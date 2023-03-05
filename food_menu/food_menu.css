@@ -37,7 +37,7 @@
   transition-duration: 0.5s;
   width: 90%;
   left: 5%;
-  height: 100vh;
+  height: auto;
   transition: 0.5s;
 }
 
