@@ -46,7 +46,7 @@ linkArray.map((link) =>
   fetch(link)
     .then((data) => data.json())
     .then((dataArray) => {
-      let pricingTitles = dataArray.filter(
+      let pricingTitles = dataArray[3].products.filter(
         (title) => title.pricing_table === true
       );
       let pricingTables = pricingTableMaker(pricingTitles);
