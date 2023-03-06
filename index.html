@@ -48,10 +48,8 @@
   </header>
   <main class="main">
     <div class="video-leader-phone">
-      <div class="video-box">
-        <video class="video" id="video" src="./videos/italian_pizza_video.mp4" alt="Italian Pizza" autoplay=""
-          loop=""></video>
-      </div>
+      <video class="video" id="video" src="./videos/italian_pizza_video.mp4" alt="Italian Pizza" autoplay=""
+        loop=""></video>
       <!-- https://assets.mixkit.co/videos/preview/mixkit-italian-pizza-texture-close-up-13884-large.mp4 -->
       <div class="leader-phone">
         <h1 class="leader">Taste our pizza!</h1>
@@ -62,12 +60,18 @@
       <h3 id="special-offers-target" class="section-heading js_special_offers">Special Offers</h3>
       <div class="pricing-table-holder js_pricing_tables">
         <!-- ********************************************************************* -->
-        <!-- ===== PRICING TABLES ARE IN PRICING.JS AND  PRICING.CSS FILES. ====== -->
+        <!-- ================== PRICING TABLES ARE IN PRICING.JS ================= -->
         <!-- ********************************************************************* -->
       </div>
     </section>
     <section class="second-section section">
-      <h3 id="menu-target" class="menu-target  section-heading">Menu</h3>
+      <h3 id="menu-target" class="menu-target section-heading second">
+        <select class="js_menu_selector" name="menus" id="menus">
+          <option value="menu">Menu</option>
+          <option value="vegetarian">Vegetarian Menu</option>
+          <option value="vegan">Vegan Menu</option>
+        </select>
+      </h3>
       <div class="food-menu js_food_menu">
         <div class="food-menu-headings js_food_menu_headings">
           <!-- <button class="menu-heading pizza js_menu_button">Pizza
