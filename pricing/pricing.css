@@ -1,5 +1,18 @@
 /* ============================ PRICING TABLES =========================== */
 
+.first-section {
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+  background-image: url("../images/assorment_with_pizza_slices_mushrooms.jpg");
+  /* https://i.ibb.co/yhcGmYJ/assorment-with-pizza-slices-mushrooms2.jpg */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  box-shadow: inset 0 0.5rem 1rem var(--black),
+    inset 0 -0.5rem 1rem var(--black);
+}
+
 .pricing-table-holder {
   display: flex;
   justify-content: space-evenly;
@@ -41,6 +54,8 @@
 
 .pricing-content {
   position: relative;
+  width: 100%;
+  height: 100%;
   z-index: 2;
 }
 
