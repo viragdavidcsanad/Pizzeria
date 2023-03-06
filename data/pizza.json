@@ -4,79 +4,104 @@
   },
   {
     "sub_category": [
-      "pizza with meet",
+      null,
       "pizza with fish",
-      "vegetarian pizza"
+      "vegetarian pizza",
+      "vegan pizza"
     ]
   },
   {
-    "name": "Pizza Provenciale",
-    "image_link": "./images/pizza_provenciale.png",
-    "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
-    "prices": {
-      "9\" (0.5 lb)": "8.99",
-      "14\" (1 lbs)": "13.99",
-      "18\" (2 lbs)": "17.99"
-    },
-    "pricing_table": false,
-    "product_category": "pizza",
-    "product_sub_category": "pizza with meet",
-    "number": 31
+    "dozes": {
+      "small": "0.5 lb",
+      "large": "1 lbs",
+      "x_large": "2 lbs"
+    }
   },
   {
-    "name": "Pizza Roma",
-    "image_link": "./images/pizza_Roma.png",
-    "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
-    "prices": {
-      "9\" (0.5 lb)": "7.99",
-      "14\" (1 lbs)": "11.99",
-      "18\" (2 lbs)": "14.99"
-    },
-    "pricing_table": true,
-    "product_category": "pizza",
-    "product_sub_category": "pizza with meet",
-    "number": 32
-  },
-  {
-    "name": "Pizza Castello",
-    "image_link": "./images/pizza_castello.png",
-    "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
-    "prices": {
-      "9\" (0.5 lb)": "9.99",
-      "14\" (1 lbs)": "14.99",
-      "18\" (2 lbs)": "18.99"
-    },
-    "pricing_table": true,
-    "product_category": "pizza",
-    "product_sub_category": "pizza with meet",
-    "number": 33
-  },
-  {
-    "name": "Pizza Pane",
-    "image_link": "./images/pizza_pane.png",
-    "ingredients": "pizzabrot pizza bread, garlic, olive oil",
-    "prices": {
-      "9\" (0.5 lb)": "3.99",
-      "14\" (1 lbs)": "7.99",
-      "18\" (2 lbs)": "10.99"
-    },
-    "pricing_table": false,
-    "product_category": "pizza",
-    "product_sub_category": "vegetarian pizza",
-    "number": 34
-  },
-  {
-    "name": "Pizza Quattro Staggioni",
-    "image_link": "./images/pizza_quattro_staggioni.png",
-    "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
-    "prices": {
-      "9\" (0.5 lb)": "6.99",
-      "14\" (1 lbs)": "10.99",
-      "18\" (2 lbs)": "13.99"
-    },
-    "pricing_table": false,
-    "product_category": "pizza",
-    "product_sub_category": "pizza with meet",
-    "number": 35
+    "products": [
+      {
+        "name": "Pizza Provenciale",
+        "image_link": "./images/pizza_provenciale.png",
+        "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
+        "prices": {
+          "small": "8.99",
+          "large": "13.99",
+          "x_large": "17.99"
+        },
+        "pricing_table": false,
+        "product_category": "pizza",
+        "product_sub_category": null,
+        "number": 31,
+        "vegetarian": false,
+        "vegan": false
+      },
+      {
+        "name": "Pizza Roma",
+        "image_link": "./images/pizza_Roma.png",
+        "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
+        "prices": {
+          "small": "7.99",
+          "large": "11.99",
+          "x_large": "14.99"
+        },
+        "pricing_table": true,
+        "product_category": "pizza",
+        "product_sub_category": null,
+        "number": 32,
+        "vegetarian": false,
+        "vegan": false
+      },
+      {
+        "name": "Pizza Castello",
+        "image_link": "./images/pizza_castello.png",
+        "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
+        "prices": {
+          "small": "9.99",
+          "large": "14.99",
+          "x_large": "18.99"
+        },
+        "pricing_table": true,
+        "product_category": "pizza",
+        "product_sub_category": null,
+        "number": 33,
+        "seafood": false,
+        "vegetarian": false,
+        "vegan": false
+      },
+      {
+        "name": "Pizza Pane",
+        "image_link": "./images/pizza_pane.png",
+        "ingredients": "pizzabrot pizza bread, garlic, olive oil",
+        "prices": {
+          "small": "3.99",
+          "large": "7.99",
+          "x_large": "10.99"
+        },
+        "pricing_table": false,
+        "product_category": "pizza",
+        "product_sub_category": "vegan pizza",
+        "number": 34,
+        "seafood": false,
+        "vegetarian": true,
+        "vegan": false
+      },
+      {
+        "name": "Pizza Quattro Staggioni",
+        "image_link": "./images/pizza_quattro_staggioni.png",
+        "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
+        "prices": {
+          "small": "6.99",
+          "large": "10.99",
+          "x_large": "13.99"
+        },
+        "pricing_table": false,
+        "product_category": "pizza",
+        "product_sub_category": null,
+        "number": 35,
+        "seafood": false,
+        "vegetarian": false,
+        "vegan": false
+      }
+    ]
   }
 ]

@@ -10,16 +10,29 @@
     ]
   },
   {
-    "name": "orange juice",
-    "image_link": "./images/orange_juice.png",
-    "ingredients": "squeezed from fruit",
-    "prices": {
-      "small (8 fl oz)": "2.99",
-      "large (16 fl oz)": "4.99"
-    },
-    "pricing_table": true,
-    "product_category": "drink",
-    "product_sub_category": "soft drink",
-    "number": 11
+    "dozes": {
+      "small": "(8 fl oz)",
+      "large": "(16 fl oz)"
+    }
+  },
+  {
+    "products": [
+      {
+        "name": "orange juice",
+        "image_link": "./images/orange_juice.png",
+        "ingredients": "squeezed from fruit",
+        "prices": {
+          "small": "2.99",
+          "large": "4.99"
+        },
+        "pricing_table": true,
+        "product_category": "drink",
+        "product_sub_category": "soft drink",
+        "number": 11,
+        "seafood": false,
+        "vegetarian": true,
+        "vegan": true
+      }
+    ]
   }
 ]
