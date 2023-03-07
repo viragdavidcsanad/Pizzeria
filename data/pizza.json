@@ -3,12 +3,12 @@
     "category": "pizza"
   },
   {
-    "sub_category": [
-      null,
-      "pizza with fish",
-      "vegetarian pizza",
-      "vegan pizza"
-    ]
+    "sub_category": {
+      "meat": "meat",
+      "seafood": "pizza with seafood",
+      "vegetarian": "vegetarian pizza",
+      "vegan": "vegan pizza"
+    }
   },
   {
     "dozes": {
@@ -30,10 +30,11 @@
         },
         "pricing_table": false,
         "product_category": "pizza",
-        "product_sub_category": null,
         "number": 31,
-        "vegetarian": false,
-        "vegan": false
+        "meat": "meat",
+        "seafood": null,
+        "vegetarian": null,
+        "vegan": null
       },
       {
         "name": "Pizza Roma",
@@ -46,10 +47,11 @@
         },
         "pricing_table": true,
         "product_category": "pizza",
-        "product_sub_category": null,
         "number": 32,
-        "vegetarian": false,
-        "vegan": false
+        "meat": "meat",
+        "seafood": null,
+        "vegetarian": null,
+        "vegan": null
       },
       {
         "name": "Pizza Castello",
@@ -62,11 +64,11 @@
         },
         "pricing_table": true,
         "product_category": "pizza",
-        "product_sub_category": null,
         "number": 33,
-        "seafood": false,
-        "vegetarian": false,
-        "vegan": false
+        "meat": "meat",
+        "seafood": null,
+        "vegetarian": null,
+        "vegan": null
       },
       {
         "name": "Pizza Pane",
@@ -79,11 +81,11 @@
         },
         "pricing_table": false,
         "product_category": "pizza",
-        "product_sub_category": "vegan pizza",
         "number": 34,
-        "seafood": false,
-        "vegetarian": true,
-        "vegan": false
+        "meat": null,
+        "seafood": null,
+        "vegetarian": "vegetarian",
+        "vegan": "vegan"
       },
       {
         "name": "Pizza Quattro Staggioni",
@@ -96,11 +98,11 @@
         },
         "pricing_table": false,
         "product_category": "pizza",
-        "product_sub_category": null,
         "number": 35,
-        "seafood": false,
-        "vegetarian": false,
-        "vegan": false
+        "meat": "meat",
+        "seafood": null,
+        "vegetarian": null,
+        "vegan": null
       }
     ]
   }

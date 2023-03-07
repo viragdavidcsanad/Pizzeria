@@ -3,11 +3,12 @@
     "category": "pasta"
   },
   {
-    "sub_category": [
-      null,
-      "pasta with seafood",
-      "vegetarian pasta"
-    ]
+    "sub_category": {
+      "meat": "meat",
+      "seafood": "pasta with seafood",
+      "vegetarian": "vegetarian pasta",
+      "vegan": "vegan pasta"
+    }
   },
   {
     "dozes": {
@@ -27,11 +28,11 @@
         },
         "pricing_table": true,
         "product_category": "pasta",
-        "product_sub_category": "vegetarian pasta",
         "number": 21,
-        "seafood": false,
-        "vegetarian": true,
-        "vegan": false
+        "meat": null,
+        "seafood": null,
+        "vegetarian": "vegetarian",
+        "vegan": null
       }
     ]
   }
