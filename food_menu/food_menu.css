@@ -176,4 +176,8 @@
     "food-menu-product-image-box size-and-price";
 }
 
+.invisible {
+  height: 0;
+}
+
 /* }  */
