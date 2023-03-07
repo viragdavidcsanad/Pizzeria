@@ -1,12 +1,22 @@
 import { linkArray } from "../main.js";
 
-let $foodMenuHeadings;
 let $foodMenuHeadingsArray;
 const $foodMenuSelector = document.querySelector(".js_menu_selector");
+const $headingsContainer = document.querySelector(".js_food_menu_headings");
+const $pagesContainer = document.querySelector(".js_food_menu_pages");
 
-const vegetarianOrVeganFilter = (jsonData) => {
-  if ($foodMenuSelector.value === "menu") {
-    return jsonData[3].products;
+const foodFilter = () => {
+  const $productTablesArray = [
+    ...document.querySelectorAll(".js_food_menu_product_tables"),
+  ];
+  const $subCategoryTablesArray = [...document.querySelectorAll(".js_food_menu_sub_category_tables")];
+  if ($foodMenuSelector === "seafood") {
+    const $notSeaFoodArray = $productTablesArray.filter(
+      (table) => !table.classList.contains("seafood")
+    );
+    $notSeaFoodArray.map((table) => table.classList.add("invisible"));
+    const $notSeaFoodSubCategoryArray = $subCategoryTablesArray.filter((table) => !table.classList.contains("seafood"));
+    $notSeaFoodSubCategoryArray.map((table) => table.classList.add("invisible"));
   } else if ($foodMenuSelector.value === "vegetarian") {
     const vegetarianFilteredData = jsonData[3].products.filter(
       (product) => product.vegetarian
@@ -22,12 +32,12 @@ const vegetarianOrVeganFilter = (jsonData) => {
 
 const renderFoodMenuProducts = (jsonData, subCategory) => {
   let foodMenuProducts = "";
-  const data = vegetarianOrVeganFilter(jsonData);
-  const subCategoryProducts = data.filter((product) => {
-    product.product_sub_category === subCategory;
-  });
+  // const data = vegetarianOrVeganFilter(jsonData);
+  const subCategoryProducts = jsonData.products.filter(
+    (product) => product.product_sub_category === subCategory
+  );
   subCategoryProducts.map((product) => {
-    foodMenuProducts += `<div class="food-menu-product-table">
+    foodMenuProducts += `<div class="food-menu-product-table ${product.seafood} ${product.vegetarian} ${product.vegan} js_food_menu_product_tables">
                            <h4 class="food-menu-product-heading">${product.name}</h4>
                            <div class="food-menu-product-image-box">
                              <img class="food-menu-product-image" src="${product.image_link}">
@@ -49,7 +59,7 @@ const renderSubCategories = (jsonData) => {
     } else if (renderFoodMenuProducts(jsonData, subCategory) === "") {
       return;
     } else {
-      subCategories += `<div>
+      subCategories += `<div class="food-menu-sub-category-table js_food_menu_sub_category_table">
                           <h4 class="food-menu-sub-category">${subCategory}</h4>
                           ${renderFoodMenuProducts(jsonData, subCategory)}
                         </div>`;
@@ -58,21 +68,22 @@ const renderSubCategories = (jsonData) => {
   return subCategories;
 };
 
-const renderHeadingsAndPages = (jsonData) => {
+const renderHeadingsAndPages = (jsonData, index) => {
   const category = jsonData[0].category;
   if (renderSubCategories(jsonData) === "") {
     return;
   } else {
-    document.querySelector(
-      ".js_food_menu_headings"
-    ).innerHTML += `<button class="food-menu-heading ${category} js_food_menu_heading">${category}</button>`;
-    document.querySelector(
-      ".js_food_menu_pages"
-    ).innerHTML += `<div class="food-menu-page ${category} js_food_menu_page">
-                          <h3 class="food-menu-category">${category}</h3>
-                          ${renderSubCategories(jsonData)}
-                        </div>`;
+    if (index === 0) {
+      $headingsContainer.innerHTML = "";
+      $pagesContainer.innerHTML = "";
+    }
+    $headingsContainer.innerHTML += `<button class="food-menu-heading ${category} js_food_menu_heading">${category}</button>`;
+    $pagesContainer.innerHTML += `<div class="food-menu-page ${category} js_food_menu_page">
+                                    <h3 class="food-menu-category">${category}</h3>
+                                    ${renderSubCategories(jsonData)}
+                                  </div>`;
   }
+  foodMenuHeight();
 };
 
 const clickEffect = () => {
@@ -90,23 +101,32 @@ const selectedHeadingStyle = (Event) => {
 };
 
 const foodMenuHeight = () => {
-  if (document.querySelector(".js_active_menu_page") === null) {
-    return;
-  }
-  let menuHeight = document.querySelector(".js_active_menu_page").clientHeight;
-  document
-    .querySelector(".js_food_menu_pages")
-    .setAttribute("style", `height: ${menuHeight + 60}px`);
+  const $pagesArray = [...$pagesContainer.children];
+  const $activePage = document.querySelector(".js_active_menu_page");
+  const menuHeight = () => {
+    if ($activePage === null) {
+      return $pagesArray.reduce(
+        (accumulator, element) => accumulator + element.offsetHeight,
+        0
+      );
+    } else return $activePage.offsetHeight;
+  };
+  return $pagesContainer.setAttribute(
+    "style",
+    `height: ${menuHeight() + 60}px`
+  );
 };
 
 const foodMenuTurner = (Event) => {
   if (Event.target === document.querySelector(".js_food_menu_headings")) {
     return;
   }
-  $foodMenuHeadings = document.querySelectorAll(".js_food_menu_heading");
-  $foodMenuHeadingsArray = [...$foodMenuHeadings];
-  const $foodMenuPages = document.querySelectorAll(".js_food_menu_page");
-  const $foodMenuPagesArray = [...$foodMenuPages];
+  $foodMenuHeadingsArray = [
+    ...document.querySelectorAll(".js_food_menu_heading"),
+  ];
+  const $foodMenuPagesArray = [
+    ...document.querySelectorAll(".js_food_menu_page"),
+  ];
   let $foodMenuPagesClasses = [];
   $foodMenuPagesArray.map((menuPage) =>
     $foodMenuPagesClasses.push(menuPage.classList)
@@ -134,20 +154,19 @@ const foodMenuTurner = (Event) => {
   foodMenuHeight();
 };
 
-const foodMenuChangingEffect = (jsonData) => {
-  $foodMenuSelector.addEventListener(
-    "change",
-    renderHeadingsAndPages(jsonData)
-  );
+const foodMenuChangingEffect = (jsonData, index) => {
+  $foodMenuSelector.addEventListener("change", () => {
+    renderHeadingsAndPages(jsonData, index);
+  });
 };
 
-linkArray.map((link) =>
+linkArray.map((link, index) =>
   fetch(link)
     .then((rawData) => rawData.json())
     .then((jsonData) => {
-      clickEffect();
-      foodMenuChangingEffect(jsonData);
       renderHeadingsAndPages(jsonData);
+      clickEffect();
+      foodMenuChangingEffect(jsonData, index);
     })
 );
 
