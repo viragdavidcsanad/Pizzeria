@@ -1,17 +1,20 @@
 [
   {
+    "currency": "$"
+  },
+  {
     "category": "salad"
   },
- {
-  "sub_category": {
-    "meat": "meat",
-    "seafood": "salad with seafood",
-    "vegetarian": "vegetarian salad",
-    "vegan": "vegan salad"
-  }
-},
   {
-    "dozes": {
+    "subcategory": [
+      "meat",
+      "salad with seafood",
+      "vegetarian salad",
+      "vegan salad"
+    ]
+  },
+  {
+    "portions": {
       "small": "(0.5 lb)",
       "large": "(1 lbs)"
     }
@@ -28,9 +31,10 @@
         },
         "pricing_table": true,
         "product_category": "salad",
+        "product_subcategory": "salad with seafood",
         "number": 41,
-        "meat": "meat",
-        "seafood": null,
+        "meat": null,
+        "seafood": "seafood",
         "vegetarian": null,
         "vegan": null
       }

@@ -1,19 +1,23 @@
 [
   {
+    "currency": "$"
+  },
+  {
     "category": "pasta"
   },
   {
-    "sub_category": {
-      "meat": "meat",
-      "seafood": "pasta with seafood",
-      "vegetarian": "vegetarian pasta",
-      "vegan": "vegan pasta"
-    }
+    "subcategory": [
+      "meat",
+      "pasta with seafood",
+      "vegetarian pasta",
+      "vegan pasta"
+    ]
   },
   {
-    "dozes": {
+    "portions": {
       "small": "(0.5 lb)",
-      "large": "(1 lbs)"
+      "large": "(1 lbs)",
+      "extra large": "(2 lbs)"
     }
   },
   {
@@ -24,10 +28,12 @@
         "ingredients": "green peas, Parmesan cheese, olive oil, almond flakes, garlic, lemon juice, basil, salt, pepper, pasta (bavette)",
         "prices": {
           "small": "8.99",
-          "large": "13.99"
+          "large": "13.99",
+          "extra large": "18.99"
         },
         "pricing_table": true,
         "product_category": "pasta",
+        "product_subcategory": "vegetarian pasta",
         "number": 21,
         "meat": null,
         "seafood": null,

@@ -1,20 +1,23 @@
 [
   {
+    "currency": "$"
+  },
+  {
     "category": "pizza"
   },
   {
-    "sub_category": {
-      "meat": "meat",
-      "seafood": "pizza with seafood",
-      "vegetarian": "vegetarian pizza",
-      "vegan": "vegan pizza"
-    }
+    "subcategory": [
+      "meat",
+      "pizza with seafood",
+      "vegetarian pizza",
+      "vegan pizza"
+    ]
   },
   {
-    "dozes": {
-      "small": "0.5 lb",
-      "large": "1 lbs",
-      "x_large": "2 lbs"
+    "portions": {
+      "small": "(0.5 lb)",
+      "large": "(1 lbs)",
+      "extra large": "(2 lbs)"
     }
   },
   {
@@ -26,10 +29,11 @@
         "prices": {
           "small": "8.99",
           "large": "13.99",
-          "x_large": "17.99"
+          "extra large": "17.99"
         },
         "pricing_table": false,
         "product_category": "pizza",
+        "product_subcategory": "meat",
         "number": 31,
         "meat": "meat",
         "seafood": null,
@@ -43,10 +47,11 @@
         "prices": {
           "small": "7.99",
           "large": "11.99",
-          "x_large": "14.99"
+          "extra large": "14.99"
         },
         "pricing_table": true,
         "product_category": "pizza",
+        "product_subcategory": "meat",
         "number": 32,
         "meat": "meat",
         "seafood": null,
@@ -60,10 +65,11 @@
         "prices": {
           "small": "9.99",
           "large": "14.99",
-          "x_large": "18.99"
+          "extra large": "18.99"
         },
         "pricing_table": true,
         "product_category": "pizza",
+        "product_subcategory": "meat",
         "number": 33,
         "meat": "meat",
         "seafood": null,
@@ -77,10 +83,11 @@
         "prices": {
           "small": "3.99",
           "large": "7.99",
-          "x_large": "10.99"
+          "extra large": "10.99"
         },
         "pricing_table": false,
         "product_category": "pizza",
+        "product_subcategory": "vegan pizza",
         "number": 34,
         "meat": null,
         "seafood": null,
@@ -94,10 +101,11 @@
         "prices": {
           "small": "6.99",
           "large": "10.99",
-          "x_large": "13.99"
+          "extra large": "13.99"
         },
         "pricing_table": false,
         "product_category": "pizza",
+        "product_subcategory": "meat",
         "number": 35,
         "meat": "meat",
         "seafood": null,

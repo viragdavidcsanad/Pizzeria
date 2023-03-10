@@ -1,18 +1,22 @@
 [
   {
+    "currency": "$"
+  },
+  {
     "category": "drink"
   },
   {
-    "sub_category": {
-      "soft_drink": "soft drink",
-      "italian_cocktail": "italian cocktail",
-      "italian_wine": "italian wine"
-    }
+    "subcategory": [
+      "soft drink",
+      "italian cocktail",
+      "italian wine"
+    ]
   },
   {
-    "dozes": {
+    "portions": {
       "small": "(8 fl oz)",
-      "large": "(16 fl oz)"
+      "large": "(16 fl oz)",
+      "extra large": "(32 fl oz)"
     }
   },
   {
@@ -20,18 +24,16 @@
       {
         "name": "orange juice",
         "image_link": "./images/orange_juice.png",
-        "ingredients": "squeezed from fruit",
+        "ingredients": "squeezed from fresh fruit",
         "prices": {
           "small": "2.99",
-          "large": "4.99"
+          "large": "4.99",
+          "extra large": "8.99"
         },
         "pricing_table": true,
         "product_category": "drink",
-        "product_sub_category": "soft drink",
-        "number": 11,
-        "seafood": null,
-        "vegetarian": "vegetarian",
-        "vegan": "vegan"
+        "product_subcategory": "soft drink",
+        "number": 11
       }
     ]
   }
