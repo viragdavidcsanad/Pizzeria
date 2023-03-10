@@ -3,6 +3,7 @@ const linkArray = [
   "./data/pasta.json",
   "./data/salad.json",
   "./data/drink.json",
+  "./data/food_menu_selector.json",
 ];
 export { linkArray };
 
@@ -12,19 +13,12 @@ const $hamburgerMenu = document.querySelector(".js_hamburger_menu");
 const $bar1 = document.querySelector(".js_bar1");
 const $bar2 = document.querySelector(".js_bar2");
 const $bar3 = document.querySelector(".js_bar3");
-const $navLinks = document.querySelectorAll(".js_nav_link");
-let $navItems = document.querySelectorAll(".js_nav_item");
+let $navItems = [...document.querySelectorAll(".js_nav_item")];
 let $navItemsClasses = [];
 
-// *********************************************************************
-// ======================= FUNCTIONS AND EVENTS ========================
-// *********************************************************************
-// ========== HEADER SCROLL EFFECT ON LOGO AND NAVIGATION ==============
-
-$navItems = [...$navItems];
 $navItems.map((item) => $navItemsClasses.push(item.classList));
 
-function scrolledHeader() {
+const scrolledHeader = () => {
   if (
     document.body.scrollTop > 130 ||
     document.documentElement.scrollTop > 130
@@ -53,7 +47,7 @@ window.onscroll = scrolledHeader;
 
 // =========================== HAMBURGER MENU SHIFT =========================
 
-function menuShifter() {
+const menuShifter = () => {
   $navBar.classList.toggle("shifted-nav-bar");
   $hamburgerMenu.classList.toggle("shifted-hamburger-menu");
   $bar1.classList.toggle("shifted-bar1");
