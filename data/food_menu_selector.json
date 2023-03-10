@@ -1,0 +1,10 @@
+[
+	{
+		"selectors": {
+			"menu": "Menu",
+			"seafood": "Seafood",
+			"vegetarian": "Vegetarian",
+			"vegan": "Vegan"
+		}
+	}
+]
