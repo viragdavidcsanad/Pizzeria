@@ -46,21 +46,17 @@ a {
   text-align: center;
   font-family: heading-font;
   font-size: 4rem;
-  color: var(--white);
-  opacity: 0.9;
+  color: var(--black);
   font-weight: bold;
-  /* background-color: var(--black); */
   text-shadow:
-    1rem 0 1rem var(--black),
-    -1rem 0 1rem var(--black),
-    1rem 0 1rem var(--black),
-    -1rem 0 1rem var(--black),
-    0 -1rem 1rem var(--black),
-    0 1rem 1rem var(--black),
-    1rem 1rem 1rem var(--black),
-    -1rem -1rem 1rem var(--black),
-    1rem -1rem 1rem var(--black),
-    -1rem 1rem 1rem var(--black);
+    1rem 0 3rem var(--white),
+    -1rem 0 3rem var(--white),
+    0 -1rem 3rem var(--white),
+    0 1rem 3rem var(--white),
+    1rem 1rem 3rem var(--white),
+    -1rem -1rem 3rem var(--white),
+    1rem -1rem 3rem var(--white),
+    -1rem 1rem 3rem var(--white);
 }
 
 .section {
@@ -385,7 +381,7 @@ a {
   outline: 0.2rem solid var(--white);
 }
 
-/* =============================== MAIN ================================ */
+/* ================================ MAIN ==================================== */
 
 .main {
   position: relative;
@@ -403,7 +399,7 @@ a {
 .video {
   position: absolute;
   min-width: 100%;
-  min-height: 100%;
+  min-height: 115%;
   bottom: 0;
   left: 0;
   z-index: -1;
@@ -446,9 +442,41 @@ a {
 
 /* ========= THE STYLES OF PRICING TABLES ARE IN THE PRICING.CSS ============ */
 
+/* =========== THE STYLES OF FOOD MENU ARE IN THE PRICING.CSS =============== */
 
+/* *************************************************************************** */
 
+/* =========================== FOOD MENU SELECTOR =========================== */
 
+.food-menu-selector {
+  padding: 2rem;
+  line-height: 5.5rem;
+  text-align: center;
+  font-family: heading-font;
+  font-size: 4rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  /* appearance: none; */
+  background: none;
+  color: var(--white);
+  overflow: hidden;
+  border-radius: 0.8rem;
+  text-transform: capitalize;
+}
+
+/* .food-menu-selector:focus {
+  outline: 1rem solid red;
+} */
+
+.food-menu-selector-option {
+  /* background-color: var(--deepgray); */
+  font-family: heading-font;
+  color: var(--deepgray);
+  padding: 0;
+  border: none;
+  /* display: none; */
+}
 
 /* =============================== FOOTER =================================== */
 
