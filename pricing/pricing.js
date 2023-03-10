@@ -1,18 +1,22 @@
 import { linkArray } from "../main.js";
 
-function dozeAndPriceRow(title) {
-  let dozeAndPriceRows = [];
-  for (let doze in title.prices) {
-    dozeAndPriceRows.push(
-   `<div class="doze-and-price-row">
-        <span class="doze">${doze}</span>
-        <span class="price">${title.prices[doze]}</span>
-    </div>`);
+function portionAndPriceRow(title, dataArray) {
+  const currency = dataArray.filter((data) => data.currency)[0].currency;
+  const portionsObject = dataArray.filter((data) => data.portions)[0].portions;
+  let portionAndPriceRows = [];
+  for (let portion in title.prices) {
+    portionAndPriceRows.push(
+      `<div class="portion-and-price-row">
+        <span class="portion">${portion}</span>
+        <span class="portion-content">${portionsObject[portion]}</span>
+        <span class="price">${currency}${title.prices[portion]}</span>
+    </div>`
+    );
   }
-  return dozeAndPriceRows.join("");
+  return portionAndPriceRows.join("");
 }
 
-function pricingTableMaker(pricingTitles) {
+function pricingTableMaker(pricingTitles, dataArray) {
   let pricingTables = pricingTitles
     .map(
       (title) => `<div class="pricing-table">
@@ -26,8 +30,8 @@ function pricingTableMaker(pricingTitles) {
         </div>
         <p class="pricing-table-text">${title.ingredients}</p>
         <h4 class="pricing-sub-heading">Prices</h4>
-        <div class="doze-and-price">
-        ${dozeAndPriceRow(title)}    
+        <div class="portion-and-price">
+        ${portionAndPriceRow(title, dataArray)}    
         </div>
       </div>
     </a>
@@ -46,10 +50,13 @@ linkArray.map((link) =>
   fetch(link)
     .then((data) => data.json())
     .then((dataArray) => {
-      let pricingTitles = dataArray[3].products.filter(
-        (title) => title.pricing_table === true
-      );
-      let pricingTables = pricingTableMaker(pricingTitles);
-      pricingRender(pricingTables);
+      if (dataArray.filter((data) => data.selectors).length > 0) {
+      } else {
+        const pricingTitles = dataArray
+          .filter((data) => data.products)[0]
+          .products.filter((title) => title.pricing_table === true);
+        let pricingTables = pricingTableMaker(pricingTitles, dataArray);
+        pricingRender(pricingTables);
+      }
     })
 );
