@@ -457,7 +457,6 @@ a {
   font-weight: bold;
   border: none;
   cursor: pointer;
-  /* appearance: none; */
   background: none;
   color: var(--white);
   overflow: hidden;
@@ -472,7 +471,7 @@ a {
 .food-menu-selector-option {
   /* background-color: var(--deepgray); */
   font-family: heading-font;
-  color: var(--deepgray);
+  color: var(--white);
   padding: 0;
   border: none;
   /* display: none; */
