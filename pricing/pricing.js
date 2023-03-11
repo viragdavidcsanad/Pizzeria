@@ -1,4 +1,9 @@
-import { linkArray } from "../main.js";
+const linkArray = [
+  "./data/pizza.json",
+  "./data/pasta.json",
+  "./data/salad.json",
+  "./data/drink.json",
+];
 
 function portionAndPriceRow(title, dataArray) {
   const currency = dataArray.filter((data) => data.currency)[0].currency;
@@ -50,13 +55,10 @@ linkArray.map((link) =>
   fetch(link)
     .then((data) => data.json())
     .then((dataArray) => {
-      if (dataArray.filter((data) => data.selectors).length > 0) {
-      } else {
-        const pricingTitles = dataArray
-          .filter((data) => data.products)[0]
-          .products.filter((title) => title.pricing_table === true);
-        let pricingTables = pricingTableMaker(pricingTitles, dataArray);
-        pricingRender(pricingTables);
-      }
+      const pricingTitles = dataArray
+        .filter((data) => data.products)[0]
+        .products.filter((title) => title.pricing_table === true);
+      let pricingTables = pricingTableMaker(pricingTitles, dataArray);
+      pricingRender(pricingTables);
     })
 );
