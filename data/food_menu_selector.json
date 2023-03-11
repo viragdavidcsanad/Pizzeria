@@ -2,9 +2,9 @@
 	{
 		"selectors": {
 			"menu": "Menu",
-			"seafood": "Seafood",
-			"vegetarian": "Vegetarian",
-			"vegan": "Vegan"
+			"seafood": "Seafood Menu",
+			"vegetarian": "Vegetarian Menu",
+			"vegan": "Vegan Menu"
 		}
 	}
 ]
