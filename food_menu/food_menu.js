@@ -1,8 +1,17 @@
-import { linkArray } from "../main.js";
+const linkArray = [
+  "./data/pizza.json",
+  "./data/pasta.json",
+  "./data/salad.json",
+  "./data/drink.json",
+  "./data/food_menu_selector.json",
+];
 
 let $foodMenuHeadingsArray;
 const $headingsContainer = document.querySelector(".js_food_menu_headings");
 const $pagesContainer = document.querySelector(".js_food_menu_pages");
+const $foodMenuSelectorHolder = document.querySelector(
+  ".js_food_menu_selector_holder"
+);
 const $foodMenuSelector = document.querySelector(".js_food_menu_selector");
 
 const foodFilter = (jsonData) => {
@@ -162,14 +171,31 @@ const clickEffect = () => {
     .addEventListener("click", foodMenuTurner);
 };
 
+const eventChange = new Event("change");
+
+const addValueToSelect = (Event) => {
+  const invisibleOptionsArray = [...document.querySelectorAll(".js_invisible_selector_option")];
+  const optionsArray = [...document.querySelectorAll(".js_food_menu_selector_option")];
+  const index = optionsArray.indexOf(Event.target);
+  $foodMenuSelector.value = invisibleOptionsArray[index].value;
+  invisibleOptionsArray.map(option => option.selected = false);
+  invisibleOptionsArray[index].selected = true;
+  $foodMenuSelector.dispatchEvent(eventChange);
+}
+
+const selectorClickeffect = () => {
+  $foodMenuSelectorHolder.addEventListener("click", addValueToSelect);
+}
+
 const renderFoodMenuSelector = (jsonData) => {
   const selectors = jsonData.filter((data) => data.selectors)[0].selectors;
   for (let selector in selectors) {
-    if (selector === "menu") {
-      $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-selector-option">${selectors[selector]}</option>`;
-    } else
-      $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-selector-option">${selectors[selector]} menu</option>`;
+    $foodMenuSelector.innerHTML += `<option value="${selector}" class="invisible-selector-option js_invisible_selector_option">${selectors[selector]}</option>`;
   }
+  for (let selector in selectors) {
+    $foodMenuSelectorHolder.innerHTML += `<div value="${selector}" class="food-menu-selector-option js_food_menu_selector_option">${selectors[selector]}</div>`;
+  }
+  selectorClickeffect();
 };
 
 const fetchFoodMenu = () => {
