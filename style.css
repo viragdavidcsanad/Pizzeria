@@ -448,34 +448,6 @@ a {
 
 /* =========================== FOOD MENU SELECTOR =========================== */
 
-.food-menu-selector {
-  padding: 2rem;
-  line-height: 5.5rem;
-  text-align: center;
-  font-family: heading-font;
-  font-size: 4rem;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  background: none;
-  color: var(--white);
-  overflow: hidden;
-  border-radius: 0.8rem;
-  text-transform: capitalize;
-}
-
-/* .food-menu-selector:focus {
-  outline: 1rem solid red;
-} */
-
-.food-menu-selector-option {
-  /* background-color: var(--deepgray); */
-  font-family: heading-font;
-  color: var(--white);
-  padding: 0;
-  border: none;
-  /* display: none; */
-}
 
 /* =============================== FOOTER =================================== */
 
