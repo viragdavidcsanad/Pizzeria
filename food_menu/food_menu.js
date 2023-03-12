@@ -12,7 +12,9 @@ const $pagesContainer = document.querySelector(".js_food_menu_pages");
 const $foodMenuSelectorHolder = document.querySelector(
   ".js_food_menu_selector_holder"
 );
-const $foodMenuSelector = document.querySelector(".js_food_menu_selector");
+const $foodMenuSelector = document.querySelector(
+  ".js_invisible_food_menu_selector"
+);
 
 const foodFilter = (jsonData) => {
   let filteredFood = [];
@@ -136,7 +138,7 @@ const foodMenuTurner = (Event) => {
   $foodMenuPagesArray.map((menuPage) =>
     $foodMenuPagesClasses.push(menuPage.classList)
   );
-  let eventTargetIndex = $foodMenuHeadingsArray.indexOf(Event.target);
+  const eventTargetIndex = $foodMenuHeadingsArray.indexOf(Event.target);
   for (let pageIndex in $foodMenuPagesClasses) {
     $foodMenuPagesClasses[pageIndex].remove(
       "js_active_menu_page",
@@ -171,30 +173,57 @@ const clickEffect = () => {
     .addEventListener("click", foodMenuTurner);
 };
 
+const removeSelectorFocus = ($visibleSelector) => {
+  document.addEventListener("click", () => {
+    $visibleSelector.classList.remove("focus");
+    console.log("removed focus");
+  });
+};
+
 const eventChange = new Event("change");
 
 const addValueToSelect = (Event) => {
-  const invisibleOptionsArray = [...document.querySelectorAll(".js_invisible_selector_option")];
-  const optionsArray = [...document.querySelectorAll(".js_food_menu_selector_option")];
-  const index = optionsArray.indexOf(Event.target);
-  $foodMenuSelector.value = invisibleOptionsArray[index].value;
-  invisibleOptionsArray.map(option => option.selected = false);
-  invisibleOptionsArray[index].selected = true;
-  $foodMenuSelector.dispatchEvent(eventChange);
-}
+  const $invisibleOptionsArray = [
+    ...document.querySelectorAll(".js_food_menu_invisible_selector_option"),
+  ];
+  const $optionsArray = [
+    ...document.querySelectorAll(".js_food_menu_visible_selector_option"),
+  ];
+  const index = $optionsArray.indexOf(Event.target);
+  const $visibleSelector = document.querySelector(
+    ".js_food_menu_visible_selector"
+  );
+  $visibleSelector.classList.add("focus");
+  removeSelectorFocus($visibleSelector);
+  if (
+    Event.target === $visibleSelector ||
+    Event.target === $foodMenuSelectorHolder
+  ) {
+  } else {
+    $foodMenuSelector.value = $invisibleOptionsArray[index].value;
+    $invisibleOptionsArray.map((option) => (option.selected = false));
+    $invisibleOptionsArray[index].selected = true;
+    $visibleSelector.innerText = $optionsArray[index].innerText;
+    $foodMenuSelector.dispatchEvent(eventChange);
+  }
+};
 
 const selectorClickeffect = () => {
   $foodMenuSelectorHolder.addEventListener("click", addValueToSelect);
-}
+};
 
 const renderFoodMenuSelector = (jsonData) => {
   const selectors = jsonData.filter((data) => data.selectors)[0].selectors;
   for (let selector in selectors) {
-    $foodMenuSelector.innerHTML += `<option value="${selector}" class="invisible-selector-option js_invisible_selector_option">${selectors[selector]}</option>`;
+    $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">${selectors[selector]}</option>`;
   }
+  $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-visible-selector js_food_menu_visible_selector">${$foodMenuSelector.firstChild.innerText}</div>`;
   for (let selector in selectors) {
-    $foodMenuSelectorHolder.innerHTML += `<div value="${selector}" class="food-menu-selector-option js_food_menu_selector_option">${selectors[selector]}</div>`;
+    $foodMenuSelectorHolder.innerHTML += `<div value="${selector}" class="food-menu-visible-selector-option js_food_menu_visible_selector_option">${selectors[selector]}</div>`;
   }
+  $foodMenuSelector.value = document.querySelector(
+    ".js_food_menu_invisible_selector_option"
+  ).value;
   selectorClickeffect();
 };
 
