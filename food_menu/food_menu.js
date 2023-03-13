@@ -161,55 +161,61 @@ const foodMenuTurner = (Event) => {
   foodMenuHeight();
 };
 
-const foodMenuChangingEffect = (jsonData, index) => {
+const foodMenuChangeEvent = (jsonData, index) => {
   $foodMenuSelector.addEventListener("change", () => {
     renderHeadingsAndPages(jsonData, index);
   });
 };
 
-const clickEffect = () => {
+const turnerClickEvent = () => {
   document
     .querySelector(".js_food_menu_headings")
     .addEventListener("click", foodMenuTurner);
 };
 
-const removeSelectorFocus = ($visibleSelector) => {
-  document.addEventListener("click", () => {
-    $visibleSelector.classList.remove("focus");
-    console.log("removed focus");
-  });
+const blurSelector = ($visibleSelector, $optionsArray) => {
+  $foodMenuSelectorHolder.blur();
+  $visibleSelector.classList.remove("focus");
+  $optionsArray.map((option) => option.classList.remove("focus"));
+};
+
+const selectorBlurEvent = ($visibleSelector, $optionsArray) => {
+  $foodMenuSelectorHolder.addEventListener("blur", () =>
+    blurSelector($visibleSelector, $optionsArray)
+  );
+};
+
+const toggleFocusSelector = ($visibleSelector, $optionsArray) => {
+  $visibleSelector.classList.toggle("focus");
+  $optionsArray.map((option) => option.classList.toggle("focus"));
 };
 
 const eventChange = new Event("change");
 
-const addValueToSelect = (Event) => {
+const addValueToSelect = (Event, $visibleSelector, $optionsArray) => {
   const $invisibleOptionsArray = [
     ...document.querySelectorAll(".js_food_menu_invisible_selector_option"),
   ];
-  const $optionsArray = [
-    ...document.querySelectorAll(".js_food_menu_visible_selector_option"),
-  ];
   const index = $optionsArray.indexOf(Event.target);
-  const $visibleSelector = document.querySelector(
-    ".js_food_menu_visible_selector"
-  );
-  $visibleSelector.classList.add("focus");
-  removeSelectorFocus($visibleSelector);
   if (
     Event.target === $visibleSelector ||
     Event.target === $foodMenuSelectorHolder
-  ) {
+  ) { toggleFocusSelector($visibleSelector, $optionsArray);
   } else {
+    toggleFocusSelector($visibleSelector, $optionsArray);
     $foodMenuSelector.value = $invisibleOptionsArray[index].value;
     $invisibleOptionsArray.map((option) => (option.selected = false));
     $invisibleOptionsArray[index].selected = true;
-    $visibleSelector.innerText = $optionsArray[index].innerText;
+    $visibleSelector.innerText = $invisibleOptionsArray[index].innerText;
+    blurSelector($visibleSelector, $optionsArray);
     $foodMenuSelector.dispatchEvent(eventChange);
   }
 };
 
-const selectorClickeffect = () => {
-  $foodMenuSelectorHolder.addEventListener("click", addValueToSelect);
+const selectorClickEvent = ($visibleSelector, $optionsArray) => {
+  $foodMenuSelectorHolder.addEventListener("click", (Event) =>
+    addValueToSelect(Event, $visibleSelector, $optionsArray)
+  );
 };
 
 const renderFoodMenuSelector = (jsonData) => {
@@ -218,13 +224,22 @@ const renderFoodMenuSelector = (jsonData) => {
     $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">${selectors[selector]}</option>`;
   }
   $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-visible-selector js_food_menu_visible_selector">${$foodMenuSelector.firstChild.innerText}</div>`;
+  $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-selector-options-field js_food_menu_selector_options_field"></div>`;
+  const $visibleOptionsField = document.querySelector(".js_food_menu_selector_options_field");
   for (let selector in selectors) {
-    $foodMenuSelectorHolder.innerHTML += `<div value="${selector}" class="food-menu-visible-selector-option js_food_menu_visible_selector_option">${selectors[selector]}</div>`;
+    $visibleOptionsField.innerHTML += `<div value="${selector}" class="food-menu-visible-selector-option js_food_menu_visible_selector_option">${selectors[selector]}</div>`;
   }
   $foodMenuSelector.value = document.querySelector(
     ".js_food_menu_invisible_selector_option"
   ).value;
-  selectorClickeffect();
+  const $visibleSelector = document.querySelector(
+    ".js_food_menu_visible_selector"
+  );
+  const $optionsArray = [
+    ...document.querySelectorAll(".js_food_menu_visible_selector_option"),
+  ];
+  selectorClickEvent($visibleSelector, $optionsArray);
+  selectorBlurEvent($visibleSelector, $optionsArray);
 };
 
 const fetchFoodMenu = () => {
@@ -236,8 +251,8 @@ const fetchFoodMenu = () => {
           renderFoodMenuSelector(jsonData);
         } else {
           renderHeadingsAndPages(jsonData);
-          clickEffect();
-          foodMenuChangingEffect(jsonData, index);
+          turnerClickEvent();
+          foodMenuChangeEvent(jsonData, index);
         }
       })
   );
@@ -245,6 +260,6 @@ const fetchFoodMenu = () => {
 
 fetchFoodMenu();
 
-const resizeEffect = () => window.addEventListener("resize", foodMenuHeight);
+const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
 
-resizeEffect();
+resizeEvent();
