@@ -2,46 +2,94 @@
 
 .second-section {
   background-color: var(--deepgray);
-  /* overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none; */
   box-shadow: inset 0 0.5rem 1rem var(--black),
     inset 0 -0.5rem 1rem var(--black);
+  overflow: initial;
 }
 
 .second.section-heading {
   text-shadow: none;
+  text-align: center;
 }
 
 .food-menu-visible-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
   padding: 2rem;
   line-height: 5.5rem;
   text-align: center;
   font-family: heading-font;
   font-size: 4rem;
   font-weight: bold;
-  border: none;
   cursor: pointer;
   background: none;
   color: var(--white);
   overflow: hidden;
   border-radius: 0.8rem;
   text-transform: capitalize;
-  outline: 0.5rem solid green;
-  transform: 0.5s;
+  transition: 0.5s;
+  border: 0.2rem outset var(--no-color);
+  outline: 0.2rem outset var(--no-color);
 }
 
-.food-menu-visible-selector.focus {
-  outline: 1rem solid red;
+.food-menu-visible-selector::after {
+  content: "▽";
+  font-size: 2.5rem;
+  width: 0;
+  transform: translate(0, 0.5rem);
+  transition: 0.3s;
+  overflow: hidden;
 }
+
+.food-menu-visible-selector:hover {
+  border: 0.2rem outset var(--white);
+}
+
+.food-menu-visible-selector:hover::after {
+  content: "▽";
+  width: 3rem;
+}
+
+/* .food-menu-visible-selector.focus {
+  border-top: 0.2rem solid var(--green);
+  border-bottom: 0.2rem solid var(--red);
+  border-left: 0.2rem solid var(--green);
+  border-right: 0.2rem solid var(--red);
+  box-shadow: 0.1rem 0 1.5rem var(--lightred),
+    -1rem 0 1.5rem var(--lightgreen), 0 1rem 1.5rem var(--lightred),
+    0 -1rem 1.5rem var(--lightgreen);
+  outline: 0.2rem solid var(--white);
+} */
+
+.food-menu-visible-selector.focus::after {
+  content: "▽";
+  width: 4rem;
+  transform: rotate(180deg) translate(0, -0.5rem);
+}
+
+/* .food-menu-selector-options-field {
+  z-index: 10;
+  position: absolute;
+  background-color: var(--deepgray);
+  left: 50%;
+  transform: translate(-50%);
+} */
 
 .food-menu-visible-selector-option {
-  /* background-color: var(--deepgray); */
   font-family: heading-font;
   color: var(--white);
   padding: 0;
   border: none;
-  /* display: none; */
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.food-menu-visible-selector-option.focus {
+  height: 6rem;
 }
 
 .food-menu-headings {
