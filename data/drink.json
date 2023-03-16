@@ -3,13 +3,13 @@
     "currency": "$"
   },
   {
-    "category": "drink"
+    "category": "Drink"
   },
   {
     "subcategory": [
-      "soft drink",
-      "italian cocktail",
-      "italian wine"
+      "Soft Drink",
+      "Italian Cocktail",
+      "Italian Wine"
     ]
   },
   {
@@ -22,6 +22,7 @@
   {
     "products": [
       {
+        "id": "6f398c83-c415-4ccc-a63f-0b539cf544ab",
         "name": "orange juice",
         "image_link": "./images/orange_juice.png",
         "ingredients": "squeezed from fresh fruit",
@@ -31,8 +32,8 @@
           "extra large": "8.99"
         },
         "pricing_table": true,
-        "product_category": "drink",
-        "product_subcategory": "soft drink",
+        "product_category": "Drink",
+        "product_subcategory": "Soft Drink",
         "number": 11
       }
     ]

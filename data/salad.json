@@ -3,14 +3,14 @@
     "currency": "$"
   },
   {
-    "category": "salad"
+    "category": "Salad"
   },
   {
     "subcategory": [
-      "meat",
-      "salad with seafood",
-      "vegetarian salad",
-      "vegan salad"
+      "Salad for Meateaters",
+      "Salad with Seafood",
+      "Vegetarian Salad",
+      "Vegan Salad"
     ]
   },
   {
@@ -22,7 +22,8 @@
   {
     "products": [
       {
-        "name": "insalata di tonno con riso",
+        "id": "42db8621-32e4-4110-a365-f8c059243c7f",
+        "name": "Insalata di Tonno con Riso",
         "image_link": "./images/insalata_di_tonno_con_riso.png",
         "ingredients": "tuna, rice, olives, tomato, bell pepper, red onion, garlic, lemon, lime, oregano, basil, salt, black pepper",
         "prices": {
@@ -30,10 +31,10 @@
           "large": "16.99"
         },
         "pricing_table": true,
-        "product_category": "salad",
-        "product_subcategory": "salad with seafood",
+        "product_category": "Salad",
+        "product_subcategory": "Salad with Seafood",
         "number": 41,
-        "meat": null,
+        "classic": null,
         "seafood": "seafood",
         "vegetarian": null,
         "vegan": null
