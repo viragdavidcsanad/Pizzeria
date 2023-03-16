@@ -19,26 +19,18 @@ const $foodMenuSelector = document.querySelector(
 const foodFilter = (jsonData) => {
   let filteredFood = [];
   const products = jsonData.filter((data) => data.products)[0].products;
-  const value = $foodMenuSelector.value;
+  const selectorValue = $foodMenuSelector.value;
   const drink = products.filter(
-    (product) => product.product_category === "drink"
+    (product) => product.product_category === "Drink"
   );
   if (drink.length > 0) {
     filteredFood = drink;
-  } else if (value === "menu") {
+  } else if (selectorValue === "menu") {
     filteredFood = products;
-  } else if (value === "seafood") {
-    const seafoodFilteredData = products.filter((product) => product.seafood);
-    filteredFood = seafoodFilteredData;
-  } else if (value === "vegetarian") {
-    const vegetarianFilteredData = products.filter(
-      (product) => product.vegetarian || product.vegan
+  } else
+    filteredFood = products.filter(
+      (product) => product[selectorValue] === selectorValue
     );
-    filteredFood = vegetarianFilteredData;
-  } else if (value === "vegan") {
-    const veganFilteredData = products.filter((product) => product.vegan);
-    filteredFood = veganFilteredData;
-  }
   return filteredFood;
 };
 
@@ -67,9 +59,7 @@ const renderSubcategories = (jsonData) => {
     .subcategory;
   let subcategories = "";
   subcategoryArray.map((subcategory) => {
-    if (subcategory === "meat") {
-      subcategories += `${renderFoodMenuProducts(jsonData, subcategory)}`;
-    } else if (renderFoodMenuProducts(jsonData, subcategory) === "") {
+    if (renderFoodMenuProducts(jsonData, subcategory) === "") {
       return;
     } else {
       subcategories += `<div class="food-menu-subcategory-table js_food_menu_subcategory_table">
@@ -120,7 +110,7 @@ const foodMenuHeight = () => {
   };
   return $pagesContainer.setAttribute(
     "style",
-    `height: ${menuHeight() + 60}px`
+    `height: ${menuHeight() / 10 + 6}rem`
   );
 };
 
@@ -200,7 +190,8 @@ const addValueToSelect = (Event, $visibleSelector, $optionsArray) => {
   if (
     Event.target === $visibleSelector ||
     Event.target === $foodMenuSelectorHolder
-  ) { toggleFocusSelector($visibleSelector, $optionsArray);
+  ) {
+    toggleFocusSelector($visibleSelector, $optionsArray);
   } else {
     toggleFocusSelector($visibleSelector, $optionsArray);
     $foodMenuSelector.value = $invisibleOptionsArray[index].value;
@@ -223,11 +214,17 @@ const renderFoodMenuSelector = (jsonData) => {
   for (let selector in selectors) {
     $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">${selectors[selector]}</option>`;
   }
-  $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-visible-selector js_food_menu_visible_selector">${$foodMenuSelector.firstChild.innerText}</div>`;
+  $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-visible-selector js_food_menu_visible_selector">
+                                          ${$foodMenuSelector.firstChild.innerText}
+                                        </div>`;
   $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-selector-options-field js_food_menu_selector_options_field"></div>`;
-  const $visibleOptionsField = document.querySelector(".js_food_menu_selector_options_field");
+  const $visibleOptionsField = document.querySelector(
+    ".js_food_menu_selector_options_field"
+  );
   for (let selector in selectors) {
-    $visibleOptionsField.innerHTML += `<div value="${selector}" class="food-menu-visible-selector-option js_food_menu_visible_selector_option">${selectors[selector]}</div>`;
+    $visibleOptionsField.innerHTML += `<div value="${selector}" class="food-menu-visible-selector-option js_food_menu_visible_selector_option">
+                                         ${selectors[selector]}
+                                       </div>`;
   }
   $foodMenuSelector.value = document.querySelector(
     ".js_food_menu_invisible_selector_option"
