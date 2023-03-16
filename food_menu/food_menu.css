@@ -4,12 +4,12 @@
   background-color: var(--deepgray);
   box-shadow: inset 0 0.5rem 1rem var(--black),
     inset 0 -0.5rem 1rem var(--black);
-  overflow: initial;
+  user-select: none;
 }
 
 .second.section-heading {
   text-shadow: none;
-  text-align: center;
+  cursor: pointer;
 }
 
 .food-menu-visible-selector {
@@ -17,7 +17,8 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding: 2rem;
+  margin-top: 2rem;
+  padding: 2rem 2rem 2rem 3rem;
   line-height: 5.5rem;
   text-align: center;
   font-family: heading-font;
@@ -27,29 +28,34 @@
   background: none;
   color: var(--white);
   overflow: hidden;
-  border-radius: 0.8rem;
+  border-radius: 0.2rem;
   text-transform: capitalize;
   transition: 0.5s;
   border: 0.2rem outset var(--no-color);
-  outline: 0.2rem outset var(--no-color);
+  outline: 0.2rem solid var(--no-color);
+}
+
+.food-menu-visible-selector:hover,
+.second.section-heading:hover .food-menu-visible-selector {
+  border: 0.2rem outset var(--white);
+  outline: 0.2rem solid var(--no-color);
 }
 
 .food-menu-visible-selector::after {
-  content: "▽";
-  font-size: 2.5rem;
+  content: "➽";
+  font-size: 3rem;
+  font-family: monospace;
   width: 0;
-  transform: translate(0, 0.5rem);
+  height: 0;
+  transform: rotate(90deg);
   transition: 0.3s;
   overflow: hidden;
 }
 
-.food-menu-visible-selector:hover {
-  border: 0.2rem outset var(--white);
-}
-
-.food-menu-visible-selector:hover::after {
-  content: "▽";
-  width: 3rem;
+.food-menu-visible-selector:hover::after,
+.second.section-heading:hover .food-menu-visible-selector::after {
+  width: 4rem;
+  height: 4rem;
 }
 
 /* .food-menu-visible-selector.focus {
@@ -64,32 +70,35 @@
 } */
 
 .food-menu-visible-selector.focus::after {
-  content: "▽";
   width: 4rem;
-  transform: rotate(180deg) translate(0, -0.5rem);
+  height: 4rem;
+  transform: rotate(270deg) translate(0, -1rem);
 }
 
-/* .food-menu-selector-options-field {
-  z-index: 10;
-  position: absolute;
-  background-color: var(--deepgray);
-  left: 50%;
-  transform: translate(-50%);
-} */
+.food-menu-selector-options-field {
+  position: relative;
+  width: 100%;
+}
 
 .food-menu-visible-selector-option {
   font-family: heading-font;
   color: var(--white);
-  padding: 0;
   border: none;
   height: 0;
   overflow: hidden;
   transition: 0.3s;
   white-space: nowrap;
+  border: 0.2rem solid var(--no-color);
 }
 
 .food-menu-visible-selector-option.focus {
   height: 6rem;
+  padding: 0 1rem 2rem;
+  border-radius: 0.2rem;
+}
+
+.food-menu-visible-selector-option.focus:hover {
+  border: 0.2rem outset var(--white);
 }
 
 .food-menu-headings {
