@@ -33,12 +33,15 @@
   transition: 0.5s;
   border: 0.2rem outset var(--no-color);
   outline: 0.2rem solid var(--no-color);
+  position: relative;
 }
 
 .food-menu-visible-selector:hover,
 .second.section-heading:hover .food-menu-visible-selector {
   border: 0.2rem outset var(--white);
   outline: 0.2rem solid var(--no-color);
+  background-color: var(--deepgray);
+  z-index: 15;
 }
 
 .food-menu-visible-selector::after {
