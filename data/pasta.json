@@ -1,8 +1,5 @@
 [
   {
-    "currency": "$"
-  },
-  {
     "category": "Pasta"
   },
   {
@@ -40,13 +37,6 @@
     }
   },
   {
-    "portions": {
-      "small": "(0.5 lb)",
-      "large": "(1 lbs)",
-      "extra large": "(2 lbs)"
-    }
-  },
-  {
     "products": [
       {
         "number": 21,
@@ -54,6 +44,11 @@
         "name": "Bavette al pesto di piselli verdi",
         "image_link": "./images/bavette_al_pesto_di_piselli_verdi.png",
         "ingredients": "green peas, Parmesan cheese, olive oil, almond flakes, garlic, lemon juice, basil, salt, pepper, pasta (bavette)",
+        "portions": {
+          "small": "(0.5 lb)",
+          "large": "(1 lbs)",
+          "extra large": "(2 lbs)"
+        },
         "prices": {
           "small": 8.99,
           "large": 13.99,
