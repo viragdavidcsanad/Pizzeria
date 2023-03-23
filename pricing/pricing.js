@@ -8,7 +8,6 @@ const linksOfProducts = [
 const currencyLink = "./data/currency.json";
 
 const portionAndPriceRow = (title, dataArray, currency) => {
-  // const currency = dataArray.filter((data) => data.currency)[0].currency;
   const portionsObject = dataArray.filter((data) => data.portions)[0].portions;
   let portionAndPriceRows = [];
   for (let portion in title.prices) {
