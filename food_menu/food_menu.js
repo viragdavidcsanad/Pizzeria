@@ -1,10 +1,11 @@
-const linkArray = [
+const foodLinks = [
   "./data/pizza.json",
   "./data/pasta.json",
   "./data/salad.json",
   "./data/drink.json",
-  "./data/food_menu_selector.json",
 ];
+
+const selectorLink = "./data/selector.json"
 
 let $foodMenuHeadingsArray;
 const $headingsContainer = document.querySelector(".js_food_menu_headings");
@@ -209,10 +210,26 @@ const selectorClickEvent = ($visibleSelector, $optionsArray) => {
   );
 };
 
-const renderFoodMenuSelector = (jsonData) => {
+const fetchFoodMenu = () => {
+  foodLinks.map((link, index) =>
+    fetch(link)
+      .then((rawData) => rawData.json())
+      .then((jsonData) => {
+          renderHeadingsAndPages(jsonData);
+          turnerClickEvent();
+          foodMenuChangeEvent(jsonData, index);
+      })
+  );
+};
+
+const renderFoodMenuSelector = async () => {
+  const rawData = await fetch(selectorLink);
+  const jsonData = await rawData.json();
   const selectors = jsonData.filter((data) => data.selectors)[0].selectors;
   for (let selector in selectors) {
-    $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">${selectors[selector]}</option>`;
+    $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">
+                                      ${selectors[selector]}
+                                    </option>`;
   }
   $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-visible-selector js_food_menu_visible_selector">
                                           ${$foodMenuSelector.firstChild.innerText}
@@ -235,27 +252,12 @@ const renderFoodMenuSelector = (jsonData) => {
   const $optionsArray = [
     ...document.querySelectorAll(".js_food_menu_visible_selector_option"),
   ];
+  fetchFoodMenu();
   selectorClickEvent($visibleSelector, $optionsArray);
   selectorBlurEvent($visibleSelector, $optionsArray);
 };
 
-const fetchFoodMenu = () => {
-  linkArray.map((link, index) =>
-    fetch(link)
-      .then((rawData) => rawData.json())
-      .then((jsonData) => {
-        if (jsonData.filter((data) => data.selectors).length > 0) {
-          renderFoodMenuSelector(jsonData);
-        } else {
-          renderHeadingsAndPages(jsonData);
-          turnerClickEvent();
-          foodMenuChangeEvent(jsonData, index);
-        }
-      })
-  );
-};
-
-fetchFoodMenu();
+renderFoodMenuSelector();
 
 const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
 
