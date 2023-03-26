@@ -11,9 +11,16 @@
     ]
   },
   {
+    "portions": {
+      "small": "(0.5 lb) central",
+      "large": "(1 lbs) central",
+      "extra large": "(2 lbs) central"
+    }
+  },
+  {
     "extras": {
-        "gluten-free": [],
-        "lactose-free": [],
+      "gluten-free": 0,
+      "lactose-free": 0,
       "meat": {},
       "seafood": {},
       "cheese": {},
