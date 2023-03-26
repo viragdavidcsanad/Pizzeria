@@ -98,23 +98,6 @@ const selectedHeadingStyle = (Event) => {
   Event.target.classList.add("selected-heading");
 };
 
-const foodMenuHeight = () => {
-  const $pagesArray = [...$pagesContainer.children];
-  const $activePage = document.querySelector(".js_active_menu_page");
-  const menuHeight = () => {
-    if ($activePage === null) {
-      return $pagesArray.reduce(
-        (accumulator, element) => accumulator + element.offsetHeight,
-        0
-      );
-    } else return $activePage.offsetHeight;
-  };
-  return $pagesContainer.setAttribute(
-    "style",
-    `height: ${menuHeight() / 10 + 6}rem`
-  );
-};
-
 const foodMenuTurner = (Event) => {
   if (Event.target === document.querySelector(".js_food_menu_headings")) {
     return;
@@ -258,6 +241,23 @@ const renderFoodMenuSelector = async () => {
 };
 
 renderFoodMenuSelector();
+
+const foodMenuHeight = () => {
+  const $pagesArray = [...$pagesContainer.children];
+  const $activePage = document.querySelector(".js_active_menu_page");
+  const menuHeight = () => {
+    if ($activePage === null) {
+      return $pagesArray.reduce(
+        (accumulator, element) => accumulator + element.offsetHeight,
+        0
+      );
+    } else return $activePage.offsetHeight;
+  };
+  return $pagesContainer.setAttribute(
+    "style",
+    `height: ${menuHeight() / 10 + 6}rem`
+  );
+};
 
 const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
 
