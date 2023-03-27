@@ -46,6 +46,7 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
                         <div class="portion-and-price">
                         ${portionAndPriceRow(title, dataArray, currency)}    
                         </div>
+                        <div class="pricing-table-number">№ ${title.number}</div>
                       </div>
                     </a>
                   </div>`
