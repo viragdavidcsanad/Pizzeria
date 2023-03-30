@@ -42,15 +42,17 @@ const renderFoodMenuProducts = (jsonData, subcategory) => {
     (product) => product.product_subcategory === subcategory
   );
   subcategoryProducts.map((product) => {
-    foodMenuProducts += `<div class="food-menu-product-table js_food_menu_product_table ${product.id}">
-                           <div class="food-menu-product-number">№ ${product.number}</div>
-                           <h4 class="food-menu-product-heading">${product.name}</h4>
-                           <div class="food-menu-product-image-box">
-                             <img class="food-menu-product-image" src="${product.image_link}">
-                           </div>
-                           <div class="food-menu-table-ingredients">
-                           ${product.ingredients}
-                           </div>
+    foodMenuProducts += `<div class="food-menu-product-table js_food_menu_product_table">
+                           <a href="./product_page/product_page.html" id="${product.id}">
+                              <div class="food-menu-product-number">№ ${product.number}</div>
+                              <h4 class="food-menu-product-heading">${product.name}</h4>
+                              <div class="food-menu-product-image-box">
+                                <img class="food-menu-product-image" src="${product.image_link}">
+                              </div>
+                              <div class="food-menu-table-ingredients">
+                              ${product.ingredients}
+                              </div>
+                           </a>
                          </div>`;
   });
   return foodMenuProducts;
