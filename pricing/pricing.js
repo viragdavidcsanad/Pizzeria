@@ -6,6 +6,7 @@ const linksOfProducts = [
 ];
 
 const currencyLink = "./data/currency.json";
+const $pricingHolder = document.querySelector(".js_pricing_tables");
 
 const portionAndPriceRow = (title, dataArray, currency) => {
   const portionsCentralObject = dataArray.filter((data) => data.portions)[0]
@@ -22,8 +23,12 @@ const portionAndPriceRow = (title, dataArray, currency) => {
   for (let portion in title.prices) {
     portionAndPriceRows += `<div class="portion-and-price-row">
                               <span class="portion">${portion}</span>
-                              <span class="portion-content">${portionsObject()[portion]}</span>
-                              <span class="price">${currency}${title.prices[portion]}</span>
+                              <span class="portion-content">${
+                                portionsObject()[portion]
+                              }</span>
+                              <span class="price">${currency}${
+      title.prices[portion]
+    }</span>
                             </div>`;
   }
   return portionAndPriceRows;
@@ -33,7 +38,9 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
   let pricingTables = pricingTitles
     .map(
       (title) => `<div class="pricing-table">
-                    <a href="./product_page/product_page.html" class="pricing-link">
+                    <a href="./product_page/product_page.html" class="pricing-link js_pricing_link" id="${
+                      title.id
+                    }">
                       <div class="pricing-content">
                         <h4 class="pricing-heading">${title.name}</h4>
                         <div class="pricing-image-box">
@@ -46,7 +53,9 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
                         <div class="portion-and-price">
                         ${portionAndPriceRow(title, dataArray, currency)}    
                         </div>
-                        <div class="pricing-table-number">№ ${title.number}</div>
+                        <div class="pricing-table-number">№ ${
+                          title.number
+                        }</div>
                       </div>
                     </a>
                   </div>`
@@ -56,8 +65,14 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
 };
 
 const renderPricing = (pricingTables) => {
-  let target = document.querySelector(".js_pricing_tables");
-  target.innerHTML += pricingTables;
+  $pricingHolder.innerHTML += pricingTables;
+};
+
+export const productId = (Event) => Event.currentTarget.id;
+
+const pricingClickEvent = () => {
+  const $pricingLinks = [...document.querySelectorAll(".js_pricing_link")];
+  $pricingLinks.map((link) => link.addEventListener("click", productId));
 };
 
 const fetchAndRenderProducts = (currency) => {
@@ -74,14 +89,19 @@ const fetchAndRenderProducts = (currency) => {
           currency
         );
         renderPricing(pricingTables);
+        pricingClickEvent();
       })
   );
 };
 
 const fetchCurrency = async () => {
-  const data = await fetch(currencyLink);
-  const jsonData = await data.json();
-  fetchAndRenderProducts(jsonData.currency);
+  try {
+    const data = await fetch(currencyLink);
+    const jsonData = await data.json();
+    fetchAndRenderProducts(jsonData.currency);
+  } catch {
+    (error) => (document.innerHTML = error);
+  }
 };
 
 fetchCurrency();
