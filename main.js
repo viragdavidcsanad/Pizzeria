@@ -1,3 +1,15 @@
+const linksOfProducts = [
+  "./data/pizza.json",
+  "./data/pasta.json",
+  "./data/salad.json",
+  "./data/drink.json",
+];
+const currencyLink = "./data/currency.json";
+
+const currency = fetch(currencyLink)
+  .then((currencyData) => currencyData.json())
+  .then((jsonData) => jsonData.currency);
+
 const $logo = document.querySelector(".js_logo");
 const $navBar = document.querySelector(".js_nav_bar");
 const $hamburgerMenu = document.querySelector(".js_hamburger_menu");
@@ -32,7 +44,7 @@ const scrolledHeader = () => {
     $bar2.classList.remove("shifted-bar2");
     $bar3.classList.remove("shifted-bar3");
   }
-}
+};
 
 window.onscroll = scrolledHeader;
 
@@ -45,6 +57,6 @@ const menuShifter = () => {
   $bar2.classList.toggle("shifted-bar2");
   $bar3.classList.toggle("shifted-bar3");
   $navItemsClasses.map((classlist) => classlist.toggle("shifted-nav-item"));
-}
+};
 
 $hamburgerMenu.onclick = menuShifter;
