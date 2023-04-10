@@ -1,5 +1,15 @@
-body {
-	background-color: var(--deepgray);
-	font-size: 10rem;
+.product-page {
+	font-size: 3rem;
+	position: fixed;
+	background-color: blue;
+	left: 0;
+	top: 0;
+	height: 0;
 	overflow: hidden;
+}
+
+.product-page:focus {
+	height: auto;
+	width: 100%;
+	height: 100%;
 }
