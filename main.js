@@ -1,14 +1,14 @@
-const linksOfProducts = [
-  "./data/pizza.json",
-  "./data/pasta.json",
-  "./data/salad.json",
-  "./data/drink.json",
-];
-const currencyLink = "./data/currency.json";
+// const linksOfProducts = [
+//   "./data/pizza.json",
+//   "./data/pasta.json",
+//   "./data/salad.json",
+//   "./data/drink.json",
+// ];
+// const currencyLink = "./data/currency.json";
 
-const currency = fetch(currencyLink)
-  .then((currencyData) => currencyData.json())
-  .then((jsonData) => jsonData.currency);
+// const currency = fetch(currencyLink)
+//   .then((currencyData) => currencyData.json())
+//   .then((jsonData) => jsonData.currency);
 
 const $logo = document.querySelector(".js_logo");
 const $navBar = document.querySelector(".js_nav_bar");
