@@ -7,16 +7,27 @@ const linksOfProducts = [
 const currencyLink = "./data/currency.json";
 const $pricingHolder = document.querySelector(".js_pricing_tables");
 
-// const productId = (Event) => {
-//   var productPageEvent = Event;
-//   console.log(Event.currentTarget.id);
-//   return Event.currentTarget.id;
-// };
+const selectProduct = (Event) => {
+  const $selectedProducts = () => [
+    ...document.querySelectorAll(".js_selected_product"),
+  ];
+  if ($selectedProducts()) {
+    $selectedProducts().map((selectedProduct) =>
+      selectedProduct.classList.remove("js_selected_product")
+    );
+  }
+  Event.currentTarget.classList.add("js_selected_product");
+};
 
-// export const pricingClickEvent = () => {
-//   const $pricingLinks = [...document.querySelectorAll(".js_pricing_link")];
-//   $pricingLinks.map((link) => link.addEventListener("click", productId));
-// };
+const pricingClickEvent = () => {
+  const $pricingLinks = [...document.querySelectorAll(".js_pricing_link")];
+  $pricingLinks.map((link) => link.addEventListener("click", selectProduct));
+};
+
+const dataAttributes = (title, currency, dataArray) => {
+  const productData = "";
+  
+};
 
 const portionAndPriceRow = (title, dataArray, currency) => {
   const portionsCentralObject = dataArray.filter((data) => data.portions)[0]
@@ -50,8 +61,8 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
     (title) =>
       (pricingTables += `<div class="pricing-table">
                           <a href="./index.html#product-page" class="pricing-link js_pricing_link" id="${
-                            title.id
-                          }">
+                            title.id}" ${dataAttributes(title, currency, dataArray)}
+                          }>
                             <div class="pricing-content">
                               <h4 class="pricing-heading">${title.name}</h4>
                               <div class="pricing-image-box">
@@ -93,7 +104,7 @@ const fetchAndRenderProducts = (currency) => {
       .products.filter((title) => title.pricing_table === true);
     let pricingTables = pricingTableMaker(pricingTitles, dataArray, currency);
     renderPricing(pricingTables);
-    // pricingClickEvent();
+    pricingClickEvent();
   });
 };
 
