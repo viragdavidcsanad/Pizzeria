@@ -1,3 +1,7 @@
+const jsonData = import("../get_data/get_data.js");
+
+console.log(jsonData);
+
 const linksOfProducts = [
   "./data/pizza.json",
   "./data/pasta.json",
@@ -26,7 +30,6 @@ const pricingClickEvent = () => {
 
 const dataAttributes = (title, currency, dataArray) => {
   const productData = "";
-  
 };
 
 const portionAndPriceRow = (title, dataArray, currency) => {
@@ -61,7 +64,8 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
     (title) =>
       (pricingTables += `<div class="pricing-table">
                           <a href="./index.html#product-page" class="pricing-link js_pricing_link" id="${
-                            title.id}" ${dataAttributes(title, currency, dataArray)}
+                            title.id
+                          }" ${dataAttributes(title, currency, dataArray)}
                           }>
                             <div class="pricing-content">
                               <h4 class="pricing-heading">${title.name}</h4>
