@@ -1,6 +1,6 @@
-const jsonData = import("../get_data/get_data.js");
+import gotData from "../get_data/get_data.js";
 
-console.log(jsonData);
+console.log(gotData);
 
 const linksOfProducts = [
   "./data/pizza.json",
