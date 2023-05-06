@@ -1,6 +1,8 @@
-import gotData from "../get_data/get_data.js";
+import allData from "../get_data/get_data.js";
 
-console.log(gotData);
+console.log(allData[3]);
+
+console.log(allData);
 
 const linksOfProducts = [
   "./data/pizza.json",
@@ -47,12 +49,12 @@ const portionAndPriceRow = (title, dataArray, currency) => {
   for (let portion in title.prices) {
     portionAndPriceRows += `<div class="portion-and-price-row">
                               <span class="portion">${portion}</span>
-                              <span class="portion-content">${
-                                portionsObject()[portion]
-                              }</span>
-                              <span class="price">${currency}${
-      title.prices[portion]
-    }</span>
+                              <span class="portion-content">
+                                ${portionsObject()[portion]}
+                              </span>
+                              <span class="price">
+                                ${currency}${title.prices[portion]}
+                              </span>
                             </div>`;
   }
   return portionAndPriceRows;
