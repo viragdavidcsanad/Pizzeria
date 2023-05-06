@@ -9,27 +9,15 @@ const dataLinks = [
   "../data/drink.json",
 ];
 
-const getData = async (dataLinks) => {
+async function getData(dataLinks) {
   const dataArray = [];
-  await dataLinks.map(
-    async (link) =>
-      await fetch(link)
-        .then((data) => data.json())
-        .then((jsonData) => dataArray.push(jsonData))
-        .catch((error) => console.table("COUGHT ERROR:", error))
-  );
+  for (let link of dataLinks) {
+    await fetch(link)
+      .then((data) => data.json())
+      .then((jsonData) => dataArray.push(jsonData))
+      .catch((error) => console.table("COUGHT ERROR:", error));
+  }
   return dataArray;
-};
-
-// async function getData(dataLinks) {
-//   const dataArray = [];
-//   for (let link of dataLinks) {
-//     await fetch(link)
-//       .then((data) => data.json())
-//       .then((jsonData) => dataArray.push(jsonData))
-//       .catch((error) => console.table("COUGHT ERROR:", error));
-//   }
-//   return dataArray;
-// }
+}
 
 export default await getData(dataLinks);
