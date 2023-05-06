@@ -1,38 +1,40 @@
-[
-  {
-    "category": "Drink"
-  },
-  {
-    "subcategory": [
-      "Soft Drink",
-      "Italian Cocktail",
-      "Italian Wine"
-    ]
-  },
-  {
-    "portions": {
-      "small": "(8 fl oz)",
-      "large": "(16 fl oz)",
-      "extra large": "(32 fl oz)"
-    }
-  },
-  {
-    "products": [
-      {
-        "id": "6f398c83-c415-4ccc-a63f-0b539cf544ab",
-        "name": "orange juice",
-        "image_link": "./images/orange_juice.png",
-        "ingredients": "squeezed from fresh fruit",
-        "prices": {
-          "small": "2.99",
-          "large": "4.99",
-          "extra large": "8.99"
-        },
-        "pricing_table": true,
-        "product_category": "Drink",
-        "product_subcategory": "Soft Drink",
-        "number": 11
+{
+  "drink": [
+    {
+      "category": "Drink"
+    },
+    {
+      "subcategory": [
+        "Soft Drink",
+        "Italian Cocktail",
+        "Italian Wine"
+      ]
+    },
+    {
+      "portions": {
+        "small": "(8 fl oz)",
+        "large": "(16 fl oz)",
+        "extra large": "(32 fl oz)"
       }
-    ]
-  }
-]
+    },
+    {
+      "products": [
+        {
+          "id": "6f398c83-c415-4ccc-a63f-0b539cf544ab",
+          "name": "orange juice",
+          "image_link": "./images/orange_juice.png",
+          "ingredients": "squeezed from fresh fruit",
+          "prices": {
+            "small": "2.99",
+            "large": "4.99",
+            "extra large": "8.99"
+          },
+          "pricing_table": true,
+          "product_category": "Drink",
+          "product_subcategory": "Soft Drink",
+          "number": 11
+        }
+      ]
+    }
+  ]
+}
