@@ -1,74 +1,76 @@
-[
-  {
-    "category": "Pasta"
-  },
-  {
-    "subcategory": [
-      "Classic Pasta",
-      "Pasta with Seafood",
-      "Vegetarian Pasta",
-      "Vegan Pasta"
-    ]
-  },
-  {
-    "portions": {
-      "small": "(0.5 lb) central",
-      "large": "(1 lbs) central",
-      "extra large": "(2 lbs) central"
-    }
-  },
-  {
-    "extras": {
-      "gluten-free": 0,
-      "lactose-free": 0,
-      "meat": {},
-      "seafood": {},
-      "cheese": {},
-      "vegetable": {
-        "price": {
-          "small": 0.99,
-          "large": 1.99,
-          "extra large": 2.99
-        },
-        "onion": "price",
-        "purple onion": "price",
-        "corn": "price",
-        "pepperoni": "price",
-        "bell peppers": "price",
-        "strong paprika": "price",
-        "mushrooms": "price",
-        "olive berries": "price",
-        "artichokes": "price",
-        "pineapple": "price"
+{
+  "pasta": [
+    {
+      "category": "Pasta"
+    },
+    {
+      "subcategory": [
+        "Classic Pasta",
+        "Pasta with Seafood",
+        "Vegetarian Pasta",
+        "Vegan Pasta"
+      ]
+    },
+    {
+      "portions": {
+        "small": "(0.5 lb) central",
+        "large": "(1 lbs) central",
+        "extra large": "(2 lbs) central"
       }
-    }
-  },
-  {
-    "products": [
-      {
-        "number": 21,
-        "id": "a3ea81c6-c827-4186-8696-81deb8af616b",
-        "name": "Bavette al pesto di piselli verdi",
-        "image_link": "./images/bavette_al_pesto_di_piselli_verdi.png",
-        "ingredients": "green peas, Parmesan cheese, olive oil, almond flakes, garlic, lemon juice, basil, salt, pepper, pasta (bavette)",
-        "portions": {
-          "small": "(0.5 lb)",
-          "large": "(1 lbs)",
-          "extra large": "(2 lbs)"
-        },
-        "prices": {
-          "small": 8.99,
-          "large": 13.99,
-          "extra large": 18.99
-        },
-        "pricing_table": true,
-        "product_category": "Pasta",
-        "product_subcategory": "Vegetarian Pasta",
-        "classic": null,
-        "seafood": null,
-        "vegetarian": "vegetarian",
-        "vegan": null
+    },
+    {
+      "extras": {
+        "gluten-free": 0,
+        "lactose-free": 0,
+        "meat": {},
+        "seafood": {},
+        "cheese": {},
+        "vegetable": {
+          "price": {
+            "small": 0.99,
+            "large": 1.99,
+            "extra large": 2.99
+          },
+          "onion": "price",
+          "purple onion": "price",
+          "corn": "price",
+          "pepperoni": "price",
+          "bell peppers": "price",
+          "strong paprika": "price",
+          "mushrooms": "price",
+          "olive berries": "price",
+          "artichokes": "price",
+          "pineapple": "price"
+        }
       }
-    ]
-  }
-]
+    },
+    {
+      "products": [
+        {
+          "number": 21,
+          "id": "a3ea81c6-c827-4186-8696-81deb8af616b",
+          "name": "Bavette al pesto di piselli verdi",
+          "image_link": "./images/bavette_al_pesto_di_piselli_verdi.png",
+          "ingredients": "green peas, Parmesan cheese, olive oil, almond flakes, garlic, lemon juice, basil, salt, pepper, pasta (bavette)",
+          "portions": {
+            "small": "(0.5 lb)",
+            "large": "(1 lbs)",
+            "extra large": "(2 lbs)"
+          },
+          "prices": {
+            "small": 8.99,
+            "large": 13.99,
+            "extra large": 18.99
+          },
+          "pricing_table": true,
+          "product_category": "Pasta",
+          "product_subcategory": "Vegetarian Pasta",
+          "classic": null,
+          "seafood": null,
+          "vegetarian": "vegetarian",
+          "vegan": null
+        }
+      ]
+    }
+  ]
+}
