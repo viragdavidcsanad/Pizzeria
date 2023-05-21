@@ -1,43 +1,35 @@
 {
-  "salad": [
-    {
-      "category": "Salad"
+  "salad": {
+    "category": "Salad",
+    "subcategory": [
+      "Salad for Meateaters",
+      "Salad with Seafood",
+      "Vegetarian Salad",
+      "Vegan Salad"
+    ],
+    "portions": {
+      "small": "(0.5 lb)",
+      "large": "(1 lbs)"
     },
-    {
-      "subcategory": [
-        "Salad for Meateaters",
-        "Salad with Seafood",
-        "Vegetarian Salad",
-        "Vegan Salad"
-      ]
-    },
-    {
-      "portions": {
-        "small": "(0.5 lb)",
-        "large": "(1 lbs)"
+    "products": [
+      {
+        "id": "42db8621-32e4-4110-a365-f8c059243c7f",
+        "name": "Insalata di Tonno con Riso",
+        "image_link": "./images/insalata_di_tonno_con_riso.png",
+        "ingredients": "tuna, rice, olives, tomato, bell pepper, red onion, garlic, lemon, lime, oregano, basil, salt, black pepper",
+        "prices": {
+          "small": "11.99",
+          "large": "16.99"
+        },
+        "pricing_table": true,
+        "product_category": "Salad",
+        "product_subcategory": "Salad with Seafood",
+        "number": 41,
+        "classic": null,
+        "seafood": "seafood",
+        "vegetarian": null,
+        "vegan": null
       }
-    },
-    {
-      "products": [
-        {
-          "id": "42db8621-32e4-4110-a365-f8c059243c7f",
-          "name": "Insalata di Tonno con Riso",
-          "image_link": "./images/insalata_di_tonno_con_riso.png",
-          "ingredients": "tuna, rice, olives, tomato, bell pepper, red onion, garlic, lemon, lime, oregano, basil, salt, black pepper",
-          "prices": {
-            "small": "11.99",
-            "large": "16.99"
-          },
-          "pricing_table": true,
-          "product_category": "Salad",
-          "product_subcategory": "Salad with Seafood",
-          "number": 41,
-          "classic": null,
-          "seafood": "seafood",
-          "vegetarian": null,
-          "vegan": null
-        }
-      ]
-    }
-  ]
+    ]
+  }
 }
