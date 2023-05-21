@@ -1,20 +1,23 @@
 import allData from "../get_data/get_data.js";
 const currency = allData.currency;
 const foodCategories = allData.categories;
+const filteredCategory = foodCategories.filter(
+  (category) => allData[category].products
+);
+const offeredProducts = () => {
+  const oProducts = [];
+  filteredCategory.map((category) =>
+    allData[category].products.map((product) => {
+      if (product.pricing_table) {
+        oProducts.push(product);
+      }
+    })
+  );
+  return oProducts;
+};
 
-console.log(currency);
+console.log(offeredProducts());
 
-console.log(foodCategories);
-
-console.log(allData.pizza);
-
-// const linksOfProducts = [
-//   "./data/pizza.json",
-//   "./data/pasta.json",
-//   "./data/salad.json",
-//   "./data/drink.json",
-// ];
-// const currencyLink = "./data/currency.json";
 const $pricingHolder = document.querySelector(".js_pricing_tables");
 
 const selectProduct = (Event) => {
@@ -34,13 +37,14 @@ const pricingClickEvent = () => {
   $pricingLinks.map((link) => link.addEventListener("click", selectProduct));
 };
 
-const dataAttributes = (title, currency, dataArray) => {
+const dataAttributes = (title) => {
   const productData = "";
 };
 
-const portionAndPriceRow = (title, dataArray, currency) => {
-  const portionsCentralObject = dataArray.filter((data) => data.portions)[0]
-    .portions;
+const portionAndPriceRow = (title) => {
+  const portionsCentralObject = allData.filter(
+    (data) => data.portions
+  ).portions;
   const portionsProductObject = title.portions;
   const portionsObject = () => {
     if (portionsProductObject === undefined) {
@@ -64,14 +68,14 @@ const portionAndPriceRow = (title, dataArray, currency) => {
   return portionAndPriceRows;
 };
 
-const pricingTableMaker = (pricingTitles, dataArray, currency) => {
+const pricingTableMaker = () => {
   let pricingTables = "";
-  pricingTitles.map(
+  offeredProducts().map(
     (title) =>
       (pricingTables += `<div class="pricing-table">
                           <a href="./index.html#product-page" class="pricing-link js_pricing_link" id="${
                             title.id
-                          }" ${dataAttributes(title, currency, dataArray)}
+                          }" ${dataAttributes(title)}
                           }>
                             <div class="pricing-content">
                               <h4 class="pricing-heading">${title.name}</h4>
@@ -85,11 +89,7 @@ const pricingTableMaker = (pricingTitles, dataArray, currency) => {
                               </p>
                               <h4 class="pricing-sub-heading">Prices</h4>
                               <div class="portion-and-price">
-                                ${portionAndPriceRow(
-                                  title,
-                                  dataArray,
-                                  currency
-                                )}    
+                                ${portionAndPriceRow(title)}    
                               </div>
                               <div class="pricing-table-number">
                                 № ${title.number}
@@ -106,26 +106,9 @@ const renderPricing = (pricingTables) => {
 };
 
 const specialOffers = () => {
-  foodCategories.map((category) => {
-    const pricingTitles = allData[category].products.filter(
-      (title) => title.pricing_table === true
-    );
-    let pricingTables = pricingTableMaker(pricingTitles, dataArray, currency);
-    renderPricing(pricingTables);
-    pricingClickEvent();
-  });
+  const pricingTables = pricingTableMaker();
+  renderPricing(pricingTables);
+  pricingClickEvent();
 };
 
 specialOffers();
-
-// const fetchCurrency = async () => {
-//   try {
-//     const data = await fetch(currencyLink);
-//     const jsonData = await data.json();
-//     fetchAndRenderProducts(jsonData.currency);
-//   } catch {
-//     (error) => (document.innerHTML = error);
-//   }
-// };
-
-// fetchCurrency();
