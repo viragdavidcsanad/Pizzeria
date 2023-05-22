@@ -1,22 +1,9 @@
 import allData from "../get_data/get_data.js";
 const currency = allData.currency;
 const foodCategories = allData.categories;
-const filteredCategory = foodCategories.filter(
+const filteredCategories = foodCategories.filter(
   (category) => allData[category].products
 );
-const offeredProducts = () => {
-  const oProducts = [];
-  filteredCategory.map((category) =>
-    allData[category].products.map((product) => {
-      if (product.pricing_table) {
-        oProducts.push(product);
-      }
-    })
-  );
-  return oProducts;
-};
-
-console.log(offeredProducts());
 
 const $pricingHolder = document.querySelector(".js_pricing_tables");
 
@@ -41,11 +28,9 @@ const dataAttributes = (title) => {
   const productData = "";
 };
 
-const portionAndPriceRow = (title) => {
-  const portionsCentralObject = allData.filter(
-    (data) => data.portions
-  ).portions;
-  const portionsProductObject = title.portions;
+const portionAndPriceRow = (product, productCategory) => {
+  const portionsCentralObject = productCategory.portions;
+  const portionsProductObject = product.portions;
   const portionsObject = () => {
     if (portionsProductObject === undefined) {
       return portionsCentralObject;
@@ -54,60 +39,70 @@ const portionAndPriceRow = (title) => {
     }
   };
   let portionAndPriceRows = "";
-  for (let portion in title.prices) {
+  for (let portion in product.prices) {
     portionAndPriceRows += `<div class="portion-and-price-row">
                               <span class="portion">${portion}</span>
                               <span class="portion-content">
                                 ${portionsObject()[portion]}
                               </span>
                               <span class="price">
-                                ${currency}${title.prices[portion]}
+                                ${currency}${product.prices[portion]}
                               </span>
                             </div>`;
   }
   return portionAndPriceRows;
 };
 
-const pricingTableMaker = () => {
-  let pricingTables = "";
-  offeredProducts().map(
-    (title) =>
-      (pricingTables += `<div class="pricing-table">
+const pricingTableMaker = (product, productCategory) => {
+  let pricingTable = "";
+  pricingTable += `<div class="pricing-table">
                           <a href="./index.html#product-page" class="pricing-link js_pricing_link" id="${
-                            title.id
-                          }" ${dataAttributes(title)}
+                            product.id
+                          }" ${dataAttributes(product)}
                           }>
                             <div class="pricing-content">
-                              <h4 class="pricing-heading">${title.name}</h4>
+                              <h4 class="pricing-heading">${
+                                product.name
+                              }</h4>
                               <div class="pricing-image-box">
                                 <img src="${
-                                  title.image_link
+                                  product.image_link
                                 }" alt="pizza picture" class="pricing-image" />
                               </div>
                               <p class="pricing-table-text">
-                                ${title.ingredients}
+                                ${product.ingredients}
                               </p>
                               <h4 class="pricing-sub-heading">Prices</h4>
                               <div class="portion-and-price">
-                                ${portionAndPriceRow(title)}    
+                                ${portionAndPriceRow(
+                                  product,
+                                  productCategory
+                                )}    
                               </div>
                               <div class="pricing-table-number">
-                                № ${title.number}
+                                № ${product.number}
                               </div>
                             </div>
                           </a>
-                        </div>`)
-  );
-  return pricingTables;
+                        </div>`;
+
+  return pricingTable;
 };
 
-const renderPricing = (pricingTables) => {
-  $pricingHolder.innerHTML += pricingTables;
+const renderPricing = (pricingTable) => {
+  $pricingHolder.innerHTML += pricingTable;
 };
 
 const specialOffers = () => {
-  const pricingTables = pricingTableMaker();
-  renderPricing(pricingTables);
+  filteredCategories.map((filteredCategory) =>
+    allData[filteredCategory].products.map((product) => {
+      if (product.pricing_table) {
+        const productCategory = allData[filteredCategory];
+        const pricingTable = pricingTableMaker(product, productCategory);
+        renderPricing(pricingTable);
+      }
+    })
+  );
   pricingClickEvent();
 };
 
