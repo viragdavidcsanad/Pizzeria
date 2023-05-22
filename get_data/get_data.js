@@ -1,6 +1,7 @@
 const dataLinks = [
+  "./data/selector.json",
   "./data/currency.json",
-  "./data/categories.json",
+  "./data/category.json",
   "./data/appetizer.json",
   "./data/soup.json",
   "./data/pizza.json",
