@@ -4,8 +4,6 @@ const filteredCategories = allData.categories.filter(
   (category) => allData[category].products
 );
 
-const selectorLink = "./data/selector.json";
-
 let $foodMenuHeadingsArray;
 const $headingsContainer = document.querySelector(".js_food_menu_headings");
 const $pagesContainer = document.querySelector(".js_food_menu_pages");
@@ -55,9 +53,9 @@ const foodFilter = (currentCategory) => {
   return filteredFood;
 };
 
-const renderFoodMenuProducts = (jsonData, subcategory) => {
+const renderFoodMenuProducts = (currentCategory, subcategory) => {
   let foodMenuProducts = "";
-  const filteredFood = foodFilter(jsonData);
+  const filteredFood = foodFilter(currentCategory);
   const subcategoryProducts = filteredFood.filter(
     (product) => product.product_subcategory === subcategory
   );
@@ -87,7 +85,10 @@ const renderSubcategories = (currentCategory) => {
     } else {
       subcategories += `<div class="food-menu-subcategory-table js_food_menu_subcategory_table">
                           <h4 class="food-menu-subcategory">${subcategory}</h4>
-                          ${renderFoodMenuProducts(currentCategory, subcategory)}
+                          ${renderFoodMenuProducts(
+                            currentCategory,
+                            subcategory
+                          )}
                         </div>`;
     }
   });
@@ -113,9 +114,9 @@ const renderHeadingsAndPages = (currentCategory, index) => {
 };
 
 const selectedHeadingStyle = (Event) => {
-  let previousSelectedHeading = document.querySelector(".selected-heading");
-  if (previousSelectedHeading) {
-    previousSelectedHeading.classList.remove("selected-heading");
+  let $previousSelectedHeading = document.querySelector(".selected-heading");
+  if ($previousSelectedHeading) {
+    $previousSelectedHeading.classList.remove("selected-heading");
   }
   Event.target.classList.add("selected-heading");
 };
@@ -225,7 +226,6 @@ const renderFoodMenu = () => {
 };
 
 const renderFoodMenuSelector = () => {
-  const selectors = allData.selectors;
   for (let selector in selectors) {
     $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">
                                       ${selectors[selector]}
