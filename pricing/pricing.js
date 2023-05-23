@@ -24,10 +24,6 @@ const pricingClickEvent = () => {
   $pricingLinks.map((link) => link.addEventListener("click", selectProduct));
 };
 
-const dataAttributes = (title) => {
-  const productData = "";
-};
-
 const portionAndPriceRow = (product, productCategory) => {
   const portionsCentralObject = productCategory.portions;
   const portionsProductObject = product.portions;
@@ -55,15 +51,10 @@ const portionAndPriceRow = (product, productCategory) => {
 
 const pricingTableMaker = (product, productCategory) => {
   let pricingTable = "";
-  pricingTable += `<div class="pricing-table">
-                          <a href="./index.html#product-page" class="pricing-link js_pricing_link" id="${
-                            product.id
-                          }" ${dataAttributes(product)}
-                          }>
+  pricingTable += `<div class="pricing-table" data-id="${product.id}">
+                          <a href="./index.html#product-page" class="pricing-link js_pricing_link">
                             <div class="pricing-content">
-                              <h4 class="pricing-heading">${
-                                product.name
-                              }</h4>
+                              <h4 class="pricing-heading">${product.name}</h4>
                               <div class="pricing-image-box">
                                 <img src="${
                                   product.image_link
@@ -85,7 +76,6 @@ const pricingTableMaker = (product, productCategory) => {
                             </div>
                           </a>
                         </div>`;
-
   return pricingTable;
 };
 
