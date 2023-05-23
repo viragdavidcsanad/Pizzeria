@@ -51,8 +51,8 @@ const portionAndPriceRow = (product, productCategory) => {
 
 const pricingTableMaker = (product, productCategory) => {
   let pricingTable = "";
-  pricingTable += `<div class="pricing-table" data-id="${product.id}">
-                          <a href="./index.html#product-page" class="pricing-link js_pricing_link">
+  pricingTable += `<div class="pricing-table">
+                          <a href="./index.html#product-page" class="pricing-link js_pricing_link"  data-id="${product.id}">
                             <div class="pricing-content">
                               <h4 class="pricing-heading">${product.name}</h4>
                               <div class="pricing-image-box">
