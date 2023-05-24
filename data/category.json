@@ -1,11 +1,11 @@
 {
-	"categories": [
-		"appetizer",
-		"soup",
-		"pizza",
-		"pasta",
-		"salad",
-		"dessert",
-		"drink"
+	"Category": [
+		"Appetizer",
+		"Soup",
+		"Pizza",
+		"Pasta",
+		"Salad",
+		"Dessert",
+		"Drink"
 	]
 }
