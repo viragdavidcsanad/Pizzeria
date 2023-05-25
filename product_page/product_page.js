@@ -1,13 +1,21 @@
 import allData from "../get_data/get_data.js";
 
 const $productPage = document.querySelector(".js_product_page");
-const fillProductData = () => {
+const renderProductData = () => {
   const $selectedProduct = document.querySelector(".js_selected_product");
-  console.log($selectedProduct.dataset.id);
+  const productID = $selectedProduct.dataset.id;
+  const productCategory = $selectedProduct.dataset.category;
+  const categoryData = allData[productCategory];
+  const productData = categoryData.products.filter(
+    (product) => product.id === productID
+  )[0];
+  $productPage.innerHTML += `<form class="product-page-form">
+                               <h2>${productData.name}</h2>
+                               <img src="${productData.image_link}">
+                             </form>`;
 };
+
 const focusEvent = () =>
-  $productPage.addEventListener("focus", fillProductData);
+  $productPage.addEventListener("focus", renderProductData);
 
 focusEvent();
-
-// console.log($pricingLinks());
