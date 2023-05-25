@@ -1,16 +1,29 @@
 .product-page {
 	font-size: 3rem;
 	position: fixed;
-	background-color: blue;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
 	left: 0;
 	top: 0;
-	height: 0;
-	overflow: hidden;
-	z-index: 3;
+	opacity: 0;
+	transition: 0.3s;
 }
 
 .product-page:focus {
-	height: auto;
-	width: 100%;
-	height: 100%;
+	backdrop-filter: blur(0.3rem);
+	opacity: 1;
+	z-index: 15;
+}
+
+.product-page-form {
+	position: absolute;
+	background-image: url("../images/menu_pizza_background.webp");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 95%;
+	height: 95%;
+	left: 2.5%;
+	top: 2.5%;
 }
