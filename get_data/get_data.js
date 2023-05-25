@@ -1,14 +1,14 @@
 const dataLinks = [
-  "./data/selector.json",
-  "./data/currency.json",
-  "./data/category.json",
-  "./data/appetizer.json",
-  "./data/soup.json",
-  "./data/pizza.json",
-  "./data/pasta.json",
-  "./data/salad.json",
-  "./data/dessert.json",
-  "./data/drink.json",
+  "./data/Selector.json",
+  "./data/Currency.json",
+  "./data/Category.json",
+  "./data/Appetizer.json",
+  "./data/Soup.json",
+  "./data/Pizza.json",
+  "./data/Pasta.json",
+  "./data/Salad.json",
+  "./data/Dessert.json",
+  "./data/Drink.json",
 ];
 
 async function getData(dataLinks) {
