@@ -1,6 +1,6 @@
 import allData from "../get_data/get_data.js";
-const selectors = allData.selectors;
-const filteredCategories = allData.categories.filter(
+const selectors = allData.Selector;
+const filteredCategories = allData.Category.filter(
   (category) => allData[category].products
 );
 
@@ -158,10 +158,9 @@ const foodMenuTurner = (Event) => {
   foodMenuHeight();
 };
 
-const foodMenuChangeEvent = (currentCategory, index) => {
-  $foodMenuSelector.addEventListener("change", () => {
-    renderHeadingsAndPages(currentCategory, index);
-  });
+const toggleFocusSelector = ($visibleSelector, $optionsArray) => {
+  $visibleSelector.classList.toggle("focus");
+  $optionsArray.map((option) => option.classList.toggle("focus"));
 };
 
 const turnerClickEvent = () => {
@@ -170,21 +169,10 @@ const turnerClickEvent = () => {
     .addEventListener("click", foodMenuTurner);
 };
 
-const blurSelector = ($visibleSelector, $optionsArray) => {
-  $foodMenuSelectorHolder.blur();
-  $visibleSelector.classList.remove("focus");
-  $optionsArray.map((option) => option.classList.remove("focus"));
-};
-
-const selectorBlurEvent = ($visibleSelector, $optionsArray) => {
-  $foodMenuSelectorHolder.addEventListener("blur", () =>
-    blurSelector($visibleSelector, $optionsArray)
-  );
-};
-
-const toggleFocusSelector = ($visibleSelector, $optionsArray) => {
-  $visibleSelector.classList.toggle("focus");
-  $optionsArray.map((option) => option.classList.toggle("focus"));
+const foodMenuChangeEvent = (currentCategory, index) => {
+  $foodMenuSelector.addEventListener("change", () => {
+    renderHeadingsAndPages(currentCategory, index);
+  });
 };
 
 const eventChange = new Event("change");
@@ -210,10 +198,10 @@ const addValueToSelect = (Event, $visibleSelector, $optionsArray) => {
   }
 };
 
-const selectorClickEvent = ($visibleSelector, $optionsArray) => {
-  $foodMenuSelectorHolder.addEventListener("click", (Event) =>
-    addValueToSelect(Event, $visibleSelector, $optionsArray)
-  );
+const blurSelector = ($visibleSelector, $optionsArray) => {
+  $foodMenuSelectorHolder.blur();
+  $visibleSelector.classList.remove("focus");
+  $optionsArray.map((option) => option.classList.remove("focus"));
 };
 
 const renderFoodMenu = () => {
@@ -223,6 +211,18 @@ const renderFoodMenu = () => {
     turnerClickEvent();
     foodMenuChangeEvent(currentCategory, index);
   });
+};
+
+const selectorClickEvent = ($visibleSelector, $optionsArray) => {
+  $foodMenuSelectorHolder.addEventListener("click", (Event) =>
+    addValueToSelect(Event, $visibleSelector, $optionsArray)
+  );
+};
+
+const selectorBlurEvent = ($visibleSelector, $optionsArray) => {
+  $foodMenuSelectorHolder.addEventListener("blur", () =>
+    blurSelector($visibleSelector, $optionsArray)
+  );
 };
 
 const renderFoodMenuSelector = () => {
