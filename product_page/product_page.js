@@ -11,7 +11,9 @@ const renderProductData = () => {
   )[0];
   $productPage.innerHTML += `<form class="product-page-form">
                                <h2>${productData.name}</h2>
-                               <img src="${productData.image_link}">
+                               <img class="product-page-image" src="${productData.image_link}" alt="image of ${productData.name}">
+                               <p>${productData.ingredients}</p>
+                               
                              </form>`;
 };
 
