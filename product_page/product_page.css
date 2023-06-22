@@ -8,6 +8,7 @@
 	top: 0;
 	opacity: 0;
 	transition: 0.3s;
+	pointer-events: none;
 }
 
 .product-page:focus {
@@ -26,4 +27,14 @@
 	height: 95%;
 	left: 2.5%;
 	top: 2.5%;
+	color: var(--white);
+	border-image: url("../images\ másolata/drawing.png");
+	border-image-slice: 120;
+	border-image-width: 5rem;
+	border-image-repeat: repeat;
+}
+
+.product-page-image {
+	width: 30rem;
+	height: auto;
 }
