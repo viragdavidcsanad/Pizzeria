@@ -31,7 +31,7 @@ html {
   font-size: 10px;
   scroll-behavior: smooth;
   width: 100%;
-  min-width: 300px;
+  min-width: 480px;
   height: auto;
   font-family: text-font;
 }
