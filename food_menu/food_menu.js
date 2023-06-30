@@ -61,7 +61,7 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
   );
   subcategoryProducts.map((product) => {
     foodMenuProducts += `<div class="food-menu-product-table js_food_menu_product_table">
-                           <a href="./index.html#product-page" id="${product.id}">
+                           <a href="./index.html#product-page" class="js_product_page_link" data-id="${product.id}" data-category="${currentCategory.category}">
                               <div class="food-menu-product-number">№ ${product.number}</div>
                               <h4 class="food-menu-product-heading">${product.name}</h4>
                               <div class="food-menu-product-image-box">
