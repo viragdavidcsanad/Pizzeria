@@ -14,7 +14,7 @@
     "products": [
       {
         "id": "6f398c83-c415-4ccc-a63f-0b539cf544ab",
-        "name": "orange juice",
+        "name": "Orange Juice",
         "image_link": "./images/orange_juice.png",
         "ingredients": "squeezed from fresh fruit",
         "prices": {
