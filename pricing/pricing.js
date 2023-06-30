@@ -1,28 +1,11 @@
 import allData from "../get_data/get_data.js";
+
 const currency = allData.Currency;
 const foodCategories = allData.Category;
 const filteredCategories = foodCategories.filter(
   (category) => allData[category].products
 );
-
 const $pricingHolder = document.querySelector(".js_pricing_tables");
-
-const selectProduct = (Event) => {
-  const $selectedProducts = () => [
-    ...document.querySelectorAll(".js_selected_product"),
-  ];
-  if ($selectedProducts()) {
-    $selectedProducts().map((selectedProduct) =>
-      selectedProduct.classList.remove("js_selected_product")
-    );
-  }
-  Event.currentTarget.classList.add("js_selected_product");
-};
-
-const pricingClickEvent = () => {
-  const $pricingLinks = [...document.querySelectorAll(".js_pricing_link")];
-  $pricingLinks.map((link) => link.addEventListener("click", selectProduct));
-};
 
 const portionAndPriceRow = (product, productCategory) => {
   const portionsCentralObject = productCategory.portions;
@@ -52,9 +35,16 @@ const portionAndPriceRow = (product, productCategory) => {
 const pricingTableMaker = (product, productCategory) => {
   let pricingTable = "";
   pricingTable += `<div class="pricing-table">
-                          <a href="./index.html#product-page" class="pricing-link js_pricing_link"  data-id="${product.id}" data-category="${productCategory.category}">
+                          <a href="./index.html#product-page" class="pricing-link js_product_page_link"  data-id="${
+                            product.id
+                          }" data-category="${productCategory.category}">
                             <div class="pricing-content">
-                              <h4 class="pricing-heading">${product.name}</h4>
+                              <div class="pricing-heading-holder">
+                                <p class="product-number"><span class="numero">№</span>${
+                                  product.number
+                                }</p>
+                                <h4 class="pricing-heading">${product.name}</h4>
+                              </div>
                               <div class="pricing-image-box">
                                 <img src="${
                                   product.image_link
@@ -70,9 +60,8 @@ const pricingTableMaker = (product, productCategory) => {
                                   productCategory
                                 )}    
                               </div>
-                              <div class="pricing-table-number">
-                                № ${product.number}
-                              </div>
+                              <p class="product-number">
+                                <span class="numero">№</span>${product.number}</p>
                             </div>
                           </a>
                         </div>`;
@@ -93,7 +82,7 @@ const specialOffers = () => {
       }
     })
   );
-  pricingClickEvent();
+  // pricingClickEvent();
 };
 
 specialOffers();
