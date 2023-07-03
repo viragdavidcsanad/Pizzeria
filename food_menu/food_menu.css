@@ -187,6 +187,7 @@
   width: 80vw;
   /* max-width: 70rem; */
   height: auto;
+  cursor: pointer;
 }
 
 .food-menu-category {
