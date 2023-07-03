@@ -4,10 +4,11 @@ const $productPage = document.querySelector(".js_product_page");
 const $body = document.querySelector("body");
 
 const closeProductPage = () => {
-  $productPage.classList.remove(
-    "js_active_product_page",
-    "active-product-page"
-  );
+  // $productPage.classList.remove(
+  //   "js_active_product_page",
+  //   "active-product-page"
+  // );
+  $productPage.blur();
   $body.classList.remove("no-scroll");
 };
 
@@ -17,7 +18,8 @@ const closeClickEvent = () => {
 };
 
 const productPageActivator = () => {
-  $productPage.classList.add("js_active_product_page", "active-product-page");
+  // $productPage.classList.add("js_active_product_page", "active-product-page");
+  $productPage.focus();
   $body.classList.add("no-scroll");
   closeClickEvent();
 };
@@ -39,11 +41,11 @@ const renderProductPage = () => {
 };
 
 const selectProduct = (Event) => {
-  const $selectedProducts = () => [
+  const $selectedProducts = [
     ...document.querySelectorAll(".js_selected_product"),
   ];
-  if ($selectedProducts()) {
-    $selectedProducts().map((selectedProduct) =>
+  if ($selectedProducts) {
+    $selectedProducts.map((selectedProduct) =>
       selectedProduct.classList.remove("js_selected_product")
     );
   }
