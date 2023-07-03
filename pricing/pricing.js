@@ -34,37 +34,33 @@ const portionAndPriceRow = (product, productCategory) => {
 
 const pricingTableMaker = (product, productCategory) => {
   let pricingTable = "";
-  pricingTable += `<div class="pricing-table">
-                          <a href="./index.html#product-page" class="pricing-link js_product_page_link"  data-id="${
-                            product.id
-                          }" data-category="${productCategory.category}">
-                            <div class="pricing-content">
-                              <div class="pricing-heading-holder">
-                                <p class="product-number"><span class="numero">№</span>${
-                                  product.number
-                                }</p>
-                                <h4 class="pricing-heading">${product.name}</h4>
-                              </div>
-                              <div class="pricing-image-box">
-                                <img src="${
-                                  product.image_link
-                                }" alt="pizza picture" class="pricing-image" />
-                              </div>
-                              <p class="pricing-table-text">
-                                ${product.ingredients}
-                              </p>
-                              <h4 class="pricing-sub-heading">Prices</h4>
-                              <div class="portion-and-price">
-                                ${portionAndPriceRow(
-                                  product,
-                                  productCategory
-                                )}    
-                              </div>
-                              <p class="product-number">
-                                <span class="numero">№</span>${product.number}</p>
-                            </div>
-                          </a>
-                        </div>`;
+  pricingTable += `<div class="pricing-table pricing-link js_product_page_link" 
+                   data-id="${product.id}" 
+                   data-category="${productCategory.category}">
+                    <div class="pricing-content">
+                      <div class="pricing-heading-holder">
+                        <p class="product-number">
+                          <span class="numero">№</span>
+                          ${product.number}
+                        </p>
+                        <h4 class="pricing-heading">${product.name}</h4>
+                      </div>
+                      <div class="pricing-image-box">
+                        <img src="${product.image_link}" 
+                        alt="pizza picture" 
+                        class="pricing-image" />
+                      </div>
+                      <p class="pricing-table-text">
+                        ${product.ingredients}
+                      </p>
+                      <h4 class="pricing-sub-heading">Prices</h4>
+                      <div class="portion-and-price">
+                        ${portionAndPriceRow(product, productCategory)}    
+                      </div>
+                      <p class="product-number">
+                        <span class="numero">№</span>${product.number}</p>
+                    </div>
+                  </div>`;
   return pricingTable;
 };
 
