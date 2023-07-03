@@ -20,11 +20,11 @@
         "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
         "prices": {
           "small": "8.99",
-          "large": "13.99",
-          "extra large": "17.99"
+          "large": "15.99",
+          "extra large": "24.99"
         },
         "pricing_table": false,
-        "product_category": "pizza",
+        "product_category": "Pizza",
         "product_subcategory": "Classic Pizza",
         "number": 31,
         "classic": "classic",
@@ -39,11 +39,11 @@
         "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
         "prices": {
           "small": "7.99",
-          "large": "11.99",
-          "extra large": "14.99"
+          "large": "12.99",
+          "extra large": "21.99"
         },
         "pricing_table": true,
-        "product_category": "pizza",
+        "product_category": "Pizza",
         "product_subcategory": "Classic Pizza",
         "number": 32,
         "classic": "classic",
@@ -58,11 +58,11 @@
         "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
         "prices": {
           "small": "9.99",
-          "large": "14.99",
-          "extra large": "18.99"
+          "large": "16.99",
+          "extra large": "28.99"
         },
         "pricing_table": true,
-        "product_category": "pizza",
+        "product_category": "Pizza",
         "product_subcategory": "Classic Pizza",
         "number": 33,
         "classic": "classic",
@@ -78,10 +78,10 @@
         "prices": {
           "small": "3.99",
           "large": "7.99",
-          "extra large": "10.99"
+          "extra large": "11.99"
         },
         "pricing_table": false,
-        "product_category": "pizza",
+        "product_category": "Pizza",
         "product_subcategory": "Vegan Pizza",
         "number": 34,
         "classic": null,
@@ -96,12 +96,13 @@
         "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
         "prices": {
           "small": "6.99",
-          "large": "10.99",
-          "extra large": "13.99"
+          "large": "11.99",
+          "extra large": "19.99"
         },
         "pricing_table": false,
-        "product_category": "pizza",
-        "product_subcategory": "Classic Pizza",
+        "product_category": "Pizza",
+        "product_subcategory":
+         "Classic Pizza",
         "number": 35,
         "classic": "classic",
         "seafood": null,
