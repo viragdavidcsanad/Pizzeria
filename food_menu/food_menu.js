@@ -60,17 +60,18 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
     (product) => product.product_subcategory === subcategory
   );
   subcategoryProducts.map((product) => {
-    foodMenuProducts += `<div class="food-menu-product-table js_food_menu_product_table">
-                           <a href="./index.html#product-page" class="js_product_page_link" data-id="${product.id}" data-category="${currentCategory.category}">
-                              <div class="food-menu-product-number">№ ${product.number}</div>
-                              <h4 class="food-menu-product-heading">${product.name}</h4>
-                              <div class="food-menu-product-image-box">
-                                <img class="food-menu-product-image" src="${product.image_link}">
-                              </div>
-                              <div class="food-menu-table-ingredients">
-                                ${product.ingredients}
-                              </div>
-                           </a>
+    foodMenuProducts += `<div 
+                         class="food-menu-product-table js_food_menu_product_table js_product_page_link" 
+                         data-id="${product.id}" 
+                         data-category="${currentCategory.category}">
+                            <div class="food-menu-product-number">№ ${product.number}</div>
+                            <h4 class="food-menu-product-heading">${product.name}</h4>
+                            <div class="food-menu-product-image-box">
+                              <img class="food-menu-product-image" src="${product.image_link}" />
+                            </div>
+                            <div class="food-menu-table-ingredients">
+                              ${product.ingredients}
+                            </div>
                          </div>`;
   });
   return foodMenuProducts;
@@ -158,11 +159,6 @@ const foodMenuTurner = (Event) => {
   foodMenuHeight();
 };
 
-const toggleFocusSelector = ($visibleSelector, $optionsArray) => {
-  $visibleSelector.classList.toggle("focus");
-  $optionsArray.map((option) => option.classList.toggle("focus"));
-};
-
 const turnerClickEvent = () => {
   document
     .querySelector(".js_food_menu_headings")
@@ -173,6 +169,20 @@ const foodMenuChangeEvent = (currentCategory, index) => {
   $foodMenuSelector.addEventListener("change", () => {
     renderHeadingsAndPages(currentCategory, index);
   });
+};
+
+const renderFoodMenu = () => {
+  filteredCategories.map((filteredCategory, index) => {
+    const currentCategory = allData[filteredCategory];
+    renderHeadingsAndPages(currentCategory, index);
+    turnerClickEvent();
+    foodMenuChangeEvent(currentCategory, index);
+  });
+};
+
+const toggleFocusSelector = ($visibleSelector, $optionsArray) => {
+  $visibleSelector.classList.toggle("focus");
+  $optionsArray.map((option) => option.classList.toggle("focus"));
 };
 
 const eventChange = new Event("change");
@@ -202,15 +212,6 @@ const blurSelector = ($visibleSelector, $optionsArray) => {
   $foodMenuSelectorHolder.blur();
   $visibleSelector.classList.remove("focus");
   $optionsArray.map((option) => option.classList.remove("focus"));
-};
-
-const renderFoodMenu = () => {
-  filteredCategories.map((filteredCategory, index) => {
-    const currentCategory = allData[filteredCategory];
-    renderHeadingsAndPages(currentCategory, index);
-    turnerClickEvent();
-    foodMenuChangeEvent(currentCategory, index);
-  });
 };
 
 const selectorClickEvent = ($visibleSelector, $optionsArray) => {
