@@ -3,16 +3,16 @@
 	position: fixed;
 	overflow: hidden;
 	left: 0;
-	z-index: -100;
 	top: 0;
-	opacity: 0;
+	height: 0;
+	/* opacity: 0; */
 	transition: 0.3s;
 }
 
-.active-product-page {
+.product-page:focus {
 	backdrop-filter: blur(0.3rem);
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	opacity: 1;
 	z-index: 15;
 }
@@ -49,4 +49,5 @@
 
 .no-scroll {
 	overflow: hidden;
+	scrollbar-width: initial;
 }
