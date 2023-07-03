@@ -47,6 +47,7 @@
   background-repeat: no-repeat;
   box-shadow: 0.5rem 0.5rem 2rem var(--black);
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .pricing-table:hover {
