@@ -4,17 +4,11 @@
 	overflow: hidden;
 	left: 0;
 	top: 0;
-	height: 0;
-	/* opacity: 0; */
-	transition: 0.3s;
-}
-
-.product-page:focus {
-	backdrop-filter: blur(0.3rem);
 	width: 100vw;
-	height: 100vh;
-	opacity: 1;
+	height: 0;
+	transition: 0.3s;
 	z-index: 15;
+	backdrop-filter: blur(0.3rem);
 }
 
 .product-page-content {
@@ -45,9 +39,4 @@
 
 .close-product-page:hover {
 	color: lightblue;
-}
-
-.no-scroll {
-	overflow: hidden;
-	scrollbar-width: initial;
 }
