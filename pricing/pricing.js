@@ -58,7 +58,9 @@ const pricingTableMaker = (product, productCategory) => {
                         ${portionAndPriceRow(product, productCategory)}    
                       </div>
                       <p class="product-number">
-                        <span class="numero">№</span>${product.number}</p>
+                        <span class="numero">№</span>
+                        ${product.number}
+                      </p>
                     </div>
                   </div>`;
   return pricingTable;
@@ -78,7 +80,6 @@ const specialOffers = () => {
       }
     })
   );
-  // pricingClickEvent();
 };
 
 specialOffers();
