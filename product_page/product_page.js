@@ -8,8 +8,8 @@ const closeProductPage = () => {
   //   "js_active_product_page",
   //   "active-product-page"
   // );
-  $productPage.blur();
-  $body.classList.remove("no-scroll");
+  $productPage.setAttribute("style", "height: 0");
+  $body.removeEventListener("wheel", noScroll);
 };
 
 const closeClickEvent = () => {
@@ -17,10 +17,14 @@ const closeClickEvent = () => {
   $productPageCloser.addEventListener("click", closeProductPage);
 };
 
+function noScroll(Event) {
+  Event.preventDefault();
+}
+
 const productPageActivator = () => {
   // $productPage.classList.add("js_active_product_page", "active-product-page");
-  $productPage.focus();
-  $body.classList.add("no-scroll");
+  $productPage.setAttribute("style", "height: 100vh");
+  $body.addEventListener("wheel", noScroll, {passive: false});
   closeClickEvent();
 };
 
