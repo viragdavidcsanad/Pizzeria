@@ -105,7 +105,9 @@ const renderHeadingsAndPages = (currentCategory, index) => {
   if (renderSubcategories(currentCategory) === "") {
     return;
   } else {
-    $headingsContainer.innerHTML += `<button class="food-menu-heading ${category} js_food_menu_heading">${category}</button>`;
+    $headingsContainer.innerHTML += `<button class="food-menu-heading ${category}js_food_menu_heading">
+                                       ${category}
+                                     </button>`;
     $pagesContainer.innerHTML += `<div class="food-menu-page ${category} js_food_menu_page">
                                     <h3 class="food-menu-category">${category}</h3>
                                     ${renderSubcategories(currentCategory)}
