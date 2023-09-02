@@ -60,7 +60,7 @@ const selectProduct = (Event) => {
 
 const clickEvent = () => {
   const $linksToProductPage = [
-    ...document.querySelectorAll(".js_product_page_link"),
+    ...document.querySelectorAll(".js_product_page_link")
   ];
   $linksToProductPage.map((link) =>
     link.addEventListener("click", selectProduct)
