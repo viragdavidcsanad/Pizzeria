@@ -25,7 +25,11 @@
         "pricing_table": true,
         "product_category": "Drink",
         "product_subcategory": "Soft Drink",
-        "number": 11
+        "number": 11,
+        "classic": true,
+        "seafood": true,
+        "vegetarian": true,
+        "vegan": true
       }
     ]
   }
