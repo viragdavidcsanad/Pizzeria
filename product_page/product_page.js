@@ -4,11 +4,11 @@ const $productPage = document.querySelector(".js_product_page");
 const $body = document.querySelector("body");
 
 const closeProductPage = () => {
-  // $productPage.classList.remove(
-  //   "js_active_product_page",
-  //   "active-product-page"
-  // );
-  $productPage.setAttribute("style", "height: 0");
+  $productPage.classList.remove(
+    "js_active_product_page",
+    "active-product-page"
+  );
+  // $productPage.setAttribute("style", "height: 0");
   $body.removeEventListener("wheel", noScroll);
 };
 
@@ -22,8 +22,8 @@ function noScroll(Event) {
 }
 
 const productPageActivator = () => {
-  // $productPage.classList.add("js_active_product_page", "active-product-page");
-  $productPage.setAttribute("style", "height: 100vh");
+  $productPage.classList.add("js_active_product_page", "active-product-page");
+  // $productPage.setAttribute("style", "height: 100vh");
   $body.addEventListener("wheel", noScroll, {passive: false});
   closeClickEvent();
 };
