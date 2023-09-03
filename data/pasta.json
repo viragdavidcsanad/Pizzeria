@@ -56,10 +56,10 @@
         "pricing_table": true,
         "product_category": "Pasta",
         "product_subcategory": "Vegetarian Pasta",
-        "classic": null,
-        "seafood": null,
-        "vegetarian": "vegetarian",
-        "vegan": null
+        "classic": false,
+        "seafood": false,
+        "vegetarian": true,
+        "vegan": false
       }
     ]
   }

@@ -27,10 +27,10 @@
         "product_category": "Pizza",
         "product_subcategory": "Classic Pizza",
         "number": 31,
-        "classic": "classic",
-        "seafood": null,
-        "vegetarian": null,
-        "vegan": null
+        "classic": true,
+        "seafood": false,
+        "vegetarian": false,
+        "vegan": false
       },
       {
         "id": "12025603-8179-4e8a-92f8-fd53e249cb90",
@@ -46,10 +46,10 @@
         "product_category": "Pizza",
         "product_subcategory": "Classic Pizza",
         "number": 32,
-        "classic": "classic",
-        "seafood": null,
-        "vegetarian": null,
-        "vegan": null
+        "classic": true,
+        "seafood": false,
+        "vegetarian": false,
+        "vegan": false
       },
       {
         "id": "d2194a8d-930a-4948-b10e-d69d1ed10f09",
@@ -65,10 +65,10 @@
         "product_category": "Pizza",
         "product_subcategory": "Classic Pizza",
         "number": 33,
-        "classic": "classic",
-        "seafood": null,
-        "vegetarian": null,
-        "vegan": null
+        "classic": true,
+        "seafood": false,
+        "vegetarian": false,
+        "vegan": false
       },
       {
         "id": "b4f7bea3-865c-4e51-9506-09bede05927d",
@@ -84,10 +84,10 @@
         "product_category": "Pizza",
         "product_subcategory": "Vegan Pizza",
         "number": 34,
-        "classic": null,
-        "seafood": null,
-        "vegetarian": "vegetarian",
-        "vegan": "vegan"
+        "classic": false,
+        "seafood": false,
+        "vegetarian": true,
+        "vegan": true
       },
       {
         "id": "8a9f83bc-4a74-4549-9529-c8a8242ddc20",
@@ -104,10 +104,10 @@
         "product_subcategory":
          "Classic Pizza",
         "number": 35,
-        "classic": "classic",
-        "seafood": null,
-        "vegetarian": null,
-        "vegan": null
+        "classic": true,
+        "seafood": false,
+        "vegetarian": false,
+        "vegan": false
       }
     ]
   }

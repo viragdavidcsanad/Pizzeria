@@ -25,10 +25,10 @@
         "product_category": "Salad",
         "product_subcategory": "Salad with Seafood",
         "number": 41,
-        "classic": null,
-        "seafood": "seafood",
-        "vegetarian": null,
-        "vegan": null
+        "classic": false,
+        "seafood": true,
+        "vegetarian": false,
+        "vegan": false
       }
     ]
   }
