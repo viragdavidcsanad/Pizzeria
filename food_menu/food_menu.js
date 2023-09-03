@@ -35,28 +35,43 @@ const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
 
 resizeEvent();
 
+const productPageFilter = () => {};
+
+const htmlElementFilter = (filteredFood) =>
+  filteredFood.map((filtered) => {
+    const filteredHtmlElement = document.querySelector(
+      `.js_food_menu_product_table[data-id="${filtered.id}"]`
+    );
+    filteredHtmlElement.classList.add("filtered-food");
+    productPageFilter();
+  });
+
 const foodFilter = (currentCategory) => {
   let filteredFood = [];
   const products = currentCategory.products;
   const selectorValue = $foodMenuSelector.value;
-  const drink = products.filter(
-    (product) => product.product_category === "Drink"
-  );
-  if (drink.length > 0) {
-    filteredFood = drink;
-  } else if (selectorValue === "menu") {
+  // const drink = products.filter(
+  //   (product) => product.product_category === "Drink"
+  // );
+  // if (drink.length > 0) {
+  //   filteredFood = drink;
+  // } else
+  if (selectorValue === "menu") {
     filteredFood = products;
   } else
     filteredFood = products.filter(
-      (product) => product[selectorValue] === selectorValue
+      (product) => product[selectorValue] === true
     );
-  return filteredFood;
+  htmlElementFilter(filteredFood);
 };
 
 const renderFoodMenuProducts = (currentCategory, subcategory) => {
   let foodMenuProducts = "";
-  const filteredFood = foodFilter(currentCategory);
-  const subcategoryProducts = filteredFood.filter(
+  // const filteredFood = foodFilter(currentCategory);
+  // const subcategoryProducts = filteredFood.filter(
+  //   (product) => product.product_subcategory === subcategory
+  // );
+  const subcategoryProducts = currentCategory.products.filter(
     (product) => product.product_subcategory === subcategory
   );
   subcategoryProducts.map((product) => {
@@ -69,7 +84,7 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                             <div class="food-menu-product-image-box">
                               <img class="food-menu-product-image" src="${product.image_link}" />
                             </div>
-                            <div class="food-menu-table-ingredients">
+                            <div class="food-menu-product-table-ingredients">
                               ${product.ingredients}
                             </div>
                          </div>`;
@@ -173,10 +188,18 @@ const foodMenuChangeEvent = (currentCategory, index) => {
   });
 };
 
+const filterRemover = () => {
+  const filteredFoods = [...document.querySelectorAll(".filtered-food")];
+  filteredFoods.map((filteredFood) =>
+    filteredFood.classList.remove("filtered-food")
+  );
+};
+
 const renderFoodMenu = () => {
   filteredCategories.map((filteredCategory, index) => {
     const currentCategory = allData[filteredCategory];
     renderHeadingsAndPages(currentCategory, index);
+    foodFilter(currentCategory);
     turnerClickEvent();
     foodMenuChangeEvent(currentCategory, index);
   });
@@ -255,6 +278,7 @@ const renderFoodMenuSelector = () => {
   const $optionsArray = [
     ...document.querySelectorAll(".js_food_menu_visible_selector_option"),
   ];
+  filterRemover();
   renderFoodMenu();
   selectorClickEvent($visibleSelector, $optionsArray);
   selectorBlurEvent($visibleSelector, $optionsArray);
