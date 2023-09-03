@@ -11,6 +11,10 @@
 	backdrop-filter: blur(0.3rem);
 }
 
+.active-product-page {
+	height: 100vh;
+}
+
 .product-page-content {
 	position: absolute;
 	background-image: url("../images/menu_pizza_background.webp");
