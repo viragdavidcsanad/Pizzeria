@@ -35,35 +35,85 @@ const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
 
 resizeEvent();
 
-const productPageFilter = () => {};
+const categoryFilter = (filteredFood) => {
+  const filteredCategories = filteredFood.map(
+    (filtered) => filtered.product_category
+  );
+  const filteredCategoriesSet = new Set(filteredCategories);
+  const filteredCategoriesArray = Array.from(filteredCategoriesSet);
+  const filteredCategoryHtmlElements = filteredCategoriesArray.map(
+    (category) =>
+      document.querySelector(
+        `.js_food_menu_page[data-name="${category}"]`
+      )
+  );
+  filteredCategoryHtmlElements.map((categoryHtml) =>
+    categoryHtml.classList.add("filtered-menu-page")
+  );
+};
 
-const htmlElementFilter = (filteredFood) =>
+const subcategoryFilter = (filteredFood) => {
+  const filteredSubcategories = filteredFood.map(
+    (filtered) => filtered.product_subcategory
+  );
+  const filteredSubcategoriesSet = new Set(filteredSubcategories);
+  const filteredSubcategoriesArray = Array.from(filteredSubcategoriesSet);
+  const filteredSubcategoryHtmlElements = filteredSubcategoriesArray.map(
+    (subcategory) =>
+      document.querySelector(
+        `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
+      )
+  );
+  filteredSubcategoryHtmlElements.map((subcategoryHtml) =>
+    subcategoryHtml.classList.add("filtered-subcategory-table")
+  );
+  categoryFilter(filteredFood);
+};
+
+const productHtmlElementFilter = (filteredFood) =>
   filteredFood.map((filtered) => {
-    const filteredHtmlElement = document.querySelector(
+    const $filteredHtmlElement = document.querySelector(
       `.js_food_menu_product_table[data-id="${filtered.id}"]`
     );
-    filteredHtmlElement.classList.add("filtered-food");
-    productPageFilter();
+    $filteredHtmlElement.classList.add("filtered-food");
+    subcategoryFilter(filteredFood);
   });
 
-const foodFilter = (currentCategory) => {
+const filterRemover = () => {
+  const $filteredFoods = [...document.querySelectorAll(".filtered-food")];
+  $filteredFoods.map((filteredFood) =>
+    filteredFood.classList.remove("filtered-food")
+  );
+  const $filteredSubcategories = [
+    ...document.querySelectorAll(".filtered-subcategory-table"),
+  ];
+  $filteredSubcategories.map((filteredSubcategory) =>
+    filteredSubcategory.classList.remove("filtered-subcategory-table")
+  );
+  const $filteredCategories = [
+    ...document.querySelectorAll(".filtered-menu-page"),
+  ];
+  $filteredCategories.map((filteredCategory) =>
+    filteredCategory.classList.remove("filtered-menu-page")
+  );
+};
+
+function foodFilter(currentCategory, index) {
+  if (index === 0) {
+    filterRemover();
+    offFoodMenuTurner();
+  }
   let filteredFood = [];
   const products = currentCategory.products;
   const selectorValue = $foodMenuSelector.value;
-  // const drink = products.filter(
-  //   (product) => product.product_category === "Drink"
-  // );
-  // if (drink.length > 0) {
-  //   filteredFood = drink;
-  // } else
   if (selectorValue === "menu") {
     filteredFood = products;
   } else
     filteredFood = products.filter(
       (product) => product[selectorValue] === true
     );
-  htmlElementFilter(filteredFood);
-};
+  productHtmlElementFilter(filteredFood);
+}
 
 const renderFoodMenuProducts = (currentCategory, subcategory) => {
   let foodMenuProducts = "";
@@ -99,8 +149,9 @@ const renderSubcategories = (currentCategory) => {
     if (renderFoodMenuProducts(currentCategory, subcategory) === "") {
       return;
     } else {
-      subcategories += `<div class="food-menu-subcategory-table js_food_menu_subcategory_table">
-                          <h4 class="food-menu-subcategory">${subcategory}</h4>
+      subcategories += `<div class="food-menu-subcategory-table js_food_menu_subcategory_table" 
+                        data-name="${subcategory}">
+                          <h4 class="food-menu-subcategory-heading">${subcategory}</h4>
                           ${renderFoodMenuProducts(
                             currentCategory,
                             subcategory
@@ -120,15 +171,33 @@ const renderHeadingsAndPages = (currentCategory, index) => {
   if (renderSubcategories(currentCategory) === "") {
     return;
   } else {
-    $headingsContainer.innerHTML += `<button class="food-menu-heading ${category} js_food_menu_heading">
+    $headingsContainer.innerHTML += `<button class="food-menu-heading js_food_menu_heading" 
+                                     data-name="${category}">
                                        ${category}
                                      </button>`;
-    $pagesContainer.innerHTML += `<div class="food-menu-page ${category} js_food_menu_page">
+    $pagesContainer.innerHTML += `<div class="food-menu-page js_food_menu_page" 
+                                  data-name="${category}">
                                     <h3 class="food-menu-category">${category}</h3>
                                     ${renderSubcategories(currentCategory)}
                                   </div>`;
   }
   foodMenuHeight();
+};
+
+const offFoodMenuTurner = () => {
+  const $selectedHeading = document.querySelector(".selected-heading");
+  if ($selectedHeading) {
+    $selectedHeading.classList.remove("selected-heading");
+  }
+  const foodMenuPages = [...document.querySelectorAll(".js_food_menu_page")];
+  foodMenuPages.map((menuPage) =>
+    menuPage.classList.remove(
+      "js_active_menu_page",
+      "active-menu-page",
+      "after-menu-page",
+      "before-menu-page"
+    )
+  );
 };
 
 const selectedHeadingStyle = (Event) => {
@@ -149,29 +218,22 @@ const foodMenuTurner = (Event) => {
   const $foodMenuPagesArray = [
     ...document.querySelectorAll(".js_food_menu_page"),
   ];
-  let $foodMenuPagesClasses = [];
-  $foodMenuPagesArray.map((menuPage) =>
-    $foodMenuPagesClasses.push(menuPage.classList)
-  );
   const eventTargetIndex = $foodMenuHeadingsArray.indexOf(Event.target);
-  for (let pageIndex in $foodMenuPagesClasses) {
-    $foodMenuPagesClasses[pageIndex].remove(
+  $foodMenuPagesArray.map((menuPage, index) => {
+    menuPage.classList.remove(
       "js_active_menu_page",
       "active-menu-page",
       "after-menu-page",
       "before-menu-page"
     );
-    if (pageIndex < eventTargetIndex) {
-      $foodMenuPagesClasses[pageIndex].add("before-menu-page");
-    } else if (pageIndex > eventTargetIndex) {
-      $foodMenuPagesClasses[pageIndex].add("after-menu-page");
+    if (index < eventTargetIndex) {
+      menuPage.classList.add("before-menu-page");
+    } else if (index > eventTargetIndex) {
+      menuPage.classList.add("after-menu-page");
     } else {
-      $foodMenuPagesClasses[pageIndex].add(
-        "js_active_menu_page",
-        "active-menu-page"
-      );
+      menuPage.classList.add("js_active_menu_page", "active-menu-page");
     }
-  }
+  });
   selectedHeadingStyle(Event);
   foodMenuHeight();
 };
@@ -184,24 +246,21 @@ const turnerClickEvent = () => {
 
 const foodMenuChangeEvent = (currentCategory, index) => {
   $foodMenuSelector.addEventListener("change", () => {
-    renderHeadingsAndPages(currentCategory, index);
+    // renderHeadingsAndPages(currentCategory, index);
+    // filterRemover();
+    foodFilter(currentCategory, index);
+    foodMenuHeight();
   });
-};
-
-const filterRemover = () => {
-  const filteredFoods = [...document.querySelectorAll(".filtered-food")];
-  filteredFoods.map((filteredFood) =>
-    filteredFood.classList.remove("filtered-food")
-  );
 };
 
 const renderFoodMenu = () => {
   filteredCategories.map((filteredCategory, index) => {
     const currentCategory = allData[filteredCategory];
     renderHeadingsAndPages(currentCategory, index);
-    foodFilter(currentCategory);
+    foodFilter(currentCategory, index);
     turnerClickEvent();
     foodMenuChangeEvent(currentCategory, index);
+    foodMenuHeight();
   });
 };
 
@@ -278,7 +337,6 @@ const renderFoodMenuSelector = () => {
   const $optionsArray = [
     ...document.querySelectorAll(".js_food_menu_visible_selector_option"),
   ];
-  filterRemover();
   renderFoodMenu();
   selectorClickEvent($visibleSelector, $optionsArray);
   selectorBlurEvent($visibleSelector, $optionsArray);
