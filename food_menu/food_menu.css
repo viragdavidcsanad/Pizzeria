@@ -161,7 +161,7 @@
 
 .food-menu-page {
   width: 100%;
-  height: auto;
+  height: 0;
   transition-duration: 0.5s;
   font-family: text-font;
   /* background-color: var(--deepgray); */
@@ -170,6 +170,11 @@
   /* outline: 0.1rem solid var(--black); */
   color: var(--white);
   font-size: 2rem;
+  overflow: hidden;
+}
+
+.filtered-menu-page {
+  height: auto;
   padding: 1rem;
 }
 
@@ -190,12 +195,21 @@
 
 /* @media (min-width: 700px) and (max-width: 919px) { */
 
-.food-menu-category {
+  .food-menu-category {
   font-size: 3rem;
   text-align: center;
 }
 
-.food-menu-sub-category {
+.food-menu-subcategory-table {
+  height: 0;
+  overflow: hidden;
+}
+
+.filtered-subcategory-table {
+  height: auto;
+}
+
+.food-menu-subcategory-heading {
   font-size: 2.7rem;
   text-align: center;
 }
@@ -285,7 +299,7 @@
   height: auto;
 }
 
-.invisible {
+.invisible-food-menu-selector {
   display: none;
 }
 
