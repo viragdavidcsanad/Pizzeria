@@ -1,11 +1,27 @@
 import allData from "../get_data/get_data.js";
 
 const currency = allData.Currency;
+const unitOfWeight = allData.Unit_Of_Weight;
+const unitOfLength = allData.Unit_Of_Length;
+const unitOfDrink = allData.Unit_Of_Drink;
 const foodCategories = allData.Category;
 const filteredCategories = foodCategories.filter(
   (category) => allData[category].products
 );
 const $pricingHolder = document.querySelector(".js_pricing_tables");
+
+const drinkOrFoodUnit = (product) => {
+  if (product.product_category === "Drink") {
+    return unitOfDrink;
+  } else return unitOfWeight;
+};
+
+const sizeOrNot = (productCategory, portion) => {
+  const sizes = productCategory.sizes;
+  if (productCategory.sizes) {
+    return `<span class="portion-size">${sizes[portion]}${unitOfLength}</span>`;
+  } else return "";
+};
 
 const portionAndPriceRow = (product, productCategory) => {
   const portionsCentralObject = productCategory.portions;
@@ -22,7 +38,11 @@ const portionAndPriceRow = (product, productCategory) => {
     portionAndPriceRows += `<div class="portion-and-price-row">
                               <span class="portion">${portion}</span>
                               <span class="portion-content">
-                                ${portionsObject()[portion]}
+                                ${sizeOrNot(productCategory, portion)}
+                                <span class="portion-weight">
+                                  ${portionsObject()[portion]} 
+                                  ${drinkOrFoodUnit(product)}
+                                </span>
                               </span>
                               <span class="price">
                                 ${currency}${product.prices[portion]}
@@ -57,7 +77,7 @@ const pricingTableMaker = (product, productCategory) => {
                       <div class="portion-and-price">
                         ${portionAndPriceRow(product, productCategory)}    
                       </div>
-                      <p class="product-number">
+                      <p class="product-number below">
                         <span class="numero">№</span>
                         ${product.number}
                       </p>
