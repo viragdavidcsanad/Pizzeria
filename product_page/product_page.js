@@ -8,7 +8,6 @@ const closeProductPage = () => {
     "js_active_product_page",
     "active-product-page"
   );
-  // $productPage.setAttribute("style", "height: 0");
   $body.removeEventListener("wheel", noScroll);
 };
 
@@ -23,7 +22,6 @@ function noScroll(Event) {
 
 const productPageActivator = () => {
   $productPage.classList.add("js_active_product_page", "active-product-page");
-  // $productPage.setAttribute("style", "height: 100vh");
   $body.addEventListener("wheel", noScroll, {passive: false});
   closeClickEvent();
 };
