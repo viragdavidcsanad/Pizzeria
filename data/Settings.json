@@ -1,0 +1,23 @@
+ {
+        "Currency": "$",
+        "Category": [
+            "Appetizer",
+            "Soup",
+            "Pizza",
+            "Pasta",
+            "Salad",
+            "Dessert",
+            "Drink"
+        ],
+        "Selector": {
+            "menu": "Menu",
+            "classic": "Classic Menu",
+            "seafood": "Seafood Menu",
+            "vegetarian": "Vegetarian Menu",
+            "vegan": "Vegan Menu"
+        },
+        "Unit_Of_Length": "\"",
+        "Unit_Of_Weight": "lb(s)",
+        "Unit_Of_Drink": "fl oz",
+        "Nav": ""
+    }
