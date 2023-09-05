@@ -7,9 +7,9 @@
       "Italian Wine"
     ],
     "portions": {
-      "small": "(8 fl oz)",
-      "large": "(16 fl oz)",
-      "extra large": "(32 fl oz)"
+      "small": 8,
+      "medium": 16,
+      "large": 32
     },
     "products": [
       {
@@ -18,9 +18,9 @@
         "image_link": "./images/orange_juice.png",
         "ingredients": "squeezed from fresh fruit",
         "prices": {
-          "small": "2.99",
-          "large": "4.99",
-          "extra large": "8.99"
+          "small": 2.99,
+          "medium": 5.99,
+          "large": 10.99
         },
         "pricing_table": true,
         "product_category": "Drink",

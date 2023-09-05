@@ -8,9 +8,14 @@
       "Vegan Pizza"
     ],
     "portions": {
-      "small": "(0.5 lb)",
-      "large": "(1 lbs)",
-      "extra large": "(2 lbs)"
+      "small": 0.5,
+      "medium": 1,
+      "large": 1.62
+    },
+    "sizes": {
+      "small": 10,
+      "medium": 14,
+      "large": 18
     },
     "products": [
       {
@@ -19,9 +24,9 @@
         "image_link": "./images/pizza_provenciale.png",
         "ingredients": "tomato sauce, mozzarella cheese, salami Campagnolo, tuna, mushrooms, onions",
         "prices": {
-          "small": "8.99",
-          "large": "15.99",
-          "extra large": "24.99"
+          "small": 8.99,
+          "medium": 17.99,
+          "large": 27.99
         },
         "pricing_table": false,
         "product_category": "Pizza",
@@ -38,9 +43,9 @@
         "image_link": "./images/pizza_Roma.png",
         "ingredients": "tomato sauce, mozzarella, salami, bacon, sour cream, smoked cheese",
         "prices": {
-          "small": "7.99",
-          "large": "12.99",
-          "extra large": "21.99"
+          "small": 7.99,
+          "medium": 15.99,
+          "large": 24.99
         },
         "pricing_table": true,
         "product_category": "Pizza",
@@ -57,9 +62,9 @@
         "image_link": "./images/pizza_castello.png",
         "ingredients": "tomato sauce, mozzarella cheese, smoked ribs, feta cheese, fried eggs, bacon, garlic",
         "prices": {
-          "small": "9.99",
-          "large": "16.99",
-          "extra large": "28.99"
+          "small": 9.99,
+          "medium": 19.99,
+          "large": 30.99
         },
         "pricing_table": true,
         "product_category": "Pizza",
@@ -76,9 +81,9 @@
         "image_link": "./images/pizza_pane.png",
         "ingredients": "pizzabrot pizza bread, garlic, olive oil",
         "prices": {
-          "small": "3.99",
-          "large": "7.99",
-          "extra large": "11.99"
+          "small": 4.99,
+          "medium": 9.99,
+          "large": 14.99
         },
         "pricing_table": false,
         "product_category": "Pizza",
@@ -95,14 +100,13 @@
         "image_link": "./images/pizza_quattro_staggioni.png",
         "ingredients": "tomato sauce, mozzarella cheese, ham, mushrooms, salami, artichokes",
         "prices": {
-          "small": "6.99",
-          "large": "11.99",
-          "extra large": "19.99"
+          "small": 6.99,
+          "medium": 11.99,
+          "large": 20.99
         },
         "pricing_table": false,
         "product_category": "Pizza",
-        "product_subcategory":
-         "Classic Pizza",
+        "product_subcategory": "Classic Pizza",
         "number": 35,
         "classic": true,
         "seafood": false,

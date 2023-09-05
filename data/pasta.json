@@ -8,9 +8,9 @@
       "Vegan Pasta"
     ],
     "portions": {
-      "small": "(0.5 lb) central",
-      "large": "(1 lbs) central",
-      "extra large": "(2 lbs) central"
+      "small": 0.5,
+      "medium": 1,
+      "large": 1.5
     },
     "extras": {
       "gluten-free": 0,
@@ -44,14 +44,14 @@
         "image_link": "./images/bavette_al_pesto_di_piselli_verdi.png",
         "ingredients": "green peas, Parmesan cheese, olive oil, almond flakes, garlic, lemon juice, basil, salt, pepper, pasta (bavette)",
         "portions": {
-          "small": "(0.5 lb)",
-          "large": "(1 lbs)",
-          "extra large": "(2 lbs)"
+          "small": 0.5,
+          "medium": 1,
+          "large": 1.5
         },
         "prices": {
           "small": 8.99,
-          "large": 13.99,
-          "extra large": 18.99
+          "medium": 17.99,
+          "large": 25.99
         },
         "pricing_table": true,
         "product_category": "Pasta",

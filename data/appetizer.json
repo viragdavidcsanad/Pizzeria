@@ -1,3 +1,7 @@
 {
-	"Appetizer": ""
+  "Appetizer": {
+    "category": "Appetizer",
+    "subcategory": [],
+    "products": []
+  }
 }
