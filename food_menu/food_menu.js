@@ -14,113 +14,10 @@ const $foodMenuSelector = document.querySelector(
   ".js_invisible_food_menu_selector"
 );
 
-const foodMenuHeight = () => {
-  const $pagesArray = [...$pagesContainer.children];
-  const $activePage = document.querySelector(".js_active_menu_page");
-  const menuHeight = () => {
-    if ($activePage === null) {
-      return $pagesArray.reduce(
-        (accumulator, element) => accumulator + element.offsetHeight,
-        0
-      );
-    } else return $activePage.offsetHeight;
-  };
-  return $pagesContainer.setAttribute(
-    "style",
-    `height: ${menuHeight() / 10 + 6}rem`
-  );
-};
-
-const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
-
-resizeEvent();
-
-const categoryFilter = (filteredFood) => {
-  const filteredCategories = filteredFood.map(
-    (filtered) => filtered.product_category
-  );
-  const filteredCategoriesSet = new Set(filteredCategories);
-  const filteredCategoriesArray = Array.from(filteredCategoriesSet);
-  const filteredCategoryHtmlElements = filteredCategoriesArray.map(
-    (category) =>
-      document.querySelector(
-        `.js_food_menu_page[data-name="${category}"]`
-      )
-  );
-  filteredCategoryHtmlElements.map((categoryHtml) =>
-    categoryHtml.classList.add("filtered-menu-page")
-  );
-};
-
-const subcategoryFilter = (filteredFood) => {
-  const filteredSubcategories = filteredFood.map(
-    (filtered) => filtered.product_subcategory
-  );
-  const filteredSubcategoriesSet = new Set(filteredSubcategories);
-  const filteredSubcategoriesArray = Array.from(filteredSubcategoriesSet);
-  const filteredSubcategoryHtmlElements = filteredSubcategoriesArray.map(
-    (subcategory) =>
-      document.querySelector(
-        `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
-      )
-  );
-  filteredSubcategoryHtmlElements.map((subcategoryHtml) =>
-    subcategoryHtml.classList.add("filtered-subcategory-table")
-  );
-  categoryFilter(filteredFood);
-};
-
-const productHtmlElementFilter = (filteredFood) =>
-  filteredFood.map((filtered) => {
-    const $filteredHtmlElement = document.querySelector(
-      `.js_food_menu_product_table[data-id="${filtered.id}"]`
-    );
-    $filteredHtmlElement.classList.add("filtered-food");
-    subcategoryFilter(filteredFood);
-  });
-
-const filterRemover = () => {
-  const $filteredFoods = [...document.querySelectorAll(".filtered-food")];
-  $filteredFoods.map((filteredFood) =>
-    filteredFood.classList.remove("filtered-food")
-  );
-  const $filteredSubcategories = [
-    ...document.querySelectorAll(".filtered-subcategory-table"),
-  ];
-  $filteredSubcategories.map((filteredSubcategory) =>
-    filteredSubcategory.classList.remove("filtered-subcategory-table")
-  );
-  const $filteredCategories = [
-    ...document.querySelectorAll(".filtered-menu-page"),
-  ];
-  $filteredCategories.map((filteredCategory) =>
-    filteredCategory.classList.remove("filtered-menu-page")
-  );
-};
-
-function foodFilter(currentCategory, index) {
-  if (index === 0) {
-    filterRemover();
-    offFoodMenuTurner();
-  }
-  let filteredFood = [];
-  const products = currentCategory.products;
-  const selectorValue = $foodMenuSelector.value;
-  if (selectorValue === "menu") {
-    filteredFood = products;
-  } else
-    filteredFood = products.filter(
-      (product) => product[selectorValue] === true
-    );
-  productHtmlElementFilter(filteredFood);
-}
+const portionsAndPrices = () => {};
 
 const renderFoodMenuProducts = (currentCategory, subcategory) => {
   let foodMenuProducts = "";
-  // const filteredFood = foodFilter(currentCategory);
-  // const subcategoryProducts = filteredFood.filter(
-  //   (product) => product.product_subcategory === subcategory
-  // );
   const subcategoryProducts = currentCategory.products.filter(
     (product) => product.product_subcategory === subcategory
   );
@@ -129,13 +26,22 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                          class="food-menu-product-table js_food_menu_product_table js_product_page_link" 
                          data-id="${product.id}" 
                          data-category="${currentCategory.category}">
-                            <div class="food-menu-product-number">№ ${product.number}</div>
-                            <h4 class="food-menu-product-heading">${product.name}</h4>
+                            <div class="food-menu-product-number">№ ${
+                              product.number
+                            }</div>
+                            <h4 class="food-menu-product-heading">${
+                              product.name
+                            }</h4>
                             <div class="food-menu-product-image-box">
-                              <img class="food-menu-product-image" src="${product.image_link}" />
+                              <img class="food-menu-product-image" src="${
+                                product.image_link
+                              }" />
                             </div>
                             <div class="food-menu-product-table-ingredients">
                               ${product.ingredients}
+                            </div>
+                            <div class="food-menu-portions-and-prices">
+                              ${portionsAndPrices(product, currentCategory)}
                             </div>
                          </div>`;
   });
@@ -200,6 +106,83 @@ const offFoodMenuTurner = () => {
   );
 };
 
+const categoryFilter = (filteredFood) => {
+  const filteredCategories = filteredFood.map(
+    (filtered) => filtered.product_category
+  );
+  const filteredCategoriesSet = new Set(filteredCategories);
+  const filteredCategoriesArray = Array.from(filteredCategoriesSet);
+  const filteredCategoryHtmlElements = filteredCategoriesArray.map((category) =>
+    document.querySelector(`.js_food_menu_page[data-name="${category}"]`)
+  );
+  filteredCategoryHtmlElements.map((categoryHtml) =>
+    categoryHtml.classList.add("filtered-menu-page")
+  );
+};
+
+const subcategoryFilter = (filteredFood) => {
+  const filteredSubcategories = filteredFood.map(
+    (filtered) => filtered.product_subcategory
+  );
+  const filteredSubcategoriesSet = new Set(filteredSubcategories);
+  const filteredSubcategoriesArray = Array.from(filteredSubcategoriesSet);
+  const filteredSubcategoryHtmlElements = filteredSubcategoriesArray.map(
+    (subcategory) =>
+      document.querySelector(
+        `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
+      )
+  );
+  filteredSubcategoryHtmlElements.map((subcategoryHtml) =>
+    subcategoryHtml.classList.add("filtered-subcategory-table")
+  );
+};
+
+const productHtmlElementFilter = (filteredFood) =>
+  filteredFood.map((filtered) => {
+    const $filteredHtmlElement = document.querySelector(
+      `.js_food_menu_product_table[data-id="${filtered.id}"]`
+    );
+    $filteredHtmlElement.classList.add("filtered-food");
+  });
+
+const filterRemover = () => {
+  const $filteredFoods = [...document.querySelectorAll(".filtered-food")];
+  $filteredFoods.map((filteredFood) =>
+    filteredFood.classList.remove("filtered-food")
+  );
+  const $filteredSubcategories = [
+    ...document.querySelectorAll(".filtered-subcategory-table"),
+  ];
+  $filteredSubcategories.map((filteredSubcategory) =>
+    filteredSubcategory.classList.remove("filtered-subcategory-table")
+  );
+  const $filteredCategories = [
+    ...document.querySelectorAll(".filtered-menu-page"),
+  ];
+  $filteredCategories.map((filteredCategory) =>
+    filteredCategory.classList.remove("filtered-menu-page")
+  );
+};
+
+function foodFilter(currentCategory, index) {
+  if (index === 0) {
+    filterRemover();
+    offFoodMenuTurner();
+  }
+  let filteredFood = [];
+  const products = currentCategory.products;
+  const selectorValue = $foodMenuSelector.value;
+  if (selectorValue === "menu") {
+    filteredFood = products;
+  } else
+    filteredFood = products.filter(
+      (product) => product[selectorValue] === true
+    );
+  productHtmlElementFilter(filteredFood);
+  subcategoryFilter(filteredFood);
+  categoryFilter(filteredFood);
+}
+
 const selectedHeadingStyle = (Event) => {
   let $previousSelectedHeading = document.querySelector(".selected-heading");
   if ($previousSelectedHeading) {
@@ -251,6 +234,23 @@ const foodMenuChangeEvent = (currentCategory, index) => {
     foodFilter(currentCategory, index);
     foodMenuHeight();
   });
+};
+
+const foodMenuHeight = () => {
+  const $pagesArray = [...$pagesContainer.children];
+  const $activePage = document.querySelector(".js_active_menu_page");
+  const menuHeight = () => {
+    if ($activePage === null) {
+      return $pagesArray.reduce(
+        (accumulator, element) => accumulator + element.offsetHeight,
+        0
+      );
+    } else return $activePage.offsetHeight;
+  };
+  return $pagesContainer.setAttribute(
+    "style",
+    `height: ${menuHeight() / 10 + 6}rem`
+  );
 };
 
 const renderFoodMenu = () => {
@@ -343,3 +343,7 @@ const renderFoodMenuSelector = () => {
 };
 
 renderFoodMenuSelector();
+
+const resizeEvent = () => window.addEventListener("resize", foodMenuHeight);
+
+resizeEvent();
