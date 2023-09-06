@@ -71,7 +71,8 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
     foodMenuProducts += `<div 
                          class="food-menu-product-table js_food_menu_product_table js_product_page_link" 
                          data-id="${product.id}" 
-                         data-category="${currentCategory.category}">
+                         data-category="${currentCategory.category}"
+                         data-name="${product.name}">
                             <div class="food-menu-product-number">
                               № ${product.number}
                             </div>
