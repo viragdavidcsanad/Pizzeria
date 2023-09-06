@@ -1,14 +1,14 @@
  {
         "Currency": "$",
-        "Category": [
-            "Appetizer",
-            "Soup",
-            "Pizza",
-            "Pasta",
-            "Salad",
-            "Dessert",
-            "Drink"
-        ],
+        "Category": {
+            "Appetizer": "",
+            "Soup": "",
+            "Pizza": "./images/pizza_icon_white.png",
+            "Pasta": "",
+            "Salad": "",
+            "Dessert": "",
+            "Drink": ""
+        },
         "Selector": {
             "menu": "Menu",
             "classic": "Classic Menu",
