@@ -1,9 +1,9 @@
 import allData from "../get_data/get_data.js";
 const selectors = allData.Selector;
-const filteredCategories = allData.Category.filter(
-  (category) => allData[category].products
-);
-
+const currency = allData.Currency;
+const unitOfWeight = allData.Unit_Of_Weight;
+const unitOfLength = allData.Unit_Of_Length;
+const unitOfDrink = allData.Unit_Of_Drink;
 let $foodMenuHeadingsArray;
 const $headingsContainer = document.querySelector(".js_food_menu_headings");
 const $pagesContainer = document.querySelector(".js_food_menu_pages");
@@ -13,8 +13,54 @@ const $foodMenuSelectorHolder = document.querySelector(
 const $foodMenuSelector = document.querySelector(
   ".js_invisible_food_menu_selector"
 );
+const categoryObject = allData.Category;
+const foodCategories = Object.keys(categoryObject);
+const filteredCategories = foodCategories.filter(
+  (category) => allData[category].products
+);
 
-const portionsAndPrices = () => {};
+const withSizeOrNot = (currentCategory, portion) => {
+  if (currentCategory.sizes) {
+    return `<span class="food-menu-diameter">
+              ${currentCategory.sizes[portion]}${unitOfLength}
+            </span>`;
+  } else return "";
+};
+
+const foodOrDrinkUnit = (product) => {
+  if (product.product_category === "Drink") {
+    return unitOfDrink;
+  } else return unitOfWeight;
+};
+
+const portionUnit = (product) => {
+  return `<span class="food-menu-unit">
+           ${foodOrDrinkUnit(product)}
+          </span>`;
+};
+
+const portionsAndPrices = (product, currentCategory) => {
+  let portionAndPriceRows = "";
+  const portions = () => {
+    if (product.portions) {
+      return product.portions;
+    } else return currentCategory.portions;
+  };
+  for (let portion in portions()) {
+    portionAndPriceRows += `<div class="food-menu-portion-and-price-row">
+                              <span class="food-menu-portion">${portion}</span>
+                              ${withSizeOrNot(currentCategory, portion)}
+                              <span class="food-menu-portion-quantity">${
+                                portions()[portion]
+                              }</span>
+                              ${portionUnit(product, currentCategory, portion)}
+                              <span class="food-menu-price">
+                                ${currency}${product.prices[portion]}
+                              </span>
+                            </div>`;
+  }
+  return portionAndPriceRows;
+};
 
 const renderFoodMenuProducts = (currentCategory, subcategory) => {
   let foodMenuProducts = "";
@@ -26,16 +72,16 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                          class="food-menu-product-table js_food_menu_product_table js_product_page_link" 
                          data-id="${product.id}" 
                          data-category="${currentCategory.category}">
-                            <div class="food-menu-product-number">№ ${
-                              product.number
-                            }</div>
-                            <h4 class="food-menu-product-heading">${
-                              product.name
-                            }</h4>
+                            <div class="food-menu-product-number">
+                              № ${product.number}
+                            </div>
+                            <h4 class="food-menu-product-heading">
+                              ${product.name}
+                            </h4>
                             <div class="food-menu-product-image-box">
-                              <img class="food-menu-product-image" src="${
-                                product.image_link
-                              }" />
+                              <img 
+                              class="food-menu-product-image" 
+                              src="${product.image_link}" />
                             </div>
                             <div class="food-menu-product-table-ingredients">
                               ${product.ingredients}
@@ -81,10 +127,16 @@ const renderHeadingsAndPages = (currentCategory, index) => {
                                      data-name="${category}">
                                        ${category}
                                      </button>`;
-    $pagesContainer.innerHTML += `<div class="food-menu-page js_food_menu_page" 
-                                  data-name="${category}">
-                                    <h3 class="food-menu-category">${category}</h3>
-                                    ${renderSubcategories(currentCategory)}
+    $pagesContainer.innerHTML += `<img 
+                                  src="${categoryObject[category]}"
+                                  class="food-menu-category-symbol js_${category}_symbol"
+                                  attribution="<a href='https://megapng.com/images/bt/pizza-icon-1.png'>Image credit</a>" 
+                                  alt="pizza symbol drawing"
+                                  />
+                                  <div class="food-menu-page js_food_menu_page" 
+                                   data-name="${category}">
+                                     <h3 class="food-menu-category">${category}</h3>
+                                     ${renderSubcategories(currentCategory)}
                                   </div>`;
   }
   foodMenuHeight();
@@ -106,7 +158,7 @@ const offFoodMenuTurner = () => {
   );
 };
 
-const categoryFilter = (filteredFood) => {
+const categoryHtmlElementFilter = (filteredFood) => {
   const filteredCategories = filteredFood.map(
     (filtered) => filtered.product_category
   );
@@ -118,9 +170,15 @@ const categoryFilter = (filteredFood) => {
   filteredCategoryHtmlElements.map((categoryHtml) =>
     categoryHtml.classList.add("filtered-menu-page")
   );
+  const filteredSymbolHtmlElements = filteredCategoriesArray.map((category) =>
+    document.querySelector(`.js_${category}_symbol`)
+  );
+  filteredSymbolHtmlElements.map((symbolHtml) =>
+    symbolHtml.classList.add("filtered-symbol")
+  );
 };
 
-const subcategoryFilter = (filteredFood) => {
+const subcategoryHtmlElementFilter = (filteredFood) => {
   const filteredSubcategories = filteredFood.map(
     (filtered) => filtered.product_subcategory
   );
@@ -162,6 +220,10 @@ const filterRemover = () => {
   $filteredCategories.map((filteredCategory) =>
     filteredCategory.classList.remove("filtered-menu-page")
   );
+  const $filteredSymbols = [...document.querySelectorAll(".filtered-symbol")];
+  $filteredSymbols.map((filteredSymbol) =>
+    filteredSymbol.classList.remove("filtered-symbol")
+  );
 };
 
 function foodFilter(currentCategory, index) {
@@ -179,8 +241,8 @@ function foodFilter(currentCategory, index) {
       (product) => product[selectorValue] === true
     );
   productHtmlElementFilter(filteredFood);
-  subcategoryFilter(filteredFood);
-  categoryFilter(filteredFood);
+  subcategoryHtmlElementFilter(filteredFood);
+  categoryHtmlElementFilter(filteredFood);
 }
 
 const selectedHeadingStyle = (Event) => {
