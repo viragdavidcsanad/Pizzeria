@@ -1,5 +1,5 @@
 const dataLinks = [
-  "./data/Preferences.json",
+  "./data/Parameters.json",
   "./data/Appetizer.json",
   "./data/Soup.json",
   "./data/Pizza.json",
