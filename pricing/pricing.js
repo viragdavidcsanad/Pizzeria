@@ -4,7 +4,7 @@ const currency = allData.Currency;
 const unitOfWeight = allData.Unit_Of_Weight;
 const unitOfLength = allData.Unit_Of_Length;
 const unitOfDrink = allData.Unit_Of_Drink;
-const foodCategories = allData.Category;
+const foodCategories = Object.keys(allData.Category);
 const filteredCategories = foodCategories.filter(
   (category) => allData[category].products
 );
@@ -18,7 +18,7 @@ const drinkOrFoodUnit = (product) => {
 
 const sizeOrNot = (productCategory, portion) => {
   const sizes = productCategory.sizes;
-  if (productCategory.sizes) {
+  if (sizes) {
     return `<span class="portion-size">${sizes[portion]}${unitOfLength}</span>`;
   } else return "";
 };
@@ -27,14 +27,14 @@ const portionAndPriceRow = (product, productCategory) => {
   const portionsCentralObject = productCategory.portions;
   const portionsProductObject = product.portions;
   const portionsObject = () => {
-    if (portionsProductObject === undefined) {
-      return portionsCentralObject;
-    } else {
+    if (portionsProductObject) {
       return portionsProductObject;
+    } else {
+      return portionsCentralObject;
     }
   };
   let portionAndPriceRows = "";
-  for (let portion in product.prices) {
+  for (let portion in portionsObject()) {
     portionAndPriceRows += `<div class="portion-and-price-row">
                               <span class="portion">${portion}</span>
                               <span class="portion-content">
