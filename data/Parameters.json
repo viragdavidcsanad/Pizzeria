@@ -3,11 +3,11 @@
         "Category": {
             "Appetizer": "",
             "Soup": "",
-            "Pizza": "./images/pizza_icon_white.png",
-            "Pasta": "",
-            "Salad": "",
+            "Pizza": "./images/pizza_symbol.png",
+            "Pasta": "./images/pasta_symbol.png",
+            "Salad": "./images/salad_symbol.png",
             "Dessert": "",
-            "Drink": ""
+            "Drink": "./images/drink_symbol.png"
         },
         "Selector": {
             "menu": "Menu",
