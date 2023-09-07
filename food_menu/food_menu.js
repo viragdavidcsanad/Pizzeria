@@ -24,7 +24,7 @@ const withSizeOrNot = (currentCategory, portion) => {
     return `<span class="food-menu-diameter">
               ${currentCategory.sizes[portion]}${unitOfLength}
             </span>`;
-  } else return "";
+  } else return;
 };
 
 const foodOrDrinkUnit = (product) => {
@@ -35,7 +35,7 @@ const foodOrDrinkUnit = (product) => {
 
 const portionUnit = (product) => {
   return `<span class="food-menu-unit">
-           ${foodOrDrinkUnit(product)}
+            ${foodOrDrinkUnit(product)}
           </span>`;
 };
 
@@ -50,9 +50,9 @@ const portionsAndPrices = (product, currentCategory) => {
     portionAndPriceRows += `<div class="food-menu-portion-and-price-row">
                               <span class="food-menu-portion">${portion}</span>
                               ${withSizeOrNot(currentCategory, portion)}
-                              <span class="food-menu-portion-quantity">${
-                                portions()[portion]
-                              }</span>
+                              <span class="food-menu-portion-quantity">
+                                ${portions()[portion]}
+                              </span>
                               ${portionUnit(product, currentCategory, portion)}
                               <span class="food-menu-price">
                                 ${currency}${product.prices[portion]}
@@ -96,9 +96,9 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
 };
 
 const renderSubcategories = (currentCategory) => {
-  const subcategoryArray = currentCategory.subcategory;
+  const subcategoriesArray = currentCategory.subcategory;
   let subcategories = "";
-  subcategoryArray.map((subcategory) => {
+  subcategoriesArray.map((subcategory) => {
     if (renderFoodMenuProducts(currentCategory, subcategory) === "") {
       return;
     } else {
@@ -128,16 +128,22 @@ const renderHeadingsAndPages = (currentCategory, index) => {
                                      data-name="${category}">
                                        ${category}
                                      </button>`;
-    $pagesContainer.innerHTML += `<img 
-                                  src="${categoryObject[category]}"
-                                  class="food-menu-category-symbol js_${category}_symbol"
-                                  attribution="<a href='https://megapng.com/images/bt/pizza-icon-1.png'>Image credit</a>" 
-                                  alt="pizza symbol drawing"
-                                  />
-                                  <div class="food-menu-page js_food_menu_page" 
-                                   data-name="${category}">
-                                     <h3 class="food-menu-category">${category}</h3>
-                                     ${renderSubcategories(currentCategory)}
+    $pagesContainer.innerHTML += `<figure 
+                                  class="food-menu-category-symbol-holder js_food_menu_${category}_symbol_holder">
+                                    <img
+                                    src="${categoryObject[category]}"
+                                    class="food-menu-category-symbol js_${category}_symbol"
+                                    attribution="<a href='https://megapng.com/images/bt/pizza-icon-1.png'>Image credit</a>"
+                                    alt="${category} symbol drawing"
+                                    />
+                                  </figure>
+                                  <div 
+                                  class="food-menu-page js_food_menu_page" 
+                                  data-name="${category}">
+                                    <h3 class="food-menu-category">
+                                      ${category}
+                                    </h3>
+                                    ${renderSubcategories(currentCategory)}
                                   </div>`;
   }
   foodMenuHeight();
@@ -170,12 +176,6 @@ const categoryHtmlElementFilter = (filteredFood) => {
   );
   filteredCategoryHtmlElements.map((categoryHtml) =>
     categoryHtml.classList.add("filtered-menu-page")
-  );
-  const filteredSymbolHtmlElements = filteredCategoriesArray.map((category) =>
-    document.querySelector(`.js_${category}_symbol`)
-  );
-  filteredSymbolHtmlElements.map((symbolHtml) =>
-    symbolHtml.classList.add("filtered-symbol")
   );
 };
 
@@ -220,10 +220,6 @@ const filterRemover = () => {
   ];
   $filteredCategories.map((filteredCategory) =>
     filteredCategory.classList.remove("filtered-menu-page")
-  );
-  const $filteredSymbols = [...document.querySelectorAll(".filtered-symbol")];
-  $filteredSymbols.map((filteredSymbol) =>
-    filteredSymbol.classList.remove("filtered-symbol")
   );
 };
 
@@ -292,8 +288,6 @@ const turnerClickEvent = () => {
 
 const foodMenuChangeEvent = (currentCategory, index) => {
   $foodMenuSelector.addEventListener("change", () => {
-    // renderHeadingsAndPages(currentCategory, index);
-    // filterRemover();
     foodFilter(currentCategory, index);
     foodMenuHeight();
   });
@@ -310,10 +304,7 @@ const foodMenuHeight = () => {
       );
     } else return $activePage.offsetHeight;
   };
-  return $pagesContainer.setAttribute(
-    "style",
-    `height: ${menuHeight() / 10 + 6}rem`
-  );
+  return ($pagesContainer.style.height = `${menuHeight() / 10 + 6}rem`);
 };
 
 const renderFoodMenu = () => {
