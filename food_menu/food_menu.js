@@ -154,9 +154,13 @@ const offFoodMenuTurner = () => {
   if ($selectedHeading) {
     $selectedHeading.classList.remove("selected-heading");
   }
-  const foodMenuPages = [...document.querySelectorAll(".js_food_menu_page")];
-  foodMenuPages.map((menuPage) =>
-    menuPage.classList.remove(
+  const foodMenuPagesOrSymbols = [
+    ...document.querySelectorAll(
+      ".js_food_menu_page, .food-menu-category-symbol"
+    ),
+  ];
+  foodMenuPagesOrSymbols.map((menuPageOrSymbol) =>
+    menuPageOrSymbol.classList.remove(
       "js_active_menu_page",
       "active-menu-page",
       "after-menu-page",
@@ -165,35 +169,56 @@ const offFoodMenuTurner = () => {
   );
 };
 
-const categoryHtmlElementFilter = (filteredFood) => {
-  const filteredCategories = filteredFood.map(
-    (filtered) => filtered.product_category
+const symbolFilter = () => {
+  const eachFilteredCategoryHtmlElement = [
+    ...document.querySelectorAll(".filtered-menu-page"),
+  ];
+  const filteredSymbolHtmlElements = eachFilteredCategoryHtmlElement.map(
+    (categoryHtml) =>
+      document.querySelector(`.js_${categoryHtml.dataset.name}_symbol`)
   );
-  const filteredCategoriesSet = new Set(filteredCategories);
-  const filteredCategoriesArray = Array.from(filteredCategoriesSet);
-  const filteredCategoryHtmlElements = filteredCategoriesArray.map((category) =>
-    document.querySelector(`.js_food_menu_page[data-name="${category}"]`)
-  );
-  filteredCategoryHtmlElements.map((categoryHtml) =>
-    categoryHtml.classList.add("filtered-menu-page")
-  );
+  filteredSymbolHtmlElements.map((symbolHtml, index) => {
+    symbolHtml.classList.add("filtered-symbol");
+    if (index % 2 !== 0) {
+      symbolHtml.classList.add("right-symbol");
+    } else {
+      symbolHtml.classList.add("left-symbol");
+    }
+  });
 };
 
-const subcategoryHtmlElementFilter = (filteredFood) => {
-  const filteredSubcategories = filteredFood.map(
-    (filtered) => filtered.product_subcategory
-  );
-  const filteredSubcategoriesSet = new Set(filteredSubcategories);
-  const filteredSubcategoriesArray = Array.from(filteredSubcategoriesSet);
-  const filteredSubcategoryHtmlElements = filteredSubcategoriesArray.map(
-    (subcategory) =>
-      document.querySelector(
-        `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
+const categoryHtmlElementFilter = (currentCategory, filteredFood) => {
+  if (filteredFood.length > 0) {
+    const filteredCategory = currentCategory.category;
+    const filteredCategoryHtmlElement = document.querySelector(
+      `.js_food_menu_page[data-name="${filteredCategory}"]`
+    );
+    filteredCategoryHtmlElement.classList.add("filtered-menu-page");
+    if (filteredCategory === "Drink") {
+      symbolFilter();
+    }
+  }
+};
+
+const subcategoryHtmlElementFilter = (currentCategory, filteredFood) => {
+  if (filteredFood.length > 0) {
+    const filteredSubcategories = currentCategory.subcategory;
+    const filteredSubcategoryHtmlElements = filteredSubcategories
+      .filter((subcategory) =>
+        document.querySelector(
+          `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
+        )
       )
-  );
-  filteredSubcategoryHtmlElements.map((subcategoryHtml) =>
-    subcategoryHtml.classList.add("filtered-subcategory-table")
-  );
+      .map((subcategory) =>
+        document.querySelector(
+          `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
+        )
+      );
+    filteredSubcategoryHtmlElements.map((subcategoryHtml) => {
+      if (subcategoryHtml)
+        subcategoryHtml.classList.add("filtered-subcategory-table");
+    });
+  }
 };
 
 const productHtmlElementFilter = (filteredFood) =>
@@ -221,6 +246,14 @@ const filterRemover = () => {
   $filteredCategories.map((filteredCategory) =>
     filteredCategory.classList.remove("filtered-menu-page")
   );
+  const $filteredSymbols = [...document.querySelectorAll(".filtered-symbol")];
+  $filteredSymbols.map((filteredSymbol) =>
+    filteredSymbol.classList.remove(
+      "filtered-symbol",
+      "left-symbol",
+      "right-symbol"
+    )
+  );
 };
 
 function foodFilter(currentCategory, index) {
@@ -238,8 +271,8 @@ function foodFilter(currentCategory, index) {
       (product) => product[selectorValue] === true
     );
   productHtmlElementFilter(filteredFood);
-  subcategoryHtmlElementFilter(filteredFood);
-  categoryHtmlElementFilter(filteredFood);
+  subcategoryHtmlElementFilter(currentCategory, filteredFood);
+  categoryHtmlElementFilter(currentCategory, filteredFood);
 }
 
 const selectedHeadingStyle = (Event) => {
@@ -260,22 +293,29 @@ const foodMenuTurner = (Event) => {
   const $foodMenuPagesArray = [
     ...document.querySelectorAll(".js_food_menu_page"),
   ];
+  const $foodMenuCategorySymbolsArray = [
+    ...document.querySelectorAll(".food-menu-category-symbol"),
+  ];
+  const symbolsAndPages = [$foodMenuPagesArray, $foodMenuCategorySymbolsArray];
   const eventTargetIndex = $foodMenuHeadingsArray.indexOf(Event.target);
-  $foodMenuPagesArray.map((menuPage, index) => {
-    menuPage.classList.remove(
-      "js_active_menu_page",
-      "active-menu-page",
-      "after-menu-page",
-      "before-menu-page"
-    );
-    if (index < eventTargetIndex) {
-      menuPage.classList.add("before-menu-page");
-    } else if (index > eventTargetIndex) {
-      menuPage.classList.add("after-menu-page");
-    } else {
-      menuPage.classList.add("js_active_menu_page", "active-menu-page");
-    }
-  });
+  symbolsAndPages.map((symbolsOrPages) =>
+    symbolsOrPages.map((symbolOrPage, index) => {
+      symbolOrPage.classList.remove(
+        "js_active_menu_page",
+        "active-menu-page",
+        "after-menu-page",
+        "before-menu-page"
+      );
+      if (index < eventTargetIndex) {
+        symbolOrPage.classList.add("before-menu-page");
+      } else if (index > eventTargetIndex) {
+        symbolOrPage.classList.add("after-menu-page");
+      } else {
+        symbolOrPage.classList.add("js_active_menu_page", "active-menu-page");
+      }
+    })
+  );
+
   selectedHeadingStyle(Event);
   foodMenuHeight();
 };
@@ -295,7 +335,7 @@ const foodMenuChangeEvent = (currentCategory, index) => {
 
 const foodMenuHeight = () => {
   const $pagesArray = [...$pagesContainer.children];
-  const $activePage = document.querySelector(".js_active_menu_page");
+  const $activePage = document.querySelector("div.js_active_menu_page");
   const menuHeight = () => {
     if ($activePage === null) {
       return $pagesArray.reduce(
