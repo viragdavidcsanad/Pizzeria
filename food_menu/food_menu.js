@@ -24,7 +24,7 @@ const withSizeOrNot = (currentCategory, portion) => {
     return `<span class="food-menu-diameter">
               ${currentCategory.sizes[portion]}${unitOfLength}
             </span>`;
-  } else return;
+  } else return "";
 };
 
 const foodOrDrinkUnit = (product) => {
