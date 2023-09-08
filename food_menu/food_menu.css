@@ -151,7 +151,7 @@
   width: 100%;
   text-align: center;
   height: 0;
-  transition-duration: 0.5s;
+  transition: 0.5s;
   font-family: text-font;
   color: var(--white);
   font-size: 2rem;
@@ -165,12 +165,12 @@
 
 .after-menu-page {
   position: absolute;
-  transform: translate(130%, 0);
+  transform: translate(130vw, 0);
 }
 
 .before-menu-page {
   position: absolute;
-  transform: translate(-130%, 0);
+  transform: translate(-130vw, 0);
 }
 
 .active-menu-page {
@@ -183,24 +183,28 @@
   text-align: center;
 }
 
-.food-menu-category-symbol-holder:nth-of-type(odd) {
+.food-menu-category-symbol-holder {
   position: relative;
-  width: 16rem;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.food-menu-category-symbol-holder:nth-of-type(even) {
-  position: relative;
-  width: 16rem;
-  margin-left: auto;
-  margin-right: 0;
 }
 
 .food-menu-category-symbol {
   position: absolute;
+  height: 0;
   width: 16rem;
   opacity: 0.2;
+  transition: 0.3s;
+}
+
+.filtered-symbol {
+  height: auto;
+}
+
+.left-symbol {
+  left: 0;
+}
+
+.right-symbol {
+  right: 0;
 }
 
 .food-menu-subcategory-table {
