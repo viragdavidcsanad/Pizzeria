@@ -48,12 +48,16 @@ const portionsAndPrices = (product, currentCategory) => {
   };
   for (let portion in portions()) {
     portionAndPriceRows += `<div class="food-menu-portion-and-price-row">
-                              <span class="food-menu-portion">${portion}</span>
-                              ${withSizeOrNot(currentCategory, portion)}
-                              <span class="food-menu-portion-quantity">
-                                ${portions()[portion]}
-                              </span>
-                              ${portionUnit(product, currentCategory, portion)}
+                              <span class="food-menu-portion">${portion}</span>             
+                              <div class="food-menu-portion-size-quantity-and-unit">
+                                ${withSizeOrNot(currentCategory, portion)}
+                                <div class="food-menu-portion-quantity-and-unit>  
+                                  <span class="food-menu-portion-quantity">
+                                    ${portions()[portion]}
+                                  </span>
+                                  ${portionUnit(product, currentCategory, portion)}
+                                </div>
+                              </div>
                               <span class="food-menu-price">
                                 ${currency}${product.prices[portion]}
                               </span>
