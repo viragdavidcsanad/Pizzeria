@@ -48,6 +48,7 @@
   box-shadow: 0.5rem 0.5rem 2rem var(--black);
   transition: 0.3s;
   cursor: pointer;
+  letter-spacing: 0.1rem;
 }
 
 .pricing-table:hover {
@@ -117,8 +118,8 @@
 }
 
 .pricing-image {
-  width: 75%;
-  height: auto;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .pricing-table-text {
@@ -129,8 +130,8 @@
   align-items: center;
   width: 25rem;
   height: 12rem;
-  font-size: 2rem;
-  letter-spacing: 0.03rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
   font-weight: normal;
   background-color: var(--green);
 }
@@ -165,7 +166,6 @@
   flex-direction: row;
   font-size: 1.8rem;
   line-height: 3rem;
-  letter-spacing: 0.03rem;
 }
 
 .portion {
@@ -187,7 +187,6 @@
 .price {
   width: 8rem;
   text-align: right;
-  letter-spacing: 0.1rem;
 }
 
 .product-number.below {
