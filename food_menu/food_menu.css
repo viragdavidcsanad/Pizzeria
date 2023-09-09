@@ -8,6 +8,7 @@
   border-image-width: 5rem;
   border-image-repeat: repeat;
   width: 100%;
+  letter-spacing: 0.1rem;
 }
 
 .second.section-heading {
@@ -143,24 +144,27 @@
   position: relative;
   width: 90%;
   min-width: 43rem;
-  left: 5%;
   transition: 0.5s;
+  margin: auto;
 }
 
 .food-menu-page {
   width: 100%;
   text-align: center;
   height: 0;
-  transition: 0.5s;
+  transition: 0.4s;
   font-family: text-font;
   color: var(--white);
   font-size: 2rem;
   overflow: hidden;
+  display: grid;
+  grid-template-rows: 1;
+  gap: 1rem;
+  padding-top: 1rem;
 }
 
 .filtered-menu-page {
   height: auto;
-  padding: 1rem;
 }
 
 .after-menu-page {
@@ -191,12 +195,13 @@
   position: absolute;
   height: 0;
   width: 16rem;
-  opacity: 0.2;
+  opacity: 0.1;
   transition: 0.3s;
 }
 
 .filtered-symbol {
   height: auto;
+  margin-top: 2rem;
 }
 
 .left-symbol {
@@ -214,6 +219,8 @@
 
 .filtered-subcategory-table {
   height: auto;
+  display: grid;
+  gap: 1rem;
 }
 
 .food-menu-subcategory-heading {
@@ -227,6 +234,10 @@
   height: 0;
   cursor: pointer;
   overflow: hidden;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 0.2rem solid var(--palewhite);
 }
 
 .food-menu-product-table.filtered-food {
@@ -268,9 +279,36 @@
 }
 
 .food-menu-portions-and-prices {
-  border-bottom: 0.2rem solid var(--palewhite);
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  font-family: heading-font;
 }
 
-.food-menu-product-size-and-price-row {
-  width: 50%;
+.food-menu-portion-and-price-row {
+  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  justify-content: space-between;
+}
+
+.food-menu-portion {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.food-menu-portion-size-quantity-and-unit {
+  justify-self: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1.3rem;
+}
+
+.food-menu-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
