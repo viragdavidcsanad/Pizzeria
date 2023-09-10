@@ -77,10 +77,10 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                          data-id="${product.id}" 
                          data-category="${currentCategory.category}"
                          data-name="${product.name}">
-                            <div class="food-menu-product-number">
-                              № ${product.number}
-                            </div>
                             <h4 class="food-menu-product-heading">
+                              <span class="food-menu-product-number">
+                                № ${product.number}
+                              </span>
                               ${product.name}
                             </h4>
                             <div class="food-menu-product-image-box">
@@ -88,7 +88,7 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                               class="food-menu-product-image" 
                               src="${product.image_link}" />
                             </div>
-                            <div class="food-menu-product-table-ingredients">
+                            <div class="food-menu-product-ingredients">
                               ${product.ingredients}
                             </div>
                             <div class="food-menu-portions-and-prices">
