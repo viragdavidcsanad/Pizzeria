@@ -157,10 +157,9 @@
   color: var(--white);
   font-size: 2rem;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: 1;
-  gap: 1rem;
   padding-top: 1rem;
+  display: grid;
+  gap: 1rem;
 }
 
 .filtered-menu-page {
@@ -215,17 +214,22 @@
 .food-menu-subcategory-table {
   height: 0;
   overflow: hidden;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
 }
 
 .filtered-subcategory-table {
   height: auto;
-  display: grid;
-  gap: 1rem;
 }
 
 .food-menu-subcategory-heading {
   font-size: 2.7rem;
-  text-align: center;
+  display: grid;
+  align-content: center;
+  border-top: 0;
+  grid-area: subcategory-heading;
 }
 
 .food-menu-product-table {
@@ -234,8 +238,6 @@
   height: 0;
   cursor: pointer;
   overflow: hidden;
-  display: grid;
-  gap: 1rem;
   padding: 1rem;
   border-bottom: 0.2rem solid var(--palewhite);
 }
@@ -247,10 +249,12 @@
 .food-menu-product-heading {
   text-align: center;
   font-size: 2.3rem;
+  grid-area: product-heading;
 }
 
 .food-menu-product-number {
   text-align: center;
+  grid-area: product-number;
 }
 
 .food-menu-product-image-box {
@@ -258,6 +262,7 @@
   align-items: center;
   justify-content: center;
   height: 10rem;
+  grid-area: product-image;
 }
 
 .food-menu-product-image {
@@ -265,17 +270,12 @@
   max-height: 95%;
 }
 
-.food-menu-product-table-ingredients {
+.food-menu-product-ingredients {
   width: 95%;
   display: grid;
   align-content: center;
   overflow: hidden;
-}
-
-.food-menu-product-subcategory-heading {
-  display: grid;
-  align-content: center;
-  border-top: 0;
+  grid-area: ingredients;
 }
 
 .food-menu-portions-and-prices {
@@ -283,10 +283,12 @@
   gap: 1rem;
   justify-items: center;
   font-family: heading-font;
+  grid-area: portions-and-prices;
+  /* align-self: stretch; */
 }
 
 .food-menu-portion-and-price-row {
-  width: 60%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
   justify-content: space-between;
@@ -311,4 +313,19 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+/* ======================================== GRID =================================== */
+
+@media screen and (min-width: 600px) {
+  .food-menu-product-table {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "product-heading product-heading"
+      "product-image portions-and-prices"
+      "ingredients portions-and-prices";
+  }
 }
