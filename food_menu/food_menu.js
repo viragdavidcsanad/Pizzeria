@@ -15,7 +15,7 @@ const $foodMenuSelector = document.querySelector(
 );
 const categoryObject = allData.Category;
 const foodCategories = Object.keys(categoryObject);
-const filteredCategories = foodCategories.filter(
+const foodMenuCategories = foodCategories.filter(
   (category) => allData[category].products
 );
 
@@ -55,7 +55,11 @@ const portionsAndPrices = (product, currentCategory) => {
                                   <span class="food-menu-portion-quantity">
                                     ${portions()[portion]}
                                   </span>
-                                  ${portionUnit(product, currentCategory, portion)}
+                                  ${portionUnit(
+                                    product,
+                                    currentCategory,
+                                    portion
+                                  )}
                                 </div>
                               </div>
                               <span class="food-menu-price">
@@ -79,7 +83,8 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                          data-name="${product.name}">
                             <h4 class="food-menu-product-heading">
                               <span class="food-menu-product-number">
-                                № ${product.number}
+                                <span class="numero">№</span
+                                >${product.number}
                               </span>
                               ${product.name}
                             </h4>
@@ -191,42 +196,43 @@ const symbolFilter = () => {
   });
 };
 
-const categoryHtmlElementFilter = (currentCategory, filteredFood) => {
-  if (filteredFood.length > 0) {
-    const filteredCategory = currentCategory.category;
+const categoryHtmlElementFilter = (
+  foodMenuCategories,
+  filteredFoods,
+  index
+) => {
+  if (filteredFoods.length > 0) {
+    const filteredCategory = filteredFoods[0].product_category;
     const filteredCategoryHtmlElement = document.querySelector(
       `.js_food_menu_page[data-name="${filteredCategory}"]`
     );
     filteredCategoryHtmlElement.classList.add("filtered-menu-page");
-    if (filteredCategory === "Drink") {
+    if (index === foodMenuCategories.length - 1) {
       symbolFilter();
     }
   }
 };
 
-const subcategoryHtmlElementFilter = (currentCategory, filteredFood) => {
-  if (filteredFood.length > 0) {
-    const filteredSubcategories = currentCategory.subcategory;
-    const filteredSubcategoryHtmlElements = filteredSubcategories
-      .filter((subcategory) =>
+const subcategoryHtmlElementFilter = (filteredFoods) => {
+  if (filteredFoods.length > 0) {
+    const filteredSubcategories = filteredFoods.map(
+      (filteredFood) => filteredFood.product_subcategory
+    );
+    const filteredSubcategoriesArray = [...new Set(filteredSubcategories)];
+    const filteredSubcategoryHtmlElements = filteredSubcategoriesArray.map(
+      (subcategory) =>
         document.querySelector(
           `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
         )
-      )
-      .map((subcategory) =>
-        document.querySelector(
-          `.js_food_menu_subcategory_table[data-name="${subcategory}"]`
-        )
-      );
+    );
     filteredSubcategoryHtmlElements.map((subcategoryHtml) => {
-      if (subcategoryHtml)
-        subcategoryHtml.classList.add("filtered-subcategory-table");
+      subcategoryHtml.classList.add("filtered-subcategory-table");
     });
   }
 };
 
-const productHtmlElementFilter = (filteredFood) =>
-  filteredFood.map((filtered) => {
+const productHtmlElementFilter = (filteredFoods) =>
+  filteredFoods.map((filtered) => {
     const $filteredHtmlElement = document.querySelector(
       `.js_food_menu_product_table[data-id="${filtered.id}"]`
     );
@@ -260,23 +266,23 @@ const filterRemover = () => {
   );
 };
 
-function foodFilter(currentCategory, index) {
+function foodFilter(foodMenuCategories, currentCategory, index) {
   if (index === 0) {
     filterRemover();
     offFoodMenuTurner();
   }
-  let filteredFood = [];
+  let filteredFoods = [];
   const products = currentCategory.products;
   const selectorValue = $foodMenuSelector.value;
   if (selectorValue === "menu") {
-    filteredFood = products;
+    filteredFoods = products;
   } else
-    filteredFood = products.filter(
+    filteredFoods = products.filter(
       (product) => product[selectorValue] === true
     );
-  productHtmlElementFilter(filteredFood);
-  subcategoryHtmlElementFilter(currentCategory, filteredFood);
-  categoryHtmlElementFilter(currentCategory, filteredFood);
+  productHtmlElementFilter(filteredFoods);
+  subcategoryHtmlElementFilter(filteredFoods);
+  categoryHtmlElementFilter(foodMenuCategories, filteredFoods, index);
 }
 
 const selectedHeadingStyle = (Event) => {
@@ -330,9 +336,9 @@ const turnerClickEvent = () => {
     .addEventListener("click", foodMenuTurner);
 };
 
-const foodMenuChangeEvent = (currentCategory, index) => {
+const foodMenuChangeEvent = (foodMenuCategories, currentCategory, index) => {
   $foodMenuSelector.addEventListener("change", () => {
-    foodFilter(currentCategory, index);
+    foodFilter(foodMenuCategories, currentCategory, index);
     foodMenuHeight();
   });
 };
@@ -352,12 +358,12 @@ const foodMenuHeight = () => {
 };
 
 const renderFoodMenu = () => {
-  filteredCategories.map((filteredCategory, index) => {
-    const currentCategory = allData[filteredCategory];
+  foodMenuCategories.map((foodMenuCategory, index) => {
+    const currentCategory = allData[foodMenuCategory];
     renderHeadingsAndPages(currentCategory, index);
-    foodFilter(currentCategory, index);
+    foodFilter(foodMenuCategories, currentCategory, index);
     turnerClickEvent();
-    foodMenuChangeEvent(currentCategory, index);
+    foodMenuChangeEvent(foodMenuCategories, currentCategory, index);
     foodMenuHeight();
   });
 };
@@ -410,11 +416,14 @@ const selectorBlurEvent = ($visibleSelector, $optionsArray) => {
 
 const renderFoodMenuSelector = () => {
   for (let selector in selectors) {
-    $foodMenuSelector.innerHTML += `<option value="${selector}" class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">
+    $foodMenuSelector.innerHTML += `<option 
+                                    value="${selector}" 
+                                    class="food-menu-invisible-selector-option js_food_menu_invisible_selector_option">
                                       ${selectors[selector]}
                                     </option>`;
   }
-  $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-visible-selector js_food_menu_visible_selector">
+  $foodMenuSelectorHolder.innerHTML += `<div 
+                                        class="food-menu-visible-selector js_food_menu_visible_selector">
                                           ${$foodMenuSelector.firstChild.innerText}
                                         </div>`;
   $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-selector-options-field js_food_menu_selector_options_field"></div>`;
