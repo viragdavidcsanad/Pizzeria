@@ -3,7 +3,7 @@
 .second-section {
   background-color: var(--deepgray);
   user-select: none;
-  border-image: url("../images\ másolata/drawing.png");
+  border-image: url("../images/drawing.png");
   border-image-slice: 120;
   border-image-width: 5rem;
   border-image-repeat: repeat;
@@ -182,8 +182,11 @@
 }
 
 .food-menu-category {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  line-height: 7rem;
   text-align: center;
+  font-family: heading-font;
+  vertical-align: middle;
 }
 
 .food-menu-category-symbol-holder {
@@ -214,22 +217,32 @@
 .food-menu-subcategory-table {
   height: 0;
   overflow: hidden;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 100%;
-  grid-template-rows: auto;
 }
 
 .filtered-subcategory-table {
   height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .food-menu-subcategory-heading {
   font-size: 2.7rem;
-  display: grid;
-  align-content: center;
-  border-top: 0;
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   grid-area: subcategory-heading;
+}
+
+.food-menu-subcategory-heading::after {
+  content: "";
+  display: inline-block;
+  margin-top: -0.5rem;
+  height: 0.2rem;
+  width: 10rem;
+  background-color: var(--palewhite);
 }
 
 .food-menu-product-table {
@@ -238,18 +251,32 @@
   height: 0;
   cursor: pointer;
   overflow: hidden;
-  padding: 1rem;
-  border-bottom: 0.2rem solid var(--palewhite);
+  grid-area: product-table;
 }
 
 .food-menu-product-table.filtered-food {
   height: auto;
+  padding: 3rem 0;
+  border-bottom: 0.2rem solid var(--palewhite);
 }
 
 .food-menu-product-heading {
-  text-align: center;
   font-size: 2.3rem;
   grid-area: product-heading;
+  font-family: heading-font;
+}
+
+@media screen and (min-width: 768px) {
+  .food-menu-product-heading {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+.numero {
+  font-style: italic;
+  margin-right: 0.2rem;
+  font-size: 2.3rem;
 }
 
 .food-menu-product-number {
@@ -265,6 +292,12 @@
   grid-area: product-image;
 }
 
+@media screen and (min-width: 768px) {
+  .food-menu-product-image-box {
+    justify-self: start;
+  }
+}
+
 .food-menu-product-image {
   max-width: 95%;
   max-height: 95%;
@@ -278,13 +311,26 @@
   grid-area: ingredients;
 }
 
+@media screen and (min-width: 768px) {
+  .food-menu-product-ingredients {
+    justify-content: start;
+    text-align: left;
+  }
+}
+
 .food-menu-portions-and-prices {
   display: grid;
   gap: 1rem;
   justify-items: center;
+  align-content: center;
   font-family: heading-font;
   grid-area: portions-and-prices;
-  /* align-self: stretch; */
+}
+
+@media screen and (min-width: 992px) {
+  .food-menu-portions-and-prices {
+    align-content: center;
+  }
 }
 
 .food-menu-portion-and-price-row {
@@ -317,15 +363,32 @@
 
 /* ======================================== GRID =================================== */
 
-@media screen and (min-width: 600px) {
+.food-menu-product-table {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  grid-template-areas:
+    "product-heading"
+    "product-image"
+    "ingredients"
+    "portions-and-prices";
+}
+
+@media screen and (min-width: 768px) {
   .food-menu-product-table {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 1.5fr 1fr;
     grid-template-areas:
       "product-heading product-heading"
       "product-image portions-and-prices"
       "ingredients portions-and-prices";
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .food-menu-product-table {
+    grid-template-columns: 1fr 1fr 1.3fr;
+    grid-template-areas:
+      "product-heading ingredients portions-and-prices"
+      "product-image ingredients portions-and-prices";
   }
 }
