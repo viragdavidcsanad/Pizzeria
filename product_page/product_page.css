@@ -1,5 +1,4 @@
 .product-page {
-	font-size: 3rem;
 	position: fixed;
 	overflow: hidden;
 	left: 0;
@@ -8,7 +7,7 @@
 	height: 0;
 	transition: 0.3s;
 	z-index: 15;
-	backdrop-filter: blur(0.3rem);
+	backdrop-filter: blur(0.8rem);
 }
 
 .active-product-page {
@@ -17,10 +16,11 @@
 
 .product-page-content {
 	position: absolute;
-	background-image: url("../images/menu_pizza_background.webp");
+	/* background-image: url("../images/menu_pizza_background.webp");
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover; */
+	background-color: var(--deepgray);
 	width: 95%;
 	height: 95%;
 	left: 2.5%;
@@ -28,13 +28,16 @@
 	color: var(--white);
 	border-image: url("../images\ másolata/drawing.png");
 	border-image-slice: 120;
-	border-image-width: 5rem;
+	border-image-width: 3rem;
 	border-image-repeat: repeat;
+	padding: 3rem;
+	display: flex;
+	flex-direction: row;
+	align-items: start;
 }
 
 .product-page-image {
-	width: 30rem;
-	height: auto;
+	max-width: 18rem;
 }
 
 .close-product-page {
