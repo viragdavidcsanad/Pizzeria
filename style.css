@@ -74,10 +74,10 @@ a {
   flex-direction: row-reverse;
   justify-content: space-around;
   align-items: flex-start;
-  height: 130px;
+  height: 15vh;
   position: relative;
   box-shadow: inset 0 -0.5rem 0.5rem var(--black);
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
   text-transform: lowercase;
   overflow: hidden;
 }
@@ -394,7 +394,7 @@ a {
 .video-leader-phone {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   overflow: hidden;
   box-shadow: inset 0 0.5rem 1rem var(--black),
     inset 0 -0.5rem 1rem var(--black);
