@@ -12,7 +12,7 @@ const closeProductPage = () => {
 };
 
 const closeClickEvent = () => {
-  const $productPageCloser = document.querySelector(".close-product-page");
+  const $productPageCloser = document.querySelector(".product-page-close");
   $productPageCloser.addEventListener("click", closeProductPage);
 };
 
@@ -35,10 +35,10 @@ const renderProductPage = () => {
     (product) => product.id === productID
   )[0];
   $productPage.innerHTML = `<section class="product-page-content">
-                               <h2>${productData.name}</h2>
-                               <img class="product-page-image" src="${productData.image_link}" alt="image of ${productData.name}">
-                               <p>${productData.ingredients}</p>
-                               <p class="close-product-page">BEZÁRÁS</p>
+                               <h2 class="product-page-name">${productData.name}</h2>
+                               <img class="product-page-image" src="${productData.image_link}" alt="image of ${productData.name}" />
+                               <p product-page-ingredients>${productData.ingredients}</p>
+                               <p class="product-page-close">close</p>
                             </section>`;
 };
 
