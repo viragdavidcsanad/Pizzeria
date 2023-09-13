@@ -64,6 +64,13 @@
   overflow: hidden;
 }
 
+@media (pointer: coarse) {
+  .food-menu-visible-selector::after {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
 .food-menu-visible-selector:hover::after,
 .second.section-heading:hover .food-menu-visible-selector::after {
   width: 4rem;
@@ -256,7 +263,7 @@
 
 .food-menu-product-table.filtered-food {
   height: auto;
-  padding: 3rem 0;
+  padding: 3rem 3rem;
   border-bottom: 0.2rem solid var(--palewhite);
 }
 
@@ -273,7 +280,7 @@
   }
 }
 
-.numero {
+.food-menu-numero {
   font-style: italic;
   margin-right: 0.2rem;
   font-size: 2.3rem;
@@ -321,7 +328,6 @@
 .food-menu-portions-and-prices {
   display: grid;
   gap: 1rem;
-  justify-items: center;
   align-content: center;
   font-family: heading-font;
   grid-area: portions-and-prices;
@@ -329,7 +335,7 @@
 
 @media screen and (min-width: 992px) {
   .food-menu-portions-and-prices {
-    align-content: center;
+    justify-self: end;
   }
 }
 
