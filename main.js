@@ -23,8 +23,8 @@ $navItems.map((item) => $navItemsClasses.push(item.classList));
 
 const scrolledHeader = () => {
   if (
-    document.body.scrollTop > 130 ||
-    document.documentElement.scrollTop > 130
+    document.body.scrollTop > 75 ||
+    document.documentElement.scrollTop > 75
   ) {
     $logo.classList.add("scrolled-logo");
     $navBar.classList.add("scrolled-nav-bar");
