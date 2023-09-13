@@ -83,7 +83,7 @@ const renderFoodMenuProducts = (currentCategory, subcategory) => {
                          data-name="${product.name}">
                             <h4 class="food-menu-product-heading">
                               <span class="food-menu-product-number">
-                                <span class="numero">№</span
+                                <span class="food-menu-numero">№</span
                                 >${product.number}
                               </span>
                               ${product.name}
