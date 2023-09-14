@@ -1,123 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./pricing/pricing.css" />
+    <link rel="stylesheet" href="./food_menu/food_menu.css" />
+    <link rel="stylesheet" href="./product_page/product_page.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="./reset.css">
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./pricing/pricing.css">
-  <link rel="stylesheet" href="./food_menu/food_menu.css">
-  <link rel="stylesheet" href="./product_page/product_page.css">
-</head>
-
-<body>
-  <header class="header" id="header">
-    <nav id="nav-bar" class="nav-bar js_nav_bar">
-      <ul class="nav-list">
-        <li class="hamburger-menu js_hamburger_menu">
-          <div class="bar1 js_bar1"></div>
-          <div class="bar2 js_bar2"></div>
-          <div class="bar3 js_bar3"></div>
-        </li>
-        <li class="first-nav-item nav-item js_nav_item">
-          <a href="./index.html#special-offers-target" class="special-offers-link nav-link js_nav_link"
-            id="special-offers-link">Special
-            offers</a>
-        </li>
-        <li class="second-nav-item nav-item js_nav_item">
-          <a href="./index.html#menu-target" class="second-nav-link nav-link js_nav_link" id="menu-link">Menu</a>
-        </li>
-        <li class="third-nav-item nav-item js_nav_item">
-          <a href="./index.html#contact-target" class="third-nav-link nav-link js_nav_link"
-            id="contact-link">Contact</a>
-        </li>
-      </ul>
-    </nav>
-    <a href="#" class="logo-link">
-      <img src="./images/italian_pizza_logo.svg" id="header-img" alt="Italian Pizza logo" class="logo js_logo" />
-    </a>
-    <!--https://www.clipartmax.com/png/full/49-498849_pizza-delivery-clipart.png-->
-    <img class="header-wooden-background" src="./images/wooden_surface.jpeg" alt="Wooden Surface Background" />
-    <!-- https://images.pexels.com/photos/131664/pexels-photo-131664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->
-    <!-- https://r7.hiclipart.com/path/637/902/478/tableware-plate-white-plate-a951f5eed808bcf76a3f6ae3017ddb2d.png?dl=1 -->
-    <img class="header-pizza-background" src="./images/pizza_on_a_plate.png" alt="Pizza Image as Background" />
-    <!-- https://toppng.com/download/dghRJhDUFEMp5NN27l8IbHJ5zuVmiB3eIbmvBcuVhDKvrzzic9WfefL2VuLNkscMnPfwrMbnWdhCcLbQ5QkEFacwN9S5nw38gfzrpwEYxAKEhsYZKPYloAE23CjgxSFgoJYxChwV7hfT8AAurdeNx5rYcNPbbnFMc4fcFN9EaSwi4xe2P41VsF1aCeVT3q7gacL7u9tz/large -->
-    <div class="header-dark-background"></div>
-  </header>
-  <main class="main">
-    <div class="video-leader-phone">
-      <video class="video" id="video" src="./videos/italian_pizza_video.mp4" alt="Italian Pizza" autoplay loop
-        muted></video>
-      <!-- https://assets.mixkit.co/videos/preview/mixkit-italian-pizza-texture-close-up-13884-large.mp4 -->
-      <div class="leader-phone">
-        <h1 class="leader">Taste our pizza!</h1>
-        <h2 class="phone">☏ 08-90-1725-3784</h2>
-      </div>
-    </div>
-    <section class="first-section section">
-      <h3 id="special-offers-target" class="section-heading js_special_offers">Special Offers</h3>
-      <div class="pricing-table-holder js_pricing_tables">
-        <!-- *********************************************************************** -->
-        <!-- ================== PRICING TABLES ARE IN PRICING.JS =================== -->
-        <!-- *********************************************************************** -->
-      </div>
-    </section>
-    <section class="second-section section">
-      <h3 id="menu-target" tabindex="-1" class="menu-target section-heading second js_food_menu_selector_holder">
-        <select class="invisible-food-menu-selector js_invisible_food_menu_selector"></select>
-        <!-- *********************************************************************** -->
-        <!-- =============== FOOD MENU SELECTOR IS IN FOOD_MENU.JS ================= -->
-        <!-- *********************************************************************** -->
-      </h3>
-      <div class="food-menu js_food_menu">
-        <div class="food-menu-headings js_food_menu_headings">
-          <!-- ********************************************************************* -->
-          <!-- ============== FOOD MENU HEADINGS ARE IN FOOD_MENU.JS =============== -->
-          <!-- ********************************************************************* -->
+  <body>
+    <header class="header" id="header">
+      <nav id="nav-bar" class="nav-bar js_nav_bar">
+        <ul class="nav-list">
+          <li class="hamburger-menu js_hamburger_menu">
+            <div class="bar1 js_bar1"></div>
+            <div class="bar2 js_bar2"></div>
+            <div class="bar3 js_bar3"></div>
+          </li>
+          <li class="first-nav-item nav-item js_nav_item">
+            <a
+              href="./index.html#special-offers-target"
+              class="special-offers-link nav-link js_nav_link"
+              id="special-offers-link"
+              >Special offers</a
+            >
+          </li>
+          <li class="second-nav-item nav-item js_nav_item">
+            <a
+              href="./index.html#menu-target"
+              class="second-nav-link nav-link js_nav_link"
+              id="menu-link"
+              >Menu</a
+            >
+          </li>
+          <li class="third-nav-item nav-item js_nav_item">
+            <a
+              href="./index.html#contact-target"
+              class="third-nav-link nav-link js_nav_link"
+              id="contact-link"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <a href="#" class="logo-link">
+        <img
+          src="./images/italian_pizza_logo.svg"
+          id="header-img"
+          alt="Italian Pizza logo"
+          class="logo js_logo"
+        />
+      </a>
+      <!--https://www.clipartmax.com/png/full/49-498849_pizza-delivery-clipart.png-->
+      <img
+        class="header-wooden-background"
+        src="./images/wooden_surface.jpeg"
+        alt="Wooden Surface Background"
+      />
+      <!-- https://images.pexels.com/photos/131664/pexels-photo-131664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->
+      <!-- https://r7.hiclipart.com/path/637/902/478/tableware-plate-white-plate-a951f5eed808bcf76a3f6ae3017ddb2d.png?dl=1 -->
+      <img
+        class="header-pizza-background"
+        src="./images/pizza_on_a_plate.png"
+        alt="Pizza Image as Background"
+      />
+      <!-- https://toppng.com/download/dghRJhDUFEMp5NN27l8IbHJ5zuVmiB3eIbmvBcuVhDKvrzzic9WfefL2VuLNkscMnPfwrMbnWdhCcLbQ5QkEFacwN9S5nw38gfzrpwEYxAKEhsYZKPYloAE23CjgxSFgoJYxChwV7hfT8AAurdeNx5rYcNPbbnFMc4fcFN9EaSwi4xe2P41VsF1aCeVT3q7gacL7u9tz/large -->
+      <div class="header-dark-background"></div>
+    </header>
+    <main class="main">
+      <div class="video-leader-phone">
+        <video
+          class="video"
+          id="video"
+          src="./videos/italian_pizza_video.mp4"
+          autoplay
+          loop
+          muted
+        ></video>
+        <!-- alt="Italian Pizza" -->
+        <!-- https://assets.mixkit.co/videos/preview/mixkit-italian-pizza-texture-close-up-13884-large.mp4 -->
+        <div class="leader-phone">
+          <h1 class="leader">Taste our pizza!</h1>
+          <h2 class="phone">☏ 08-90-1725-3784</h2>
         </div>
-        <div class="food-menu-pages js_food_menu_pages">
-          <!-- ********************************************************************* -->
-          <!-- ================ FOOD MENU PAGES ARE IN FOOD_MENU.JS ================ -->
-          <!-- ********************************************************************* -->
-        </div>
       </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <h3 class="contact section-heading" id="contact-target">Contact</h3>
-    <p class="footer-address">52 Prince St New York, NY 10012</p>
-    <p class="footer-phone">☎ 08-90-1725-3784</p>
-    <p class="opening-time">We Are Open:</p>
-    <p class="opening-time">Monday-Sunday</p>
-    <p class="opening-time">11:00am-11:00pm</p>
-    <form id="form" class="form" action="https://www.freecodecamp.com/email-submit" target="_blank">
-      <label class="input-label">Email
-        <input id="email" class="input-email" name="email" type="email" placeholder="Enter Your Email" name="form"
-          required></label>
-      <input class="submit" type="submit" id="submit" name="submit" value="submit">
-    </form>
-    <div class="footer-map-box">
-      <iframe class="footer-map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.7567280518356!2d-73.99826598508872!3d40.72337157933069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f4023dfaf%3A0x9d492ca8ed20bb1c!2s52%20Prince%20St%2C%20New%20York%2C%20NY%2010012%2C%20Egyes%C3%BClt%20%C3%81llamok!5e0!3m2!1shu!2shu!4v1652297591683!5m2!1shu!2shu"
-        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <a class="footer-map-link" target="_blank"
-        href="https://www.google.com/maps/place/52+Prince+St,+New+York,+NY+10012,+Egyes%C3%BClt+%C3%81llamok/@40.7233716,-73.998266,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598f4023dfaf:0x9d492ca8ed20bb1c!8m2!3d40.7233716!4d-73.9960773"></a>
-    </div>
-    <a href="https://www.freepik.com/photos/food-flat-lay" alt="Food flat lay photo created by freepik -
-        www.freepik.com" class="freepik">Food flat lay photo created by freepik -
-      www.freepik.com</a>
-  </footer>
-  <div id="product-page" class="product-page js_product_page" tabindex="-1"></div>
-  <script src="./main.js"></script>
-  <script type="module" src="./pricing/pricing.js"></script>
-  <script type="module" src="./food_menu/food_menu.js"></script>
-  <script type="module" src="./product_page/product_page.js"></script>
-  <script type="module" src="./get_data/get_data.js"></script>
-</body>
+      <section class="first-section section">
+        <h3
+          id="special-offers-target"
+          class="section-heading js_special_offers"
+        >
+          Special Offers
+        </h3>
+        <div class="pricing-table-holder js_pricing_tables">
+          <!-- *********************************************************************** -->
+          <!-- ================== PRICING TABLES ARE IN PRICING.JS =================== -->
+          <!-- *********************************************************************** -->
+        </div>
+      </section>
+      <section class="second-section section">
+        <h3
+          id="menu-target"
+          tabindex="-1"
+          class="menu-target section-heading second js_food_menu_selector_holder"
+        >
+          <select
+            class="invisible-food-menu-selector js_invisible_food_menu_selector"
+          ></select>
+          <!-- *********************************************************************** -->
+          <!-- =============== FOOD MENU SELECTOR IS IN FOOD_MENU.JS ================= -->
+          <!-- *********************************************************************** -->
+        </h3>
+        <div class="food-menu js_food_menu">
+          <div class="food-menu-headings js_food_menu_headings">
+            <!-- ********************************************************************* -->
+            <!-- ============== FOOD MENU HEADINGS ARE IN FOOD_MENU.JS =============== -->
+            <!-- ********************************************************************* -->
+          </div>
+          <div class="food-menu-pages js_food_menu_pages">
+            <!-- ********************************************************************* -->
+            <!-- ================ FOOD MENU PAGES ARE IN FOOD_MENU.JS ================ -->
+            <!-- ********************************************************************* -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <h3 class="contact section-heading" id="contact-target">Contact</h3>
+      <p class="footer-address">52 Prince St New York, NY 10012</p>
+      <p class="footer-phone">☎ 08-90-1725-3784</p>
+      <p class="opening-time">We Are Open:</p>
+      <p class="opening-time">Monday-Sunday</p>
+      <p class="opening-time">11:00am-11:00pm</p>
+      <form
+        id="form"
+        class="form"
+        action="https://www.freecodecamp.com/email-submit"
+        target="_blank"
+      >
+        <label class="input-label"
+          >Email
+          <input
+            id="email"
+            class="input-email"
+            name="email"
+            type="email"
+            placeholder="Enter Your Email"
+            required
+          />
+        </label>
+        <input
+          class="submit"
+          type="submit"
+          id="submit"
+          name="submit"
+          value="submit"
+        />
+      </form>
+      <div class="footer-map-box">
+        <iframe
+          class="footer-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.7567280518356!2d-73.99826598508872!3d40.72337157933069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f4023dfaf%3A0x9d492ca8ed20bb1c!2s52%20Prince%20St%2C%20New%20York%2C%20NY%2010012%2C%20Egyes%C3%BClt%20%C3%81llamok!5e0!3m2!1shu!2shu!4v1652297591683!5m2!1shu!2shu"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <a
+          class="footer-map-link"
+          target="_blank"
+          href="https://www.google.com/maps/place/52+Prince+St,+New+York,+NY+10012,+Egyes%C3%BClt+%C3%81llamok/@40.7233716,-73.998266,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598f4023dfaf:0x9d492ca8ed20bb1c!8m2!3d40.7233716!4d-73.9960773"
+        ></a>
+      </div>
+      <a
+        href="https://www.freepik.com/photos/food-flat-lay"
+        data-alt="Food flat lay photo created by freepik -
+        www.freepik.com"
+        class="freepik"
+        >Food flat lay photo created by freepik - www.freepik.com</a
+      >
+    </footer>
+    <div
+      id="product-page"
+      class="product-page js_product_page"
+      tabindex="-1"
+    ></div>
+    <script src="./main.js"></script>
+    <script type="module" src="./pricing/pricing.js"></script>
+    <script type="module" src="./food_menu/food_menu.js"></script>
+    <script type="module" src="./product_page/product_page.js"></script>
+    <script type="module" src="./get_data/get_data.js"></script>
+  </body>
 
-<!-- <div>Icons made from <a href="https://www.onlinewebfonts.com/icon">svg icons</a>is licensed by CC BY 4.0</div> -->
-
+  <!-- <div>Icons made from <a href="https://www.onlinewebfonts.com/icon">svg icons</a>is licensed by CC BY 4.0</div> -->
 </html>
