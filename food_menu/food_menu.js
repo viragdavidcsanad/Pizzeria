@@ -426,12 +426,15 @@ const renderFoodMenuSelector = () => {
                                         class="food-menu-visible-selector js_food_menu_visible_selector">
                                           ${$foodMenuSelector.firstChild.innerText}
                                         </div>`;
-  $foodMenuSelectorHolder.innerHTML += `<div class="food-menu-selector-options-field js_food_menu_selector_options_field"></div>`;
+  $foodMenuSelectorHolder.innerHTML += `<div 
+                                        class="food-menu-selector-options-field js_food_menu_selector_options_field"></div>`;
   const $visibleOptionsField = document.querySelector(
     ".js_food_menu_selector_options_field"
   );
   for (let selector in selectors) {
-    $visibleOptionsField.innerHTML += `<div value="${selector}" class="food-menu-visible-selector-option js_food_menu_visible_selector_option">
+    $visibleOptionsField.innerHTML += `<div 
+                                       value="${selector}" 
+                                       class="food-menu-visible-selector-option js_food_menu_visible_selector_option">
                                          ${selectors[selector]}
                                        </div>`;
   }
